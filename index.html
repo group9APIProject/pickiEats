@@ -23,6 +23,10 @@
         input[type="text"] {
             width: 500px;
         }
+
+        .listItem {
+            font-size: large;
+        }
     </style>
 
 </head>
@@ -84,20 +88,23 @@
                         <!-- what if don't want to enter an ingredient? -->
                         <!-- account for empty string?; required field? -->
                         <!-- convert all entries to lower case -->
-                        <label for="inputText">Now enter any ingredient(s) you would like to exclude from your recipe search:</label>
+                        <label for="inputText">Enter any ingredient(s) you would like to exclude from your recipe search (up to 5):</label>
                         <p class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</p>
 
                         <input type="text" id="inputText" name="inputText" placeholder="(MAX: 5; separate with comma) ex. parsley, beef, tomatoes ">
 
                         <!-- button to add ingredients to list -->
-                        <!-- <button class="add">Add</button> -->
+                        <button class="add">Add</button>
+
+                        <!-- button to clear list -->
+                        <button class="remove">Clear List</button>
 
                         <!-- container for list of ingredients -->
-                        <ul class="ingredientList"></ul>
+                        <ul class="ingredientsList"></ul>
                     </div>
 
                     <!-- form submission button -->
-                    <!-- <button type="submit" class="btn submitButton">Submit</button> -->
+                    <button type="submit" class="btn submitButton">Submit</button>
                 </div>
             </form>
         </section><!-- form section ends -->

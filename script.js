@@ -26,7 +26,7 @@ app.getRecipes = (query) => {
         number: 1
     })
 
-    // console.log(query);
+    console.log(query);
 
     fetch(url)
         .then(response => {
@@ -34,7 +34,7 @@ app.getRecipes = (query) => {
         })
         .then(jsonResult => {
             // console.log(jsonResult);
-            app.displayRecipe(jsonResult);
+            // app.displayRecipe(jsonResult);
         });
 }
 
@@ -64,41 +64,78 @@ app.displayRecipe = (recipeArray) => {
     });
 }
 
+// function to get user's input of ingredients to exclude from recipe search
 // app.getUserInput = () => {
-    // target form
-    const form = document.querySelector('.form');
+    // target add button
+    const addButton = document.querySelector('.add');
 
-    // add event listener to form
-    form.addEventListener('submit', function (event) {
-        // prevent page from reloading
-        event.preventDefault();
+    // get ul element to append list of excluded ingredients 
+    const ingredientsList = document.querySelector('.ingredientsList');
 
+    // add event listener to add button
+    addButton.addEventListener('click', function () {
         // target input element
         const inputElement = document.getElementById('inputText');
-
-        // console.log(inputElement);
-
+        // store user input in a variable
         const userInput = inputElement.value;
+        // convert user input to lowercase
+        const excludedIngredients = userInput.toLowerCase();
 
-        // console.log(userInput);
+        // if user input evaluates to truthy (i.e. input is a string & not empty)
+        const hasIngredients = userInput.trim();
 
-        const ingredientsArray = [];
+        if(hasIngredients) {
+            // convert string input into an array
+            const ingredientsArray = excludedIngredients.split(",");
 
-        ingredientsArray.push(userInput);
+            // if array length <= 5, then loop over each ingredient in ingredients list array and append to DOM
+            if (ingredientsArray.length > 5) {
+                alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes).')
+            } else {
+                // loop over each ingredient and append to DOM
+                ingredientsArray.forEach((ingredient) => {
+                    // create <li> element
+                    const ingredientItem = document.createElement('li');
 
-        // console.log(ingredientsArray);
+                    // add text to <li>
+                    ingredientItem.textContent = ingredient;
 
-        const excludedIngredients = ingredientsArray.toString()
+                    // add listItem class to <li>
+                    ingredientItem.classList.add('listItem');
+                    
+                    // append ingredient list item to ul in DOM
+                    ingredientsList.appendChild(ingredientItem);
+                });
 
-        console.log(excludedIngredients);
-        app.getRecipes(excludedIngredients);
+                // call function to get recipes from api based on user's input, which is used as the argument
+                app.getRecipes(excludedIngredients);
+            }
+            
+            // clear input box
+            inputElement.value = '';
+
+            // grey out add button
+            addButton.disabled = true;
+            removeButton.disabled = false;
+        }
     });
 // }
+
+// get target button to clear list
+const removeButton = document.querySelector('.remove');
+
+// put in a function?
+// add event listener to clear list button
+removeButton.addEventListener('click', function() {
+    ingredientsList.innerHTML = '';
+    addButton.disabled = false;
+    removeButton.disabled = true;
+});
 
 // create init method
 app.init = () => {
     // app.getUserInput();
-    app.getRecipes();
+    // app.getRecipes();
 }
 
 // call init method

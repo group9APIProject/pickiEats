@@ -1,10 +1,9 @@
+// name space object
 const app = {}
 
 app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 // app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
-
-// https://api.spoonacular.com/food/products/search?query=yogurt&apiKey=API-KEY
 
 // function to request data from API
 app.getRecipes = (query) => {
@@ -12,9 +11,8 @@ app.getRecipes = (query) => {
 
     url.search = new URLSearchParams({
         apiKey: app.apiKey,
-        excludeCuisine: 'Italian',
+        // excludeCuisine: 'Italian',
         excludeIngredients: query,
-        // fillIngredients: false,
         type: [
             'lunch',
             'main course',
@@ -26,7 +24,7 @@ app.getRecipes = (query) => {
         number: 1
     })
 
-    console.log(query);
+    // console.log(query);
 
     fetch(url)
         .then(response => {
@@ -40,12 +38,12 @@ app.getRecipes = (query) => {
 
 // function to display recipe sugggestions to DOM
 app.displayRecipe = (recipeArray) => {
-
     // console.log(recipeArray.results);
 
+    // target ul element to append recipe results
     const recipesContainer = document.querySelector('.recipesContainer');
 
-    // loop 
+    // loop over each recipe item in array to append to DOM
     recipeArray.results.forEach(recipe => {
         // create li element
         const listItem = document.createElement('li');

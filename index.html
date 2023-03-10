@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>pickiEats</title>
 </head>
 <body>
@@ -18,20 +19,27 @@
             <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span> !</p>
             <a href="#">FIND A RECIPE</a>
         </section>
-        <section class="recipeForm">
-            <form action="" method="post">
-                <!-- container for cuisine question -->
-                <div class="cuisine" id="cuisine"></div>
+        <section class="recipeForm" id="">
+            <!-- form begins -->
+            <form>
+                <fieldset>
+                    <legend>Which cuisine(s) do you NOT like?</legend>
+                    <div class="cuisineChoices"></div>
+                </fieldset>
 
-                <!-- stretch goal => container for ingredients exclusion input box -->
-                <!-- <div class="ingredients"></div> -->
-            </form>
+                <!-- submit button -->
+                <button type="submit" class="submitBtn">Submit</button>
+            </form><!-- form ends -->]           
         </section>
-        <section class="results"></section>
+        <section class="results">
+            <ul class="recipes"></ul>
+        </section>
+
 
     </main>
     <footer>
         <a href="https://junocollege.com/">created at Juno College</a>
     </footer>
+    <script src="script.js"></script>    
 </body>
 </html>

@@ -40,7 +40,7 @@ app.displayCuisines = () => {
     }
 
     // loop over each cuisine item in randomCuisines array to create HTML elements and append to form
-    randomCuisines.forEach((cuisine) => {
+    randomCuisines.forEach((cuisine, index) => {
         // target HTML to append checkboxes
         const cuisineChoices = document.querySelector('.cuisineChoices');
 
@@ -50,8 +50,8 @@ app.displayCuisines = () => {
 
         // add input/label HTML to div
         optionButton.innerHTML =
-            `<input type="checkbox" id="cuisineOption" name="cuisineOption" value="${cuisine}">
-                    <label for="cuisineOption">${cuisine}</label>`;
+            `<input type="checkbox" id="cuisineOption${index}" name="cuisineOption" value="${cuisine}">
+            <label for="cuisineOption${index}">${cuisine}</label>`;
 
         // append div with input[type='checkbox'] for each cuisine option to DOM
         cuisineChoices.appendChild(optionButton);

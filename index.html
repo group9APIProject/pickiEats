@@ -5,47 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Spoonacular API</title>
+    <title>Cuisine Options</title>
+
+    <style>
+        fieldset {
+            border: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 3rem;
+        }
+    </style>
 </head>
 
 <body>
-
+    <!-- main begins -->
     <main>
+        <!-- form begins -->
         <form>
+            <fieldset>
+                <legend>Which cuisine(s) do you NOT like?</legend>
+                <div class="cuisineChoices"></div>
+            </fieldset>
 
-            <label for="cuisineOptions">Which cuisines do you NOT like?</label><br>
+            <!-- submit button -->
+            <button type="submit" class="submitBtn">Submit</button>
+        </form><!-- form ends -->
 
-            <input type="checkbox" id="cuisineOption1" name="cuisineOption1">
-            <label for="cuisineOption1">
-                <P class="option1"></P>
-            </label><br>
-            <input type="checkbox" id="cuisineOption2" name="cuisineOption2">
-            <label for="cuisineOption2">
-                <P class="option2"></P>
-            </label><br>
-            <input type="checkbox" id="cuisineOption3" name="cuisineOption3">
-            <label for="cuisineOption3">
-                <P class="option3"></P>
-            </label><br>
-            <input type="checkbox" id="cuisineOption4" name="cuisineOption4">
-            <label for="cuisineOption4">
-                <P class="option4"></P>
-            </label><br><br>
-
-            <input type="submit" value="Submit">
-        </form>
+        <ul class="recipes"></ul>
     </main><!-- main ends -->
-    <ul class="recipes">
-        <li>
-            <img src="" alt="">
-            <h2></h2>
-        </li>
-    </ul>
-
-    <script src="./script.js">
-     
-
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>

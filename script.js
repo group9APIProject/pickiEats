@@ -1,39 +1,14 @@
-const form = document.querySelector('form');
-form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
-    console.log(checkboxes)
-
-});
+// namespace object
 const app = {};
 
+// Define Variables:
+app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
-app.displayCuisines = () => {
-    const cuisineOptions = ['american', 'chinese', 'italian', 'mexican', 'thai', 'japanese', 'french', 'indian', 'greek', 'spanish', 'korean', 'Middle Eastern'];
-
-
-    // Select 4 random cuisine options from the array
-    const randomCuisines = [];
-    while (randomCuisines.length < 4) {
-        const randomIndex = Math.floor(Math.random() * cuisineOptions.length);
-        const randomCuisine = cuisineOptions[randomIndex];
-        if (!randomCuisines.includes(randomCuisine)) {
-            randomCuisines.push(randomCuisine);
-        }
-    }
-
-    // Append the random cuisine options to the HTML form labels
-    const cuisineOptionLabels = document.querySelectorAll('.option1, .option2, .option3, .option4');
-    for (let i = 0; i < cuisineOptionLabels.length; i++) {
-        cuisineOptionLabels[i].textContent = randomCuisines[i];
-    }
-}
-
-
-
-
-
-const excludedCuisines = ['African',
+// global array of cuisines already excluded from user choices
+const excludedCuisines = [
+    'African',
     'British',
     'Cajun',
     'Caribbean',
@@ -49,85 +24,133 @@ const excludedCuisines = ['African',
     'Vietnamese'
 ];
 
-// store the selected checked boxes and push them into excludedCuisines array
-const checkedBoxes = [];
+// function to display cuisine options in HTML
+app.displayCuisines = () => {
+    // array of cuisine options 
+    const cuisineOptions = ['American', 'Chinese', 'Italian', 'Mexican', 'Thai', 'Japanese', 'French', 'Indian', 'Greek', 'Spanish', 'Korean', 'Middle Eastern'];
 
+    // create array of random cuisines
+    const randomCuisines = [];
+    while (randomCuisines.length < 4) {
+        const randomIndex = Math.floor(Math.random() * cuisineOptions.length);
+        const randomCuisine = cuisineOptions[randomIndex];
+        if (!randomCuisines.includes(randomCuisine)) {
+            randomCuisines.push(randomCuisine);
+        }
+    }
 
+    // loop over each cuisine item in randomCuisines array to create HTML elements and append to form
+    randomCuisines.forEach((cuisine) => {
+        // target HTML to append checkboxes
+        const cuisineChoices = document.querySelector('.cuisineChoices');
 
-// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-//     // app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
-//     app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
+        // create div element to populate with label and input
+        const optionButton = document.createElement('div');
+        optionButton.classList.add('optionButton');
 
-//     // https://api.spoonacular.com/food/products/search?query=yogurt&apiKey=API-KEY
+        // add input/label HTML to div
+        optionButton.innerHTML =
+            `<input type="checkbox" id="cuisineOption" name="cuisineOption" value="${cuisine}">
+                    <label for="cuisineOption">${cuisine}</label>`;
 
-//     app.getRecipes = () => {
-//         const url = new URL(app.apiUrl);
+        // append div with input[type='checkbox'] for each cuisine option to DOM
+        cuisineChoices.appendChild(optionButton);
+    })
+}
 
-//         url.search = new URLSearchParams({
-//             apiKey: app.apiKey,
+// function to listen for form submit and get user's cuisine options
+app.setEventListener = () => {
+    // target form from html
+    const form = document.querySelector('form');
 
-//             excludedCuisine:  '', 
+    // add event listener to form
+    form.addEventListener('submit', function (event) {
+        // prevent form from reloading
+        event.preventDefault();
 
+        // store the selected checked boxes and push them into global excludedCuisines array
+        const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
+                excludedCuisines.push(checkbox.value);
+            }
+        });
 
+        // convert excludedCuisines array into a string
+        const stringCuisines = excludedCuisines.toString();
 
+        // call app.getRecipes function with stringCuisines as argument
+        app.getRecipes(stringCuisines);
+    });
+}
 
-//             // type: [
-//             //     // 'side dish'
-//             //     // 'appetizer',
-//             //     'lunch',
-//             //     'main course',
-//             //     'main dish',
-//             //     'dinner'
-//             // ],
-//             // addRecipeInformation: true,
-//             // addRecipeNutrition: true,
-//             // sort: 'random',
-//             // instructionsRequired: true,
-//             // // limitLicense: true,
-//             // number: 2
+// function to pull recipe information from Spoonacular API based on user's choice(s)
+app.getRecipes = (query) => {
+    const url = new URL(app.apiUrl);
+    // add search parameters to url
+    url.search = new URLSearchParams({
+        apiKey: app.apiKey,
+        excludedCuisine: query,
+        type: [
+            'lunch',
+            'main course',
+            'main dish',
+            'dinner'
+        ],
+        addRecipeInformation: true,
+        sort: 'random',
+        number: 2
+    })
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonResult => {
+            // console.log(jsonResult);
+            app.displayRecipe(jsonResult);
+        });
+}
 
-//             // excludeCuisine: 'var','middle eastern','spanish','thai'
-//             // excludeIngredient: 'parsley'
-//         })
+// function to display recipes to DOM
+app.displayRecipe = (recipeArray) => {
+    // console.log(recipeArray.results);
 
-//         fetch(url)
-//             .then(response => {
-//                 return response.json();
-//             })
-//             .then(jsonResult => {
-//                 console.log(jsonResult);
-//                 app.displayRecipe(jsonResult);
-//         });
-//     }
+    // target <ul> recipe container in HTML
+    const recipes = document.querySelector('.recipes');
 
+    // loop over each recipe item to create & append elements to <ul> recipe container
+    recipeArray.results.forEach(recipe => {
+        // create li element
+        const listItem = document.createElement('li');
 
-//     app.displayRecipe = (recipeArray) => {
+        // create img element
+        const recipeImage = document.createElement('img');
 
-//         console.log(recipeArray.results);
+        // create h2 element
+        const recipeHeading = document.createElement('h2');
 
-//         const recipes = document.querySelector('.recipes');
+        // populate src & alt attributes of img elements
+        recipeImage.src = recipe.image;
+        recipeImage.alt = `Image of recipe ${recipe.title}`
 
-//         // loop 
-//         recipeArray.results.forEach(recipe => {
-//             // create li element
-//             const listItem = document.createElement('li');
-//             // create img element
-//             const recipeImage = document.createElement('img');
-//             // create h2 element
-//             const recipeHeading = document.createElement('h2');
+        // add text to h2
+        recipeHeading.textContent = recipe.title;
 
-//             recipeImage.src = recipe.image;
-//             recipeHeading.textContent = recipe.title;
+        // append img & h2 to li
+        listItem.appendChild(recipeImage);
+        listItem.appendChild(recipeHeading);
 
-//             listItem.appendChild(recipeImage);
-//             listItem.appendChild(recipeHeading);
+        // append li to ul
+        recipes.appendChild(listItem);
+    });
+}
 
-//             recipes.appendChild(listItem);
-//         });
-
-//     }
+// init function to call methods 
 app.init = () => {
     app.displayCuisines();
-    // app.getRecipes();
+    app.setEventListener();
 }
+
+// call init function
 app.init();

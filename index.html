@@ -1,29 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cuisine Options</title>
+    <link rel="stylesheet" href="style.css">
+    <title>pickiEats</title>
 </head>
-
 <body>
-    <!-- main begins -->
+    <header>
+        <h1>PICKI EATS</h1>
+        <!-- ? image(logo) may put here -->
+    </header>
     <main>
-        <!-- form begins -->
-        <form>
-            <fieldset>
-                <legend>Which cuisine(s) do you NOT like?</legend>
-                <div class="cuisineChoices"></div>
-            </fieldset>
+        <section class="startingPage">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.R8dc7inmyVFiCMTNCDx7FwHaE6&pid=Api&P=0" alt="various dishes or cuisines">
+            <!-- we will look for multiple pictures to put together -->
+            <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span> !</p>
+            <a href="#">FIND A RECIPE</a>
+        </section>
+        <section class="recipeForm" id="">
+            <!-- form begins -->
+            <form>
+                <fieldset>
+                    <legend>Which cuisine(s) do you NOT like?</legend>
+                    <div class="cuisineChoices"></div>
+                </fieldset>
 
-            <!-- submit button -->
-            <button type="submit" class="submitBtn">Submit</button>
-        </form><!-- form ends -->
+                <!-- submit button -->
+                <button type="submit" class="submitBtn">Submit</button>
+            </form><!-- form ends -->]           
+        </section>
+        <section class="results">
+            <ul class="recipes"></ul>
+        </section>
 
-        <ul class="recipes"></ul>
-    </main><!-- main ends -->
+
+    </main>
+    <footer>
+        <a href="https://junocollege.com/">created at Juno College</a>
+    </footer>
     <script src="script.js"></script>    
 </body>
 </html>

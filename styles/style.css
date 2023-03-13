@@ -357,6 +357,9 @@ p {
 .recipesContainer .recipeCard img {
   width: 100%;
   height: 280px;
+  opacity: 1;
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
 }
 .recipesContainer .recipeCard .recipeText {
   -webkit-box-flex: 1;
@@ -364,14 +367,53 @@ p {
           flex-grow: 1;
   padding: 30px 15px;
   text-align: center;
-  background-color: #53917e;
-  border-top: 3px solid #e8f7ee;
+  background-color: #e8f7ee;
+  border-top: 3px solid #f1abb9;
+  border-bottom: 10px double #53917e;
 }
 .recipesContainer .recipeCard .recipeText h3 {
-  color: #211931;
+  color: #005555;
   line-height: 25px;
   font-size: 22px;
   font-weight: bold;
+}
+.recipesContainer .recipeCard .recipeText a h3:hover,
+.recipesContainer .recipeCard .recipeText a h3:focus {
+  text-decoration: underline;
+}
+.recipesContainer .recipeCard .recipeImgContainer {
+  position: relative;
+  width: 100%;
+}
+.recipesContainer .recipeCard .overlay {
+  -webkit-transition: 0.5s ease;
+  transition: 0.5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.recipesContainer .recipeCard .recipeImgContainer:hover .image {
+  opacity: 0.3;
+}
+.recipesContainer .recipeCard .recipeImgContainer:hover .overlay {
+  opacity: 1;
+}
+.recipesContainer .recipeCard .recipeLink {
+  background-color: #e8f7ee;
+  font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  color: #005555;
+  padding: 16px 32px;
+  border: 2px solid #f1abb9;
+}
+.recipesContainer .recipeCard .recipeLink:hover, .recipesContainer .recipeCard .recipeLink:focus {
+  background-color: #f1abb9;
+  border: 2px solid #005555;
+  color: #005555;
 }
 
 /**************************************/

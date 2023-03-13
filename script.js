@@ -88,7 +88,7 @@ app.displayCuisines = () => {
 // function to display recipes to DOM
 app.displayRecipe = (recipeArray) => {
     // target <ul> recipe container in HTML
-    const recipes = document.querySelector('.recipes');
+    const recipes = document.querySelector('.recipesContainer');
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
@@ -100,7 +100,7 @@ app.displayRecipe = (recipeArray) => {
         const recipeImage = document.createElement('img');
 
         // create h2 element
-        const recipeHeading = document.createElement('h2');
+        const recipeHeading = document.createElement('h3');
 
         // populate src & alt attributes of img elements
         recipeImage.src = recipe.image;

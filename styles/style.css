@@ -341,7 +341,6 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border-bottom: 5px solid #53917e;
   width: calc(33.3333333333% - 10px);
   margin: 20px 0;
 }
@@ -360,17 +359,19 @@ p {
   height: 280px;
 }
 .recipesContainer .recipeCard .recipeText {
-  padding: 30px 15px;
-  text-align: center;
-  background-color: #e8f7ee;
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  padding: 30px 15px;
+  text-align: center;
+  background-color: #53917e;
+  border-top: 3px solid #e8f7ee;
 }
 .recipesContainer .recipeCard .recipeText h3 {
-  color: #000;
+  color: #211931;
   line-height: 25px;
   font-size: 22px;
+  font-weight: bold;
 }
 
 /**************************************/

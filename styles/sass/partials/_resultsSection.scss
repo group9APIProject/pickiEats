@@ -64,7 +64,6 @@ p {
     .recipeCard {
         display: flex;
         flex-direction: column;
-        border-bottom: 5px solid $secondary;
         width: calc((100% / 3) - 10px);
         margin: 20px 0;
 
@@ -90,15 +89,17 @@ p {
         }
 
         .recipeText {
+            flex-grow: 1;
             padding: 30px 15px;
             text-align: center;
-            background-color: $primary;
-            flex-grow: 1;
-
+            background-color: $secondary;
+            border-top: 3px solid $primary;
+            
             h3 {
-                color: $black;
+                color: #211931;
                 line-height: 25px;
                 font-size: 22px;
+                font-weight: bold;
             }
         }
         

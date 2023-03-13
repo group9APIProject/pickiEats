@@ -24,6 +24,33 @@ const excludedCuisines = [
     'Vietnamese'
 ];
 
+// function to pull recipe information from Spoonacular API based on user's choice(s)
+app.getRecipes = (query) => {
+    const url = new URL(app.apiUrl);
+    // add search parameters to url
+    url.search = new URLSearchParams({
+        apiKey: app.apiKey,
+        excludedCuisine: query,
+        type: [
+            'lunch',
+            'main course',
+            'main dish',
+            'dinner'
+        ],
+        addRecipeInformation: true,
+        sort: 'random',
+        number: 2
+    })
+    fetch(url)
+        .then(response => {
+            return response.json();
+        })
+        .then(jsonResult => {
+            // console.log(jsonResult);
+            app.displayRecipe(jsonResult);
+        });
+}
+
 // function to display cuisine options in HTML
 app.displayCuisines = () => {
     // array of cuisine options 
@@ -58,6 +85,39 @@ app.displayCuisines = () => {
     })
 }
 
+// function to display recipes to DOM
+app.displayRecipe = (recipeArray) => {
+    // target <ul> recipe container in HTML
+    const recipes = document.querySelector('.recipes');
+
+    // loop over each recipe item to create & append elements to <ul> recipe container
+    recipeArray.results.forEach(recipe => {
+        // create li element
+        const listItem = document.createElement('li');
+        listItem.classList.add('recipeCard');
+
+        // create img element
+        const recipeImage = document.createElement('img');
+
+        // create h2 element
+        const recipeHeading = document.createElement('h2');
+
+        // populate src & alt attributes of img elements
+        recipeImage.src = recipe.image;
+        recipeImage.alt = `Image of ${recipe.title}`
+
+        // add text to h2
+        recipeHeading.textContent = recipe.title;
+
+        // append img & h2 to li
+        listItem.appendChild(recipeImage);
+        listItem.appendChild(recipeHeading);
+
+        // append li to ul
+        recipes.appendChild(listItem);
+    });
+}
+
 // function to listen for form submit and get user's cuisine options
 app.setEventListener = () => {
     // target form from html
@@ -85,71 +145,10 @@ app.setEventListener = () => {
     });
 }
 
-// function to pull recipe information from Spoonacular API based on user's choice(s)
-app.getRecipes = (query) => {
-    const url = new URL(app.apiUrl);
-    // add search parameters to url
-    url.search = new URLSearchParams({
-        apiKey: app.apiKey,
-        excludedCuisine: query,
-        type: [
-            'lunch',
-            'main course',
-            'main dish',
-            'dinner'
-        ],
-        addRecipeInformation: true,
-        sort: 'random',
-        number: 2
-    })
-    fetch(url)
-        .then(response => {
-            return response.json();
-        })
-        .then(jsonResult => {
-            // console.log(jsonResult);
-            app.displayRecipe(jsonResult);
-        });
-}
-
-// function to display recipes to DOM
-app.displayRecipe = (recipeArray) => {
-    // console.log(recipeArray.results);
-
-    // target <ul> recipe container in HTML
-    const recipes = document.querySelector('.recipes');
-
-    // loop over each recipe item to create & append elements to <ul> recipe container
-    recipeArray.results.forEach(recipe => {
-        // create li element
-        const listItem = document.createElement('li');
-
-        // create img element
-        const recipeImage = document.createElement('img');
-
-        // create h2 element
-        const recipeHeading = document.createElement('h2');
-
-        // populate src & alt attributes of img elements
-        recipeImage.src = recipe.image;
-        recipeImage.alt = `Image of recipe ${recipe.title}`
-
-        // add text to h2
-        recipeHeading.textContent = recipe.title;
-
-        // append img & h2 to li
-        listItem.appendChild(recipeImage);
-        listItem.appendChild(recipeHeading);
-
-        // append li to ul
-        recipes.appendChild(listItem);
-    });
-}
-
 // init function to call methods 
 app.init = () => {
     app.displayCuisines();
-    app.setEventListener();
+    // app.setEventListener();
 }
 
 // call init function

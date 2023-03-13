@@ -1,0 +1,64 @@
+@use './variables' as *;
+
+// Base Styles:
+
+p,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+button,
+label,
+form,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+.recipes {
+    list-style: none;
+}
+
+// Wrapper
+.wrapper {
+    max-width: 1280px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+// Images
+
+// General image styles
+// img {
+//     max-width: 100%;
+//     height: auto;
+//     display: block;
+//     object-fit: cover;
+// }
+
+// .recipes img {
+//     width: 100%;
+// }
+
+// Anchor Tags
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+    transition: 0.3s;
+}
+
+a, button { cursor: pointer; }
+
+// Button Styles
+
+// Background Colours
+
+// Flexbox
+.flexContainer { display: flex; }
+
+// Display
+
+// Form Styles

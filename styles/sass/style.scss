@@ -1,18 +1,11 @@
-// COLOURS:
-// primary text (blue): #084b6d;
-// secondary (light blue): #f4fcff;
-// tertiary (green): #f8fbf3; 
 
+// Variables & Setup
+@use './partials/variables' as *;
+@use './partials/setup';
 
+// Base Styles
+@use './partials/baseStyles';
 
-// FONT SIZE:
-// h1: 28px;
-// h2: 40px;
-// h3: 54px;
-// h4: 34px;
-// p: 14px;
-
-
-@import 'setup';
-@import 'variable'
+// Styles for Results Section:
+@use './partials/resultsSection';
 

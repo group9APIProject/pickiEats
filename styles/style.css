@@ -1,3 +1,5 @@
+/* site fonts */
+/* site colours */
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -226,5 +228,178 @@ html {
   overflow: hidden;
 }
 
-/* site fonts */
-/* site colours */
+p,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+button,
+label,
+form,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+.recipes {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+p {
+  font-size: 20px;
+}
+
+.resultsHeading {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  margin-bottom: 130px;
+}
+.resultsHeading h2 {
+  font-size: 35px;
+  margin-bottom: 8px;
+}
+
+.resultsImgContainer {
+  -webkit-box-shadow: 0 3px 5px #53917e, 0 -1px 3px #53917e;
+          box-shadow: 0 3px 5px #53917e, 0 -1px 3px #53917e;
+}
+.resultsImgContainer img {
+  max-width: 2700px;
+  width: 100%;
+  max-height: 330px;
+  min-height: 140px;
+  -webkit-filter: hue-rotate(35deg);
+          filter: hue-rotate(35deg);
+  opacity: 0.8;
+}
+
+.resultsHeadingText {
+  padding: 4% 2.5%;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background-color: #e8f7ee;
+  border: 15px double #53917e;
+  position: absolute;
+  bottom: -100px;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
+}
+
+.recipes {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.recipeCard:nth-child(1),
+.recipeCard:nth-child(4) {
+  margin-right: 20px;
+}
+
+.recipeCard:nth-child(2),
+.recipeCard:nth-child(5) {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.recipeCard:nth-child(3),
+.recipeCard:nth-child(6) {
+  margin-left: 20px;
+}
+
+.recipeCard {
+  width: calc(33.3333333333% - 20px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 40px 0;
+  position: relative;
+}
+
+.recipeCard img {
+  width: 100%;
+  height: 350px;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+}
+
+h3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #000;
+  letter-spacing: 1px;
+  line-height: 30px;
+  font-size: 25px;
+}
+
+/**************************************/
+/* 1st BIG BREAK POINT:               */
+/* Portrait Tablet and Small Desktops */
+/**************************************/
+/**************************************/
+/* 2nd BIG BREAK POINT:               */
+/* Landscape Phone to Portrait Tablet */
+/**************************************/
+/**************************************/
+/* 1st SMALL BREAK POINT FOR HEIGHT */
+/**************************************/
+/**************************************/
+/* 2nd SMALL BREAK POINT:             */
+/**************************************/
+/**************************************/
+/* 3rd BIG BREAK POINT:               */
+/* Landscape Phones and Down          */
+/**************************************/
+/**************************************/
+/* 3rd SMALL BREAK POINT              */
+/**************************************/
+/**************************************/
+/* 2nd SMALL BREAK POINT FOR HEIGHT   */
+/**************************************/

@@ -4,24 +4,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <!-- link to style sheet -->
+    <link rel="stylesheet" href="./styles/style.css">
     <title>pickiEats</title>
 </head>
 <body>
+    <!-- header begins -->
     <header>
         <h1>PICKI EATS</h1>
         <!-- ? image(logo) may put here -->
-    </header>
+    </header><!-- header ends -->
+
+    <!-- main begins -->
     <main>
+        <!-- intro to app section begins -->
         <section class="startingPage">
+            <!-- intro image of different cuisines -->
             <img src="https://tse2.mm.bing.net/th?id=OIP.R8dc7inmyVFiCMTNCDx7FwHaE6&pid=Api&P=0" alt="various dishes or cuisines">
-            <!-- we will look for multiple pictures to put together -->
-            <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span> !</p>
+
+            <!-- h2? -->
+            <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span>!</p>
+
+            <!-- link to start app -->
             <a href="#">FIND A RECIPE</a>
-        </section>
+        </section><!-- intro section ends -->
+
+        <!-- form section begins -->
         <section class="recipeForm" id="">
             <!-- form begins -->
-            <form>
+            <form class="wrapper">
                 <fieldset>
                     <legend>Which cuisine(s) do you NOT like?</legend>
                     <div class="cuisineChoices"></div>
@@ -29,17 +40,99 @@
 
                 <!-- submit button -->
                 <button type="submit" class="submitBtn">Submit</button>
-            </form><!-- form ends -->]           
-        </section>
-        <section class="results">
-            <ul class="recipes"></ul>
-        </section>
+            </form><!-- form ends -->          
+        </section><!-- form section ends -->
 
+        <!-- results section begins -->
+        <section class="resultsSection">
+            <!-- section heading -->
+            <div class="resultsHeading flexContainer">
+                <div class="resultsImgContainer">
+                    <img src="./styles/assets/bg01.jpg" alt="Illustrations of different vegetables.">
+                </div>
 
-    </main>
+                <div class="resultsHeadingText wrapper">
+                    <h2>Now Pick A Recipe!</h2>
+                    <p>Here are some recipe ideas for you to choose from based on your particular taste:</p>
+                </div><!-- section heading text ends-->
+            </div><!-- section heading ends-->
+
+            <!-- wrapper -->
+            <div class="wrapper">
+                <!-- recipe container -->
+                <ul class="recipes flexContainer">
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <div class="recipeText">
+                            <h3>Turkey Enchilada with Yummy Mexican Sauce</h3>
+                        </div>
+                    </li>
+
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <h3>Korean Spicy Fried Chicken </h3>
+                    </li>
+
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <h3>Kung Pao Vegetable Stir Fry with Tiger Shrimp</h3>
+                    </li>
+
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <h3>Pasta with Cannellini Beans and Chunky Tomato Sauce</h3>
+                    </li>
+
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <h3>Korean Spicy Fried Chicken </h3>
+                    </li>
+                    
+                    <li class="recipeCard">
+                        <img src="https://placebear.com/312/231" alt="">
+                        <h3>Kung Pao Vegetable Stir Fry with Tiger Shrimp</h3>
+                    </li>
+
+                    <!-- <li class="recipeCard">
+                        <h3>Pasta with Cannellini Beans and Chunky Tomato Sauce</h3>
+                        <div class="foodInfo">
+                            <div class="recipeImage">
+                                <img src="https://placebear.com/312/231" alt="">
+                            </div>
+                            
+                            <div class="foodText">
+                                <p>Servings: 4</p>
+                                <p>Prep Time (min.): 45</p>
+                                <p>Vegetarian</p>
+                            </div>
+                        </div>
+                    </li> -->
+
+                    <!-- <li class="recipeCard">
+                        <h3>Pasta with Cannellini Beans and Chunky Tomato Sauce</h3>
+                        <div class="foodInfo">
+                            <div class="recipeImage">
+                                <img src="https://placebear.com/312/231" alt="">
+                            </div>
+                            
+                            <div class="foodText">
+                                <p>Servings: 4</p>
+                                <p>Prep Time (min.): 45</p>
+                                <p>Vegetarian</p>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div><!-- wrapper ends -->
+        </section><!-- results section ends -->
+    </main><!-- main ends -->
+
+    <!-- footer begins -->
     <footer>
         <a href="https://junocollege.com/">created at Juno College</a>
-    </footer>
+    </footer><!-- footer ends -->
+
+    <!-- link to javascript -->
     <script src="script.js"></script>    
 </body>
 </html>

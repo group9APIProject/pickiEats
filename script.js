@@ -56,6 +56,23 @@ app.displayCuisines = () => {
         // append div with input[type='checkbox'] for each cuisine option to DOM
         cuisineChoices.appendChild(optionButton);
     })
+
+}
+
+app.setShuffleListener = () => {
+    
+    // target the shuffle button
+    const shuffleButton = document.querySelector('.shuffleBtn');
+
+    // add click event listener to shuffle button
+    shuffleButton.addEventListener('click', function () {
+        // target cuisine choices container
+        const cuisineChoices = document.querySelector('.cuisineChoices');
+        // remove all cuisine options from container
+        cuisineChoices.innerHTML = '';
+        // re-display cuisine options
+        app.displayCuisines();
+    });
 }
 
 // function to listen for form submit and get user's cuisine options
@@ -149,6 +166,7 @@ app.displayRecipe = (recipeArray) => {
 // init function to call methods 
 app.init = () => {
     app.displayCuisines();
+    app.setShuffleListener();
     app.setEventListener();
 }
 

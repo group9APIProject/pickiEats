@@ -196,6 +196,23 @@ p {
 /* Portrait Tablet and Small Desktops */
 /**************************************/
 @media (max-width: 940px) {
+    // RESULTS SECTION
+    .recipesContainer {
+        .recipeCard {
+            
+            width: calc((100% / 2) - 15px);
+
+            &:nth-child(odd) {
+                margin-right: 15px;
+                margin-left: 0;
+            }
+
+            &:nth-child(even) {
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+    }
 
 }
 
@@ -204,7 +221,15 @@ p {
 /* Landscape Phone to Portrait Tablet */
 /**************************************/
 @media (max-width: 768px) {
-    
+    // RESULTS SECTION
+    .recipesContainer {
+        .recipeCard:nth-child(odd),
+        .recipeCard:nth-child(even){
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
 }          
 
 

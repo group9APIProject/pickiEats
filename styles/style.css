@@ -428,10 +428,31 @@ p {
 /* 1st BIG BREAK POINT:               */
 /* Portrait Tablet and Small Desktops */
 /**************************************/
+@media (max-width: 940px) {
+  .recipesContainer .recipeCard {
+    width: calc(50% - 15px);
+  }
+  .recipesContainer .recipeCard:nth-child(odd) {
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  .recipesContainer .recipeCard:nth-child(even) {
+    margin-left: 15px;
+    margin-right: 0;
+  }
+}
 /**************************************/
 /* 2nd BIG BREAK POINT:               */
 /* Landscape Phone to Portrait Tablet */
 /**************************************/
+@media (max-width: 768px) {
+  .recipesContainer .recipeCard:nth-child(odd),
+.recipesContainer .recipeCard:nth-child(even) {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
 /**************************************/
 /* 1st SMALL BREAK POINT FOR HEIGHT */
 /**************************************/

@@ -2,8 +2,8 @@
 const app = {};
 
 // Define Variables:
-app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
 // global array of cuisines already excluded from user choices
@@ -40,7 +40,7 @@ app.getRecipes = (query) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 6
+        number: 3
     })
     fetch(url)
         .then(response => {

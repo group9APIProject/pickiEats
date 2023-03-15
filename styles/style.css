@@ -382,14 +382,14 @@ p {
 }
 .recipesContainer .recipeCard .recipeImageContainer {
   padding: 35px;
-  background-color: #53917e;
+  background-color: rgba(83, 145, 126, 0.7);
 }
 .recipesContainer .recipeCard img {
   width: 100%;
   height: 280px;
-  border: 5px solid #e8f7ee;
-  -webkit-box-shadow: 10px 10px 2px #f1abb9, -10px -10px 2px #f1abb9;
-          box-shadow: 10px 10px 2px #f1abb9, -10px -10px 2px #f1abb9;
+  border: 3px solid #f4fcff;
+  -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
+          box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
 }
 .recipesContainer .recipeCard .recipeText {
   -webkit-box-flex: 1;

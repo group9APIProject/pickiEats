@@ -104,15 +104,17 @@ p {
 
         .recipeImageContainer {
             padding: 35px;
-            background-color: $secondary;
+            background-color: rgba($secondary, 0.70);
         }
     
         img {
             width: 100%;
             height: 280px;
-            border: 5px solid $primary;
-            box-shadow: 10px 10px 2px $accent,
-                -10px -10px 2px $accent;
+            border: 3px solid $whiteOne;
+            box-shadow: 2px 2px 3px #005555,
+                10px 10px 0 $primary,
+                -2px -2px 3px #005555,
+                -10px -10px 0 $primary;
             // opacity: 1;
             // transition: .5s ease;
         }

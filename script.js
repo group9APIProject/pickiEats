@@ -7,6 +7,7 @@ app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
 // global array of cuisines already excluded from user choices
+// if global variable, then can name space it (app.excludedCuisines)
 const excludedCuisines = [
     'African',
     'British',
@@ -39,7 +40,7 @@ app.getRecipes = (query) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 2
+        number: 6
     })
     fetch(url)
         .then(response => {
@@ -88,35 +89,53 @@ app.displayCuisines = () => {
 // function to display recipes to DOM
 app.displayRecipe = (recipeArray) => {
     // target <ul> recipe container in HTML
-    const recipes = document.querySelector('.recipesContainer');
+    const recipesContainer = document.querySelector('.recipesContainer');
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
+        console.log(recipe);
         // create li element
         const listItem = document.createElement('li');
         listItem.classList.add('recipeCard');
 
         // create img element
-        const recipeImage = document.createElement('img');
+        // const recipeImage = document.createElement('img');
 
-        // create h2 element
-        const recipeHeading = document.createElement('h3');
+        // create h3 element
+        // const recipeHeading = document.createElement('h3');
 
         // populate src & alt attributes of img elements
-        recipeImage.src = recipe.image;
-        recipeImage.alt = `Image of ${recipe.title}`
+        // recipeImage.src = recipe.image;
+        // recipeImage.alt = `Image of ${recipe.title}`
 
-        // add text to h2
-        recipeHeading.textContent = recipe.title;
+        // add text to h3
+        // recipeHeading.textContent = recipe.title;
 
-        // append img & h2 to li
-        listItem.appendChild(recipeImage);
-        listItem.appendChild(recipeHeading);
+        const recipeHTML = `
+                <div class="recipeImageContainer">
+                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
+                </div>
+
+                <div class="recipeText flexContainer">
+                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
+                        <h3>${recipe.title}</h3>
+                    </a>
+                </div>
+            `;
+
+        
+        // append img & h3 to li
+        listItem.innerHTML = recipeHTML;
+        // listItem.appendChild(recipeHeading);
 
         // append li to ul
-        recipes.appendChild(listItem);
+        recipesContainer.appendChild(listItem);
     });
+
 }
+
+// https://spoonacular.com/recipeImages/157458-312x231.jpg
+// https://spoonacular.com/recipeImages/666262-312x231.jpg
 
 // function to listen for form submit and get user's cuisine options
 app.setEventListener = () => {
@@ -145,10 +164,18 @@ app.setEventListener = () => {
     });
 }
 
+const startButton = document.querySelector('.startButton');
+
+startButton.addEventListener('click', function() {
+    const formSection = document.querySelector('.formSection');
+
+    formSection.classList.remove('hide');
+});
+
 // init function to call methods 
 app.init = () => {
     app.displayCuisines();
-    // app.setEventListener();
+    app.setEventListener();
 }
 
 // call init function

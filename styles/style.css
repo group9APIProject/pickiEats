@@ -253,6 +253,19 @@ input {
   margin: 0 auto;
 }
 
+p {
+  font-size: 20px;
+  color: #005555;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 a {
   text-decoration: none;
   display: inline-block;
@@ -271,11 +284,12 @@ a, button {
   display: flex;
 }
 
-.formSection {
-  height: 100vh;
+.hide {
+  display: none;
 }
+
 .formSection .wrapper {
-  height: inherit;
+  height: 100vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -289,23 +303,6 @@ a, button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-.hide {
-  display: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-p {
-  font-size: 20px;
-  color: #005555;
 }
 
 .resultsSection {

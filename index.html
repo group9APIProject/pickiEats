@@ -25,6 +25,10 @@
             <!-- h2? -->
             <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span>!</p>
 
+            <!-- <h2>The recipe suggestion app for picky eaters who know exactly what they don't want</h2> -->
+            
+            <!-- <p>Click below to find the recipe that meets all of your exclusionary tastes!</p> -->
+
             <!-- link to start app -->
             <a href="#recipeForm" class="startButton">FIND A RECIPE</a>
         </section><!-- intro section ends -->
@@ -40,14 +44,21 @@
                         <div class="cuisineChoices"></div>
                     </fieldset>
 
+                    <button type="reset" class="shuffleBtn">Shuffle Options</button>
+
                     <!-- submit button -->
-                    <button type="submit" class="submitBtn">Submit</button>
+                    <button type="submit" class="submitBtn" onclick="scrollToSection()">Submit</button>
+            
+                    <!-- PUT <ul> CONTAINER HERE INSTEAD?? -->
+                    <!-- USE JS TO DISPLAY HEADING WITH RECIPES?? -->
                 </form><!-- form ends -->
+                <!-- <ul class="recipesContainer flexContainer"></ul> -->
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
+        <!-- GET RID OF RESULTS SECTION & RESULTS HEADING - NOT REALLY NECESSARY -->
         <!-- results section begins -->
-        <section class="resultsSection">
+        <section class="resultsSection hide" id="results">
             <!-- section heading -->
             <div class="resultsHeading flexContainer">
                 <div class="resultsImgContainer">
@@ -57,69 +68,17 @@
                 <div class="resultsHeadingText wrapper">
                     <h2>Now Pick A Recipe!</h2>
                     <p>Here are some recipe ideas for you to choose from based on your particular taste:</p>
-                </div><!-- section heading text ends-->
-            </div><!-- section heading ends-->
-
+                </div><!-- results heading text ends-->
+            </div><!-- section heading ends -->
+            
             <!-- wrapper -->
             <div class="wrapper">
-                <!-- recipe container begins -->
-                <ul class="recipesContainer flexContainer">
-                    <!-- <li class="recipeCard">
-                        <div class="recipeImgContainer">
-                            <img src="https://placebear.com/312/231" alt="" class="image">
-                            <div class="overlay">
-                                <a href="#" class="recipeLink">Get Recipe</a>
-                            </div>
-                        </div>
-
-                        <div class="recipeText">
-                            <a href="#">
-                                <h3>Turkey Enchilada with Yummy Mexican Sauce</h3>
-                            </a>
-                        </div>
-                    </li>
-
-                    <li class="recipeCard">
-                        <img src="https://placebear.com/312/231" alt="">
-
-                        <div class="recipeText">
-                            <h3>Korean Spicy Fried Chicken </h3>
-                        </div>
-                    </li>
-
-                    <li class="recipeCard">
-                        <img src="https://placebear.com/312/231" alt="">
-
-                        <div class="recipeText">
-                            <h3>Kung Pao Vegetable Stir Fry with Tiger Shrimp</h3>
-                        </div>
-                    </li>
-
-                    <li class="recipeCard">
-                        <img src="https://placebear.com/312/231" alt="">
-
-                        <div class="recipeText">
-                            <h3>Pasta with Cannellini Beans and Chunky Tomato Sauce</h3>
-                        </div>
-                    </li>
-
-                    <li class="recipeCard">
-                        <img src="https://placebear.com/312/231" alt="">
-
-                        <div class="recipeText">
-                            <h3>Korean Spicy Fried Chicken </h3>
-                        </div>
-                    </li>
-                    
-                    <li class="recipeCard">
-                        <img src="https://placebear.com/312/231" alt="">
-
-                        <div class="recipeText">
-                            <h3>Kung Pao Vegetable Stir Fry with Tiger Shrimp</h3>
-                        </div>
-                    </li> -->
-                </ul><!-- recipe container ends -->
+                <!-- recipes container -->
+                <ul class="recipesContainer flexContainer"></ul>
             </div><!-- wrapper ends -->
+
+            <button class="reset">Try Again?</button>
+
         </section><!-- results section ends -->
     </main><!-- main ends -->
 
@@ -127,7 +86,7 @@
     <footer>
         <a href="https://junocollege.com/">created at Juno College</a>
     </footer><!-- footer ends -->
-
+    
     <!-- link to javascript -->
     <script src="script.js"></script>    
 </body>

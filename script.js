@@ -2,8 +2,8 @@
 const app = {};
 
 // Define Variables:
-// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 app.apiUrl = "https://api.spoonacular.com/recipes/complexSearch"
 
 // global array of cuisines already excluded from user choices
@@ -93,23 +93,10 @@ app.displayRecipe = (recipeArray) => {
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
-        console.log(recipe);
+        // console.log(recipe);
         // create li element
         const listItem = document.createElement('li');
         listItem.classList.add('recipeCard');
-
-        // create img element
-        // const recipeImage = document.createElement('img');
-
-        // create h3 element
-        // const recipeHeading = document.createElement('h3');
-
-        // populate src & alt attributes of img elements
-        // recipeImage.src = recipe.image;
-        // recipeImage.alt = `Image of ${recipe.title}`
-
-        // add text to h3
-        // recipeHeading.textContent = recipe.title;
 
         const recipeHTML = `
                 <div class="recipeImageContainer">
@@ -123,19 +110,13 @@ app.displayRecipe = (recipeArray) => {
                 </div>
             `;
 
-        
         // append img & h3 to li
         listItem.innerHTML = recipeHTML;
-        // listItem.appendChild(recipeHeading);
 
         // append li to ul
         recipesContainer.appendChild(listItem);
     });
-
 }
-
-// https://spoonacular.com/recipeImages/157458-312x231.jpg
-// https://spoonacular.com/recipeImages/666262-312x231.jpg
 
 // function to listen for form submit and get user's cuisine options
 app.setEventListener = () => {
@@ -152,9 +133,12 @@ app.setEventListener = () => {
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
                 // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
+                console.log(checkbox);
                 excludedCuisines.push(checkbox.value);
             }
         });
+
+        // clear all checkboxes on submit
 
         // convert excludedCuisines array into a string
         const stringCuisines = excludedCuisines.toString();
@@ -164,16 +148,63 @@ app.setEventListener = () => {
     });
 }
 
-const startButton = document.querySelector('.startButton');
+// function to display next section when user clicks button
+app.displayNextSection = () => {
+    // target start button to begin use of app
+    const startButton = document.querySelector('.startButton');
 
-startButton.addEventListener('click', function() {
-    const formSection = document.querySelector('.formSection');
+    // target submit button to reveal section with recipe results
+    const submitButton = document.querySelector('.submitBtn');
 
-    formSection.classList.remove('hide');
-});
+    // add event listener to start button
+    startButton.addEventListener('click', function () {
+        // target form sections
+        const formSection = document.querySelector('.formSection');
+        // remove 'hide' class to display form section
+        formSection.classList.toggle('hide');
+    });
+
+    // add event listener to submit button
+    submitButton.addEventListener('click', function () {
+        // target results section
+        const resultsSection = document.querySelector('.resultsSection');
+        // remove 'hide' class to display results section
+        // resultsSection.classList.toggle('hide');
+
+        // app.scrollToSection();
+        // window.scrollBy(0, window.innerHeight);
+
+        // window.scroll({
+        //     top: 1000,
+        //     left: 0,
+        //     behavior: 'smooth'
+        // });
+    });
+}
+
+app.scrollToSection = () => {
+    const section = document.querySelector('.resultsHeading');
+    section.scrollIntoView({ behavior: 'smooth' });
+}
+
+app.setShuffleListener = () => {
+    // target the shuffle button
+    const shuffleButton = document.querySelector('.shuffleBtn');
+    // add click event listener to shuffle button
+    shuffleButton.addEventListener('click', function () {
+        // target cuisine choices container
+        const cuisineChoices = document.querySelector('.cuisineChoices');
+        // remove all cuisine options from container
+        cuisineChoices.innerHTML = '';
+        // re-display cuisine options
+        app.displayCuisines();
+    });
+}
 
 // init function to call methods 
 app.init = () => {
+    app.displayNextSection();
+    app.setShuffleListener();
     app.displayCuisines();
     app.setEventListener();
 }

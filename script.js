@@ -40,7 +40,7 @@ app.getRecipes = (query) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 3
+        number: 1
     })
     fetch(url)
         .then(response => {
@@ -123,6 +123,8 @@ app.setEventListener = () => {
     // target form from html
     const form = document.querySelector('form');
 
+    const submitButton = document.querySelector('.submitBtn');
+
     // add event listener to form
     form.addEventListener('submit', function (event) {
         // prevent form from reloading
@@ -130,15 +132,22 @@ app.setEventListener = () => {
 
         // store the selected checked boxes and push them into global excludedCuisines array
         const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
+
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
                 // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
                 console.log(checkbox);
                 excludedCuisines.push(checkbox.value);
+
+                // clear all checkboxes on submit
+                if (checkbox.checked) {
+                    checkbox.checked = false;
+                }
+
+                // disable submit button
+                submitButton.disabled = true;
             }
         });
-
-        // clear all checkboxes on submit
 
         // convert excludedCuisines array into a string
         const stringCuisines = excludedCuisines.toString();
@@ -161,7 +170,7 @@ app.displayNextSection = () => {
         // target form sections
         const formSection = document.querySelector('.formSection');
         // remove 'hide' class to display form section
-        formSection.classList.toggle('hide');
+        formSection.classList.remove('hide');
     });
 
     // add event listener to submit button
@@ -169,22 +178,22 @@ app.displayNextSection = () => {
         // target results section
         const resultsSection = document.querySelector('.resultsSection');
         // remove 'hide' class to display results section
-        // resultsSection.classList.toggle('hide');
+        resultsSection.classList.remove('hide');
 
-        // app.scrollToSection();
-        // window.scrollBy(0, window.innerHeight);
+        // console.log(this);
+        const wrapper = this.parentElement.parentElement;
 
-        // window.scroll({
-        //     top: 1000,
-        //     left: 0,
-        //     behavior: 'smooth'
-        // });
+        const offsetTop = wrapper.offsetTop;
+        const clientHeight = wrapper.clientHeight;
+
+        const t = offsetTop + clientHeight;
+
+        window.scroll({
+            top: t,
+            left: 0,
+            behavior: "smooth"
+        });
     });
-}
-
-app.scrollToSection = () => {
-    const section = document.querySelector('.resultsHeading');
-    section.scrollIntoView({ behavior: 'smooth' });
 }
 
 app.setShuffleListener = () => {
@@ -201,12 +210,32 @@ app.setShuffleListener = () => {
     });
 }
 
+// function to remove previous recipe results and bring user back to form to start search again
+app.startNewSearch = () => {
+    const reset = document.querySelector('.reset');
+
+    const recipesContainer = document.querySelector('.recipesContainer');
+
+    const submitButton = document.querySelector('.submitBtn');
+
+    const resultsSection = document.querySelector('.resultsSection');
+
+    reset.addEventListener('click', function() {
+        recipesContainer.innerHTML = '';
+        submitButton.disabled = false;
+
+        // add 'hide' class to display results section
+        resultsSection.classList.add('hide');
+    });
+}
+
 // init function to call methods 
 app.init = () => {
     app.displayNextSection();
     app.setShuffleListener();
     app.displayCuisines();
     app.setEventListener();
+    app.startNewSearch();
 }
 
 // call init function

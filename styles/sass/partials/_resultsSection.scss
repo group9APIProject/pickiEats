@@ -17,7 +17,6 @@
 .resultsHeading {
     flex-direction: column;
     position: relative;
-    margin-bottom: 130px;
     background-color: $primary;
 
     h2 {
@@ -47,7 +46,7 @@
         background-color: $primary;
         border: 15px double $secondary;
         position: absolute;
-        bottom: -100px;
+        bottom: 70px;
         box-shadow: 5px 5px 5px rgba($black, 0.3),
                     0px -2px 7px rgba($black, 0.3);
     }
@@ -57,6 +56,7 @@
 .recipesContainer {
     flex-wrap: wrap;
     justify-content: space-between;
+    margin-top: 5%;
 
     // List Items (Recipe) 
     .recipeCard {

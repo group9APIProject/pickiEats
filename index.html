@@ -12,27 +12,25 @@
     <!-- header begins -->
     <header>
         <h1>PICKI EATS</h1>
-        <!-- ? image(logo) may put here -->
     </header><!-- header ends -->
-
+    
     <!-- main begins -->
     <main>
-        <!-- intro to app section begins -->
         <section class="startingPage">
-            <!-- intro image of different cuisines -->
+            <!-- ? image(logo)?  -->
             <img src="https://tse2.mm.bing.net/th?id=OIP.R8dc7inmyVFiCMTNCDx7FwHaE6&pid=Api&P=0" alt="various dishes or cuisines">
 
             <!-- h2? -->
             <p>For the picky eaters that don't know what they want but know what they don't want, we have the recipe for <span>YOU</span>!</p>
 
             <!-- <h2>The recipe suggestion app for picky eaters who know exactly what they don't want</h2> -->
-            
+                
             <!-- <p>Click below to find the recipe that meets all of your exclusionary tastes!</p> -->
 
             <!-- link to start app -->
             <a href="#recipeForm" class="startButton">FIND A RECIPE</a>
-        </section><!-- intro section ends -->
-
+        </section><!-- starting section ends -->
+    
         <!-- form section begins -->
         <section class="formSection hide">
             <!-- form section wrapper begins -->
@@ -47,18 +45,19 @@
                     <button type="reset" class="shuffleBtn">Shuffle Options</button>
 
                     <!-- submit button -->
-                    <button type="submit" class="submitBtn" onclick="scrollToSection()">Submit</button>
-            
-                    <!-- PUT <ul> CONTAINER HERE INSTEAD?? -->
-                    <!-- USE JS TO DISPLAY HEADING WITH RECIPES?? -->
+                    <button type="submit" class="submitBtn">Submit</button>
                 </form><!-- form ends -->
-                <!-- <ul class="recipesContainer flexContainer"></ul> -->
+
+            <!-- PUT <ul> CONTAINER HERE INSTEAD?? -->
+            <!-- USE JS TO DISPLAY HEADING WITH RECIPES?? -->
+            <!-- <ul class="recipesContainer flexContainer"></ul> -->
+            
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
         <!-- GET RID OF RESULTS SECTION & RESULTS HEADING - NOT REALLY NECESSARY -->
         <!-- results section begins -->
-        <section class="resultsSection hide" id="results">
+        <section class="resultsSection hide">
             <!-- section heading -->
             <div class="resultsHeading flexContainer">
                 <div class="resultsImgContainer">
@@ -77,7 +76,8 @@
                 <ul class="recipesContainer flexContainer"></ul>
             </div><!-- wrapper ends -->
 
-            <button class="reset">Try Again?</button>
+            <!-- button to restart recipe search -->
+            <a href="#recipeForm" class="reset">Try Again?</a>
 
         </section><!-- results section ends -->
     </main><!-- main ends -->

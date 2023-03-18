@@ -315,7 +315,6 @@ a, button {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  margin-bottom: 130px;
   background-color: #e8f7ee;
 }
 .resultsHeading h2 {
@@ -344,7 +343,7 @@ a, button {
   background-color: #e8f7ee;
   border: 15px double #53917e;
   position: absolute;
-  bottom: -100px;
+  bottom: 70px;
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
 }
@@ -355,6 +354,7 @@ a, button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-top: 5%;
 }
 .recipesContainer .recipeCard {
   display: -webkit-box;

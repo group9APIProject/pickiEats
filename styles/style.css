@@ -1,3 +1,5 @@
+/* site fonts */
+/* site colours */
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -226,5 +228,324 @@ html {
   overflow: hidden;
 }
 
-/* site fonts */
-/* site colours */
+html {
+  font-family: "Young Serif", "Jakarta Sans";
+  font-size: 125%; /* 20px default*/
+  color: #005555;
+}
+
+p,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+button,
+label,
+form,
+input {
+  margin: 0;
+  padding: 0;
+}
+
+.recipesContainer {
+  list-style: none;
+}
+
+.wrapper {
+  max-width: 1280px;
+  width: 85%;
+  margin: 0 auto;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: inherit;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+a, button {
+  cursor: pointer;
+}
+
+.flexContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hide {
+  display: none;
+}
+
+header,
+footer {
+  background-color: rgba(241, 171, 185, 0.2);
+  display: block;
+  width: 100vw;
+  text-align: center;
+}
+
+header {
+  height: 15vh;
+  top: 0;
+  left: 0;
+}
+
+footer {
+  height: 5vh;
+  font-size: 1.2rem;
+}
+footer a {
+  padding: 0.5rem 0;
+}
+
+h1 {
+  font-family: "Young Serif";
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem 0;
+}
+
+.startingPage {
+  background-color: rgba(83, 145, 126, 0.2);
+  width: 100vw;
+  height: 80vh;
+}
+.startingPage .imageContainer ul {
+  padding: 3rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+p {
+  font-family: "Jakarta Sans";
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+button {
+  padding: 1.2rem;
+  display: block;
+  margin: auto;
+}
+
+.formSection {
+  display: block;
+  background-color: rgba(83, 145, 126, 0.2);
+}
+
+.formSection {
+  height: 100vh;
+}
+.formSection .wrapper {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+p {
+  font-size: 20px;
+  color: #005555;
+}
+
+.resultsSection {
+  background-color: rgba(248, 251, 243, 0.5);
+}
+
+.resultsHeading {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  margin-bottom: 130px;
+  background-color: #e8f7ee;
+}
+.resultsHeading h2 {
+  font-size: 35px;
+  margin-bottom: 8px;
+  color: #005555;
+}
+.resultsHeading .resultsImgContainer {
+  -webkit-box-shadow: 0 3px 5px #53917e, 0 -1px 3px #53917e;
+          box-shadow: 0 3px 5px #53917e, 0 -1px 3px #53917e;
+}
+.resultsHeading .resultsImgContainer img {
+  max-width: 2700px;
+  width: 100%;
+  max-height: 330px;
+  min-height: 140px;
+  -webkit-filter: hue-rotate(50deg);
+          filter: hue-rotate(50deg);
+  opacity: 0.3;
+}
+.resultsHeading .resultsHeadingText {
+  padding: 4% 2.5%;
+  text-align: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  background-color: #e8f7ee;
+  border: 15px double #53917e;
+  position: absolute;
+  bottom: -100px;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
+}
+
+.recipesContainer {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.recipesContainer .recipeCard {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: calc(33.3333333333% - 10px);
+  margin: 20px 0;
+}
+.recipesContainer .recipeCard:nth-child(1), .recipesContainer .recipeCard:nth-child(4) {
+  margin-right: 10px;
+}
+.recipesContainer .recipeCard:nth-child(2), .recipesContainer .recipeCard:nth-child(5) {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.recipesContainer .recipeCard:nth-child(3), .recipesContainer .recipeCard:nth-child(6) {
+  margin-left: 10px;
+}
+.recipesContainer .recipeCard .recipeImageContainer {
+  padding: 35px;
+  background-color: rgba(83, 145, 126, 0.7);
+}
+.recipesContainer .recipeCard img {
+  width: 100%;
+  height: 280px;
+  border: 3px solid #f4fcff;
+  -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
+          box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
+}
+.recipesContainer .recipeCard .recipeText {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: #e8f7ee;
+  border-top: 6px double #f1abb9;
+  border-bottom: 10px double #53917e;
+  color: #005555;
+}
+.recipesContainer .recipeCard .recipeText a {
+  padding: 30px 15px;
+}
+.recipesContainer .recipeCard .recipeText h3 {
+  line-height: 25px;
+  font-size: 22px;
+  font-weight: bold;
+}
+.recipesContainer .recipeCard .recipeText a h3:hover,
+.recipesContainer .recipeCard .recipeText a h3:focus {
+  text-decoration: underline;
+}
+
+/**************************************/
+/* 1st BIG BREAK POINT:               */
+/* Portrait Tablet and Small Desktops */
+/**************************************/
+@media (max-width: 940px) {
+  .recipesContainer .recipeCard {
+    width: calc(50% - 15px);
+  }
+  .recipesContainer .recipeCard:nth-child(odd) {
+    margin-right: 15px;
+    margin-left: 0;
+  }
+  .recipesContainer .recipeCard:nth-child(even) {
+    margin-left: 15px;
+    margin-right: 0;
+  }
+}
+/**************************************/
+/* 2nd BIG BREAK POINT:               */
+/* Landscape Phone to Portrait Tablet */
+/**************************************/
+@media (max-width: 768px) {
+  .recipesContainer .recipeCard:nth-child(odd),
+  .recipesContainer .recipeCard:nth-child(even) {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+/**************************************/
+/* 1st SMALL BREAK POINT FOR HEIGHT */
+/**************************************/
+/**************************************/
+/* 2nd SMALL BREAK POINT:             */
+/**************************************/
+/**************************************/
+/* 3rd BIG BREAK POINT:               */
+/* Landscape Phones and Down          */
+/**************************************/
+/**************************************/
+/* 3rd SMALL BREAK POINT              */
+/**************************************/
+/**************************************/
+/* 2nd SMALL BREAK POINT FOR HEIGHT   */
+/**************************************/

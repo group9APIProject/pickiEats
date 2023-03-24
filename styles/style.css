@@ -228,6 +228,15 @@ html {
   overflow: hidden;
 }
 
+<<<<<<< HEAD
+=======
+html {
+  font-family: "Young Serif", "Jakarta Sans";
+  font-size: 125%; /* 20px default*/
+  color: #005555;
+}
+
+>>>>>>> development
 p,
 ul,
 li,
@@ -253,6 +262,7 @@ input {
   margin: 0 auto;
 }
 
+<<<<<<< HEAD
 p {
   font-size: 20px;
   color: #005555;
@@ -264,6 +274,12 @@ img {
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
+=======
+img {
+  max-width: 100%;
+  display: block;
+  height: auto;
+>>>>>>> development
 }
 
 a {
@@ -288,8 +304,80 @@ a, button {
   display: none;
 }
 
+<<<<<<< HEAD
 .formSection .wrapper {
   height: 100vh;
+=======
+header,
+footer {
+  background-color: rgba(241, 171, 185, 0.2);
+  display: block;
+  width: 100vw;
+  text-align: center;
+}
+
+header {
+  height: 15vh;
+  top: 0;
+  left: 0;
+}
+
+footer {
+  height: 5vh;
+  font-size: 1.2rem;
+}
+footer a {
+  padding: 0.5rem 0;
+}
+
+h1 {
+  font-family: "Young Serif";
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  padding: 1rem 0;
+}
+
+.startingPage {
+  background-color: rgba(83, 145, 126, 0.2);
+  width: 100vw;
+  height: 80vh;
+}
+.startingPage .imageContainer ul {
+  padding: 3rem 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+}
+
+p {
+  font-family: "Jakarta Sans";
+  font-size: 1.5rem;
+  padding-bottom: 3rem;
+}
+
+button {
+  padding: 1.2rem;
+  display: block;
+  margin: auto;
+}
+
+.formSection {
+  display: block;
+  background-color: rgba(83, 145, 126, 0.2);
+}
+
+.formSection {
+  height: 100vh;
+}
+.formSection .wrapper {
+  height: inherit;
+>>>>>>> development
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -305,8 +393,30 @@ a, button {
           align-items: center;
 }
 
+<<<<<<< HEAD
 .resultsSection {
   background-color: rgba(255, 245, 245, 0.5);
+=======
+.hide {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+p {
+  font-size: 20px;
+  color: #005555;
+}
+
+.resultsSection {
+  background-color: rgba(248, 251, 243, 0.5);
+>>>>>>> development
 }
 
 .resultsHeading {
@@ -315,6 +425,10 @@ a, button {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
+<<<<<<< HEAD
+=======
+  margin-bottom: 130px;
+>>>>>>> development
   background-color: #e8f7ee;
 }
 .resultsHeading h2 {
@@ -343,7 +457,11 @@ a, button {
   background-color: #e8f7ee;
   border: 15px double #53917e;
   position: absolute;
+<<<<<<< HEAD
   bottom: 70px;
+=======
+  bottom: -100px;
+>>>>>>> development
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
 }
@@ -354,7 +472,10 @@ a, button {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+<<<<<<< HEAD
   margin-top: 5%;
+=======
+>>>>>>> development
 }
 .recipesContainer .recipeCard {
   display: -webkit-box;
@@ -444,7 +565,11 @@ a, button {
 /**************************************/
 @media (max-width: 768px) {
   .recipesContainer .recipeCard:nth-child(odd),
+<<<<<<< HEAD
 .recipesContainer .recipeCard:nth-child(even) {
+=======
+  .recipesContainer .recipeCard:nth-child(even) {
+>>>>>>> development
     width: 100%;
     margin-right: 0;
     margin-left: 0;

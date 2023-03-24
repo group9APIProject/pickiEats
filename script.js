@@ -27,9 +27,9 @@ app.excludedCuisines = [
 // global variables: (put in init function??)
 // empty array to push user's ingredients
 app.excludedIngredients = [];
-// target add to list button
+// target add button
 app.addButton = document.querySelector('.add');
-// target remove list items button
+// target remove button
 app.removeButton = document.querySelector('.remove');
 // target submit button
 app.submitButton = document.querySelector('.submitBtn');
@@ -116,44 +116,15 @@ app.setShuffleListener = () => {
     // target the shuffle button
     const shuffleButton = document.querySelector('.shuffleBtn');
     // add click event listener to shuffle button
-    shuffleButton.addEventListener('click', function () {
+    shuffleButton.addEventListener('click', function (event) {
+        // prevent page from reloading
+        event.preventDefault();
         // target cuisine choices container
         const cuisineChoices = document.querySelector('.cuisineChoices');
         // remove all cuisine options from container
         cuisineChoices.innerHTML = '';
         // re-display cuisine options
         app.displayCuisines();
-    });
-}
-
-// function to display recipes to DOM
-app.displayRecipe = (recipeArray) => {
-    // target <ul> recipe container in HTML
-    const recipesContainer = document.querySelector('.recipesContainer');
-
-    // loop over each recipe item to create & append elements to <ul> recipe container
-    recipeArray.results.forEach(recipe => {
-        // create li element
-        const listItem = document.createElement('li');
-        listItem.classList.add('recipeCard');
-
-        const recipeHTML = `
-                <div class="recipeImageContainer">
-                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
-                </div>
-
-                <div class="recipeText flexContainer">
-                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
-                        <h3>${recipe.title}</h3>
-                    </a>
-                </div>
-            `;
-
-        // append img & h3 to li
-        listItem.innerHTML = recipeHTML;
-
-        // append li to ul
-        recipesContainer.appendChild(listItem);
     });
 }
 
@@ -264,9 +235,10 @@ app.submitForm = () => {
             console.log(stringCuisines, stringIngredients);
             // call app.getRecipes function with stringCuisines as arguments
             app.getRecipes(stringCuisines, stringIngredients);
+            // disable submit button
+            app.submitButton.disabled = true;
         }
-        // disable submit button
-        app.submitButton.disabled = true;
+        
         // clear ingredient list on submit
         app.ingredientsList.innerHTML = '';
 
@@ -279,14 +251,49 @@ app.submitForm = () => {
     });
 }
 
-// function to remove previous recipe results and bring user back to form to start search again
-app.startNewSearch = () => {
-    const reset = document.querySelector('.reset');
-
+// function to display recipes to DOM
+app.displayRecipe = (recipeArray) => {
+    // target <ul> recipe container in HTML
     const recipesContainer = document.querySelector('.recipesContainer');
 
+    // loop over each recipe item to create & append elements to <ul> recipe container
+    recipeArray.results.forEach(recipe => {
+        // create li element
+        const listItem = document.createElement('li');
+        listItem.classList.add('recipeCard');
+
+        const recipeHTML = `
+                <div class="recipeImageContainer">
+                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
+                </div>
+
+                <div class="recipeText flexContainer">
+                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
+                        <h3>${recipe.title}</h3>
+                    </a>
+                </div>
+            `;
+
+        // append img & h3 to li
+        listItem.innerHTML = recipeHTML;
+
+        // append li to ul
+        recipesContainer.appendChild(listItem);
+    });
+}
+
+// function to remove previous recipe results and bring user back to form to start search again
+app.startNewSearch = () => {
+    // target 'reset' button
+    const reset = document.querySelector('.reset');
+
+    // target recipes container
+    const recipesContainer = document.querySelector('.recipesContainer');
+
+    // target results section
     const resultsSection = document.querySelector('.resultsSection');
 
+    // add event listener to reset button
     reset.addEventListener('click', function() {
         // remove results from html
         recipesContainer.innerHTML = '';

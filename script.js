@@ -7,8 +7,7 @@ app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch"
 
 // global array of cuisines already excluded from user choices
-// if global variable, then can name space it (app.excludedCuisines)
-const excludedCuisines = [
+app.excludedCuisines = [
     'African',
     'British',
     'Cajun',
@@ -24,6 +23,19 @@ const excludedCuisines = [
     'Southern',
     'Vietnamese'
 ];
+
+// Global Variables:
+
+// empty array to push user's ingredients
+app.excludedIngredients = [];
+// target add button
+app.addButton = document.querySelector('.add');
+// target remove button
+app.removeButton = document.querySelector('.remove');
+// target submit button
+app.submitButton = document.querySelector('.submitBtn');
+// get ul element to append list of excluded ingredients
+app.ingredientsList = document.querySelector('.ingredientsList');
 
 // function to pull recipe information from Spoonacular API based on user's choice(s)
 app.getRecipes = (query) => {
@@ -50,6 +62,20 @@ app.getRecipes = (query) => {
             // console.log(jsonResult);
             app.displayRecipe(jsonResult);
         });
+}
+
+// function to display form
+app.displayForm = () => {
+    // target start button to begin use of app
+    const startButton = document.querySelector('.startButton');
+
+    // add event listener to start button
+    startButton.addEventListener('click', function () {
+        // target form sections
+        const formSection = document.querySelector('.formSection');
+        // remove 'hide' class to display form section
+        formSection.classList.remove('hide');
+    });
 }
 
 // function to display cuisine options in HTML
@@ -174,6 +200,58 @@ app.removeButtonListener = () => {
     });
 }
 
+// function to listen for form submit and get user's cuisine options
+app.submitForm = () => {
+    // target form from html
+    const form = document.querySelector('form');
+
+    // add event listener to form
+    form.addEventListener('submit', function (event) {
+        // prevent form from reloading
+        event.preventDefault();
+
+        // store the selected checked boxes and push them into global excludedCuisines array
+        const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
+
+        checkboxes.forEach((checkbox) => {
+            if (checkbox.checked) {
+                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
+                // console.log(checkbox);
+                app.excludedCuisines.push(checkbox.value);
+            }
+            // clear all checkboxes on submit
+            if (checkbox.checked) {
+                checkbox.checked = false;
+            }
+        });
+
+        // conditional statement to prevent api call if no input by user
+        if (app.excludedCuisines.length === 14 && app.excludedIngredients.length === 0) {
+            alert('You must at least choose to either exclude cuisine(s) OR ingredients (max: 5) to receive recipe suggestions. And if you are feeling particularly picky - fill out both!');
+        } else {
+            // convert excludedCuisines array into a string
+            const stringCuisines = app.excludedCuisines.toString();
+            // convert excludedIngredients array into a string
+            const stringIngredients = app.excludedIngredients.toString();
+            console.log(stringCuisines, stringIngredients);
+            // call app.getRecipes function with stringCuisines & stringIngredients as arguments
+            app.getRecipes(stringCuisines, stringIngredients);
+            // disable submit button
+            app.submitButton.disabled = true;
+        }
+
+        // clear ingredient list on submit
+        app.ingredientsList.innerHTML = '';
+
+        // disable remove button
+        app.removeButton.disabled = true;
+
+        // remove 'hide' class to display results section
+        const resultsSection = document.querySelector('.resultsSection');
+        resultsSection.classList.remove('hide');
+    });
+}
+
 // function to display recipes to DOM
 app.displayRecipe = (recipeArray) => {
     // target <ul> recipe container in HTML
@@ -206,98 +284,33 @@ app.displayRecipe = (recipeArray) => {
     });
 }
 
-// function to listen for form submit and get user's cuisine options
-app.submitForm = () => {
-    // target form from html
-    const form = document.querySelector('form');
+// function to remove previous recipe results and bring user back to form to start search again
+app.startNewSearch = () => {
+    // target 'reset' button
+    const reset = document.querySelector('.reset');
 
-    // add event listener to form
-    form.addEventListener('submit', function (event) {
-        // prevent form from reloading
-        event.preventDefault();
+    // target recipes container
+    const recipesContainer = document.querySelector('.recipesContainer');
 
-        // store the selected checked boxes and push them into global excludedCuisines array
-        const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
+    // target results section
+    const resultsSection = document.querySelector('.resultsSection');
 
-        checkboxes.forEach((checkbox) => {
-            if (checkbox.checked) {
-                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
-                console.log(checkbox);
-                excludedCuisines.push(checkbox.value);
-            }
-        });
-
-        // clear all checkboxes on submit
-
-        // convert excludedCuisines array into a string
-        const stringCuisines = excludedCuisines.toString();
-
-        // disable remove button
-        app.removeButton.disabled = true;
-        
-        // remove 'hide' class to display results section
-        const resultsSection = document.querySelector('.resultsSection');
-        resultsSection.classList.remove('hide');
-    });
-}
-
-// function to display next section when user clicks button
-app.displayNextSection = () => {
-    // target start button to begin use of app
-    const startButton = document.querySelector('.startButton');
-
-    // target submit button to reveal section with recipe results
-    const submitButton = document.querySelector('.submitBtn');
-
-    // add event listener to start button
-    startButton.addEventListener('click', function () {
-        // target form sections
-        const formSection = document.querySelector('.formSection');
-        // remove 'hide' class to display form section
-        formSection.classList.toggle('hide');
-    });
-
-    // add event listener to submit button
-    submitButton.addEventListener('click', function () {
-        // target results section
-        const resultsSection = document.querySelector('.resultsSection');
-        // remove 'hide' class to display results section
-        resultsSection.classList.toggle('hide');
-
-        // app.scrollToSection();
-        // window.scrollBy(0, window.innerHeight);
-
-        // window.scroll({
-        //     top: 1000,
-        //     left: 0,
-        //     behavior: 'smooth'
-        // });
-    });
-}
-
-// app.scrollToSection = () => {
-//     const section = document.querySelector('.resultsHeading');
-//     section.scrollIntoView({ behavior: 'smooth' });
-// }
-
-app.setShuffleListener = () => {
-    // target the shuffle button
-    const shuffleButton = document.querySelector('.shuffleBtn');
-    // add click event listener to shuffle button
-    shuffleButton.addEventListener('click', function () {
-        // target cuisine choices container
-        const cuisineChoices = document.querySelector('.cuisineChoices');
-        // remove all cuisine options from container
-        cuisineChoices.innerHTML = '';
-        // re-display cuisine options
-        app.displayCuisines();
+    // add event listener to reset button
+    reset.addEventListener('click', function () {
+        // remove results from html
+        recipesContainer.innerHTML = '';
+        //reactivate use of add button
+        app.addButton.disabled = false;
+        // reactivate submit button
+        app.submitButton.disabled = false;
+        // add 'hide' class to results section
+        resultsSection.classList.add('hide');
     });
 }
 
 // init function to call methods 
 app.init = () => {
-    app.displayNextSection();
-    app.setShuffleListener();
+    app.displayForm();
     app.displayCuisines();
     app.setShuffleListener();
     app.addButtonListener();

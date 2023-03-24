@@ -1,13 +1,5 @@
 @use './variables' as *;
 
-<<<<<<< HEAD
-.formSection .wrapper {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-=======
 .formSection {
     height: 100vh;
 
@@ -35,7 +27,6 @@ img {
 p {
     font-size: 20px;
     color: #005555;
->>>>>>> development
 }
 
 // RESULTS SECTION STYLES:
@@ -47,20 +38,13 @@ p {
 .resultsHeading {
     flex-direction: column;
     position: relative;
-<<<<<<< HEAD
-=======
     margin-bottom: 130px;
->>>>>>> development
     background-color: $primary;
 
     h2 {
         font-size: 35px;
         margin-bottom: 8px;
-<<<<<<< HEAD
-        color: $textColour;
-=======
         color: #005555;
->>>>>>> development
     }
 
     .resultsImgContainer {
@@ -84,15 +68,9 @@ p {
         background-color: $primary;
         border: 15px double $secondary;
         position: absolute;
-<<<<<<< HEAD
-        bottom: 70px;
-        box-shadow: 5px 5px 5px rgba($black, 0.3),
-                    0px -2px 7px rgba($black, 0.3);
-=======
         bottom: -100px;
         box-shadow: 5px 5px 5px rgba($black, 0.3),
             0px -2px 7px rgba($black, 0.3);
->>>>>>> development
     }
 }
 
@@ -100,10 +78,6 @@ p {
 .recipesContainer {
     flex-wrap: wrap;
     justify-content: space-between;
-<<<<<<< HEAD
-    margin-top: 5%;
-=======
->>>>>>> development
 
     // List Items (Recipe) 
     .recipeCard {
@@ -137,19 +111,12 @@ p {
             width: 100%;
             height: 280px;
             border: 3px solid $whiteOne;
-<<<<<<< HEAD
-            box-shadow: 2px 2px 3px $textColour,
-                        10px 10px 0 $primary,
-                        -2px -2px 3px $textColour,
-                        -10px -10px 0 $primary;
-=======
             box-shadow: 2px 2px 3px #005555,
                 10px 10px 0 $primary,
                 -2px -2px 3px #005555,
                 -10px -10px 0 $primary;
             // opacity: 1;
             // transition: .5s ease;
->>>>>>> development
         }
 
         .recipeText {
@@ -161,11 +128,7 @@ p {
             background-color: $primary;
             border-top: 6px double $accent;
             border-bottom: 10px double $secondary;
-<<<<<<< HEAD
-            color: $textColour;
-=======
             color: #005555;
->>>>>>> development
 
             a {
                 padding: 30px 15px;
@@ -182,11 +145,6 @@ p {
                 text-decoration: underline;
             }
         }
-<<<<<<< HEAD
-    }
-}
-
-=======
         
         // Image Overlay
         // .recipeImgContainer {
@@ -231,7 +189,6 @@ p {
 }
 
 
->>>>>>> development
 // Media Queries for Results Section:
 
 /**************************************/

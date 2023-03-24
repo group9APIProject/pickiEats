@@ -228,15 +228,12 @@ html {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
-=======
 html {
   font-family: "Young Serif", "Jakarta Sans";
   font-size: 125%; /* 20px default*/
   color: #005555;
 }
 
->>>>>>> development
 p,
 ul,
 li,
@@ -262,24 +259,10 @@ input {
   margin: 0 auto;
 }
 
-<<<<<<< HEAD
-p {
-  font-size: 20px;
-  color: #005555;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-=======
 img {
   max-width: 100%;
   display: block;
   height: auto;
->>>>>>> development
 }
 
 a {
@@ -304,10 +287,6 @@ a, button {
   display: none;
 }
 
-<<<<<<< HEAD
-.formSection .wrapper {
-  height: 100vh;
-=======
 header,
 footer {
   background-color: rgba(241, 171, 185, 0.2);
@@ -377,7 +356,6 @@ button {
 }
 .formSection .wrapper {
   height: inherit;
->>>>>>> development
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -393,10 +371,6 @@ button {
           align-items: center;
 }
 
-<<<<<<< HEAD
-.resultsSection {
-  background-color: rgba(255, 245, 245, 0.5);
-=======
 .hide {
   display: none;
 }
@@ -416,7 +390,6 @@ p {
 
 .resultsSection {
   background-color: rgba(248, 251, 243, 0.5);
->>>>>>> development
 }
 
 .resultsHeading {
@@ -425,10 +398,7 @@ p {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-<<<<<<< HEAD
-=======
   margin-bottom: 130px;
->>>>>>> development
   background-color: #e8f7ee;
 }
 .resultsHeading h2 {
@@ -457,11 +427,7 @@ p {
   background-color: #e8f7ee;
   border: 15px double #53917e;
   position: absolute;
-<<<<<<< HEAD
-  bottom: 70px;
-=======
   bottom: -100px;
->>>>>>> development
   -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
 }
@@ -472,10 +438,6 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-<<<<<<< HEAD
-  margin-top: 5%;
-=======
->>>>>>> development
 }
 .recipesContainer .recipeCard {
   display: -webkit-box;
@@ -565,11 +527,7 @@ p {
 /**************************************/
 @media (max-width: 768px) {
   .recipesContainer .recipeCard:nth-child(odd),
-<<<<<<< HEAD
 .recipesContainer .recipeCard:nth-child(even) {
-=======
-  .recipesContainer .recipeCard:nth-child(even) {
->>>>>>> development
     width: 100%;
     margin-right: 0;
     margin-left: 0;

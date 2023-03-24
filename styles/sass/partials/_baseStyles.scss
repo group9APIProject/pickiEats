@@ -1,17 +1,12 @@
 @use './variables' as *;
 
 // Base Styles:
-<<<<<<< HEAD
-
-// Stripping Styles
-=======
 html {
     font-family: $headingFont, $bodyFont;
     font-size: 125%;  /* 20px default*/
     color: $textColour;
 }
 
->>>>>>> development
 p,
 ul,
 li,
@@ -38,22 +33,6 @@ input {
     margin: 0 auto;
 }
 
-<<<<<<< HEAD
-// Text Styles
-p {
-    font-size: 20px;
-    color: $textColour;
-}
-
-// General image styles
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-}
-
-=======
 // Images
 img {
     max-width: 100%;
@@ -73,7 +52,6 @@ img {
 //     width: 100%;
 // }
 
->>>>>>> development
 // Anchor Tags
 a {
     text-decoration: none;
@@ -92,9 +70,5 @@ a, button { cursor: pointer; }
 .flexContainer { display: flex; }
 
 // Display
-<<<<<<< HEAD
-.hide { display: none; }
-=======
->>>>>>> development
 
 // Form Styles

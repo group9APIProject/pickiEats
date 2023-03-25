@@ -1,9 +1,12 @@
 // namespace object
 const app = {};
 
-// Define Variables:
+// Define Global Variables:
+// app.apiKey
 app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 // app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+
+// recipe complex search endpoint
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";
 
 // global array of cuisines already excluded from user choices
@@ -24,7 +27,6 @@ app.excludedCuisines = [
     'Vietnamese'
 ];
 
-// Global Variables:
 // empty array to push user's ingredients
 app.excludedIngredients = [];
 // target input box 
@@ -54,7 +56,7 @@ app.getRecipes = (query1, query2) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 3
+        number: 1
     })
     fetch(url)
         .then(response => {
@@ -137,6 +139,7 @@ app.addButtonListener = () => {
     app.addButton.addEventListener('click', function (event) {
         // prevent form from reloading
         event.preventDefault();
+
         // target input element
         const inputElement = document.getElementById('inputText');
 
@@ -149,18 +152,28 @@ app.addButtonListener = () => {
         // if user input evaluates to truthy (i.e. input is a string & not empty)
         const hasIngredients = userInput.trim();
 
-        // if input box is not empty & string does not include a number
+        // if input box is not empty
         if (hasIngredients) {
+            // search for numeric characters in input string
             const number = /[0-9]+/;
+            // if returns -1, then number absent
             const numAbsent = hasIngredients.search(number);
+    
+            // search for special characters in input string
+            const specialChar = /[~`!@#$%\^.&*()\-.=+\\.|\[.{}\].:"';\\.<>\/.?]/;
+            const specialCharAbsent = hasIngredients.search(specialChar);
 
-            if (numAbsent === -1) {
+            // if input does not include a number AND special character
+            if (numAbsent === -1 && specialCharAbsent === -1) {
                 // convert string input into an array
                 const ingredientsArray = excludedIngredients.split(",");
 
                 // if array length <= 5, then loop over each ingredient in ingredients list array and append to DOM
                 if (ingredientsArray.length > 5) {
                     alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes).')
+
+                    // clear input box
+                    inputElement.value = '';
                 } else {
                     // loop over each ingredient and append to DOM
                     ingredientsArray.forEach((ingredient) => {
@@ -192,7 +205,10 @@ app.addButtonListener = () => {
                     });
                 }
             } else {
-                alert('Oops! Try again. Please use alpha characters only (a-z).')
+                alert('Oops! Try again. Please use alpha characters only (a-z) and comma(s) to separate each ingredient if more than one (maximum: 5; ex. peanuts, egg, mushroom, fish, cilantro).');
+
+                // clear input box
+                inputElement.value = '';
             }
         }
     });
@@ -233,7 +249,7 @@ app.submitForm = () => {
         checkboxes.forEach((checkbox) => {
             if (checkbox.checked) {
                 // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
-                // console.log(checkbox);
+
                 app.excludedCuisines.push(checkbox.value);
             }
             // clear all checkboxes on submit
@@ -319,7 +335,7 @@ app.startNewSearch = () => {
     reset.addEventListener('click', function () {
         // empty excluded ingredients global array
         app.excludedCuisines.splice(14, app.excludedCuisines.length);
-        console.log(app.excludedCuisines);
+
         // empty excluded ingredients global array
         app.excludedIngredients.splice(0, app.excludedIngredients.length);
         // remove results from html

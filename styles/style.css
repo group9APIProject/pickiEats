@@ -277,6 +277,11 @@ a, button {
   cursor: pointer;
 }
 
+.noHover {
+  background: lightslategrey;
+  pointer-events: none;
+}
+
 .flexContainer {
   display: -webkit-box;
   display: -ms-flexbox;

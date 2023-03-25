@@ -4,7 +4,7 @@ const app = {};
 // Define Variables:
 app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 // app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
-app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch"
+app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";
 
 // global array of cuisines already excluded from user choices
 app.excludedCuisines = [
@@ -25,9 +25,10 @@ app.excludedCuisines = [
 ];
 
 // Global Variables:
-
 // empty array to push user's ingredients
 app.excludedIngredients = [];
+// target input box 
+app.inputBox = document.querySelector('input[type="text"]');
 // target add button
 app.addButton = document.querySelector('.add');
 // target remove button
@@ -38,12 +39,13 @@ app.submitButton = document.querySelector('.submitBtn');
 app.ingredientsList = document.querySelector('.ingredientsList');
 
 // function to pull recipe information from Spoonacular API based on user's choice(s)
-app.getRecipes = (query) => {
+app.getRecipes = (query1, query2) => {
     const url = new URL(app.apiUrl);
     // add search parameters to url
     url.search = new URLSearchParams({
         apiKey: app.apiKey,
-        excludedCuisine: query,
+        excludeCuisine: query1,
+        excludeIngredients: query2,
         type: [
             'lunch',
             'main course',
@@ -137,48 +139,61 @@ app.addButtonListener = () => {
         event.preventDefault();
         // target input element
         const inputElement = document.getElementById('inputText');
+
         // store user input in a variable
         const userInput = inputElement.value;
+
         // convert user input to lowercase
         const excludedIngredients = userInput.toLowerCase();
 
         // if user input evaluates to truthy (i.e. input is a string & not empty)
         const hasIngredients = userInput.trim();
 
+        // if input box is not empty & string does not include a number
         if (hasIngredients) {
-            // convert string input into an array
-            const ingredientsArray = excludedIngredients.split(",");
+            const number = /[0-9]+/;
+            const numAbsent = hasIngredients.search(number);
 
-            // if array length <= 5, then loop over each ingredient in ingredients list array and append to DOM
-            if (ingredientsArray.length > 5) {
-                alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes).')
+            if (numAbsent === -1) {
+                // convert string input into an array
+                const ingredientsArray = excludedIngredients.split(",");
+
+                // if array length <= 5, then loop over each ingredient in ingredients list array and append to DOM
+                if (ingredientsArray.length > 5) {
+                    alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes).')
+                } else {
+                    // loop over each ingredient and append to DOM
+                    ingredientsArray.forEach((ingredient) => {
+                        // create <li> element
+                        const ingredientItem = document.createElement('li');
+
+                        // add text to <li>
+                        ingredientItem.textContent = ingredient;
+
+                        // add listItem class to <li>
+                        ingredientItem.classList.add('listItem');
+
+                        // append ingredient list item to ul in DOM
+                        app.ingredientsList.appendChild(ingredientItem);
+
+                        // push user's list of ingredients into global excluded ingredients array
+                        app.excludedIngredients.push(ingredient);
+
+                        // clear input box
+                        inputElement.value = '';
+
+                        // grey out add button
+                        app.addButton.classList.add('noHover');
+                        // disable input text box
+                        app.inputBox.disabled = true;
+
+                        // make removeButton functional
+                        app.removeButton.classList.remove('noHover');
+                    });
+                }
             } else {
-                // loop over each ingredient and append to DOM
-                ingredientsArray.forEach((ingredient) => {
-                    // create <li> element
-                    const ingredientItem = document.createElement('li');
-
-                    // add text to <li>
-                    ingredientItem.textContent = ingredient;
-
-                    // add listItem class to <li>
-                    ingredientItem.classList.add('listItem');
-
-                    // append ingredient list item to ul in DOM
-                    app.ingredientsList.appendChild(ingredientItem);
-
-                    // push user's list of ingredients into global excluded ingredients array
-                    app.excludedIngredients.push(ingredient);
-
-                    // clear input box
-                    inputElement.value = '';
-
-                    // grey out add button
-                    app.addButton.disabled = true;
-                });
+                alert('Oops! Try again. Please use alpha characters only (a-z).')
             }
-            // make removeButton functional
-            app.removeButton.disabled = false;
         }
     });
 }
@@ -191,10 +206,12 @@ app.removeButtonListener = () => {
         event.preventDefault();
         // remove ingredient list items from html
         app.ingredientsList.innerHTML = '';
+        // reactivate input text box
+        app.inputBox.disabled = false;
         //reactivate use of add button
-        app.addButton.disabled = false;
+        app.addButton.classList.remove('noHover');;
         // disable remove button
-        app.removeButton.disabled = true;
+        app.removeButton.classList.add('noHover');
         // empty excluded ingredients global array
         app.excludedIngredients.splice(0, app.excludedIngredients.length);
     });
@@ -233,22 +250,25 @@ app.submitForm = () => {
             const stringCuisines = app.excludedCuisines.toString();
             // convert excludedIngredients array into a string
             const stringIngredients = app.excludedIngredients.toString();
+
             console.log(stringCuisines, stringIngredients);
+
             // call app.getRecipes function with stringCuisines & stringIngredients as arguments
             app.getRecipes(stringCuisines, stringIngredients);
-            // disable submit button
-            app.submitButton.disabled = true;
+
+            // remove 'hide' class to display results section
+            const resultsSection = document.querySelector('.resultsSection');
+            resultsSection.classList.remove('hide');
+
+            // clear ingredient list on submit
+            app.ingredientsList.innerHTML = '';
+
+            // disable input box & all form buttons
+            app.inputBox.disabled = true;
+            app.submitButton.classList.add('noHover');
+            app.addButton.classList.add('noHover');
+            app.removeButton.classList.add('noHover'); 
         }
-
-        // clear ingredient list on submit
-        app.ingredientsList.innerHTML = '';
-
-        // disable remove button
-        app.removeButton.disabled = true;
-
-        // remove 'hide' class to display results section
-        const resultsSection = document.querySelector('.resultsSection');
-        resultsSection.classList.remove('hide');
     });
 }
 
@@ -297,12 +317,19 @@ app.startNewSearch = () => {
 
     // add event listener to reset button
     reset.addEventListener('click', function () {
+        // empty excluded ingredients global array
+        app.excludedCuisines.splice(14, app.excludedCuisines.length);
+        console.log(app.excludedCuisines);
+        // empty excluded ingredients global array
+        app.excludedIngredients.splice(0, app.excludedIngredients.length);
         // remove results from html
         recipesContainer.innerHTML = '';
+        // reactivate input text box
+        app.inputBox.disabled = false;
         //reactivate use of add button
-        app.addButton.disabled = false;
+        app.addButton.classList.remove('noHover');
         // reactivate submit button
-        app.submitButton.disabled = false;
+        app.submitButton.classList.remove('noHover');
         // add 'hide' class to results section
         resultsSection.classList.add('hide');
     });

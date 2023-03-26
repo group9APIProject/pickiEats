@@ -277,6 +277,11 @@ a, button {
   cursor: pointer;
 }
 
+.noHover {
+  background: lightslategrey;
+  pointer-events: none;
+}
+
 .flexContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -527,7 +532,7 @@ p {
 /**************************************/
 @media (max-width: 768px) {
   .recipesContainer .recipeCard:nth-child(odd),
-  .recipesContainer .recipeCard:nth-child(even) {
+.recipesContainer .recipeCard:nth-child(even) {
     width: 100%;
     margin-right: 0;
     margin-left: 0;

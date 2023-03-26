@@ -46,7 +46,7 @@
                     </p>
 
                     <!-- link to start app -->
-                    <button class="startButton"><a href="#recipeForm"></a>FIND A RECIPE 👈</a></button>
+                    <a class="startButton" href="#recipeForm">FIND A RECIPE 👈</a>
                 </div>
             </div>
         </section><!-- intro section ends -->
@@ -61,18 +61,35 @@
                         <legend>Which cuisine(s) do you NOT like?</legend>
                         <div class="cuisineChoices"></div>
                     </fieldset>
-                    <!-- submit button -->
-                    <button type="submit" class="submitBtn">Submit</button>
+                    
+                    <!-- button to shuffle options -->
                     <button type="reset" class="shuffleBtn">Shuffle Options</button>
 
-                    <!-- PUT <ul> CONTAINER HERE INSTEAD?? -->
-                    <!-- USE JS TO DISPLAY HEADING WITH RECIPES?? -->
+                    <div class="ingredients" id="ingredients">
+                        <div class="div">
+                            <label for="inputText">Ingredients to exclude</label>
+                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one
+                                ingredient, please separate each item with a comma.</p>
+                    
+                            <input type="text" id="inputText" name="inputText"
+                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
+                    
+                            <!-- button to add ingredients to list -->
+                            <button class="add">Add</button>
+                    
+                            <!-- button to clear list -->
+                            <button class="remove noHover">Clear List</button>
+                        </div>
+                        <!-- container for list of ingredients -->
+                        <div class="ingredientsList"></div>
+                    </div>
+                    
+                    <!-- submit button -->
+                    <button type="submit" class="submitBtn">Submit</button>
                 </form><!-- form ends -->
-                <!-- <ul class="recipesContainer flexContainer"></ul> -->
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
-        <!-- GET RID OF RESULTS SECTION & RESULTS HEADING - NOT REALLY NECESSARY -->
         <!-- results section begins -->
         <section class="resultsSection hide" id="results">
             <!-- section heading -->
@@ -86,14 +103,14 @@
                     <p>Here are some recipe ideas for you to choose from based on your particular taste:</p>
                 </div><!-- results heading text ends-->
             </div><!-- section heading ends -->
-
             <!-- wrapper -->
             <div class="wrapper">
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer"></ul>
             </div><!-- wrapper ends -->
 
-            <button class="reset">Try Again?</button>
+            <!-- button to restart recipe search -->
+            <a href="#recipeForm" class="reset">Try Again?</a>
 
         </section><!-- results section ends -->
     </main><!-- main ends -->

@@ -56,14 +56,14 @@ app.getRecipes = (query1, query2) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 1
+        number: 3
     })
     fetch(url)
         .then(response => {
             return response.json();
         })
         .then(jsonResult => {
-            // console.log(jsonResult);
+            console.log(jsonResult);
             app.displayRecipe(jsonResult);
         });
 }
@@ -306,15 +306,25 @@ app.displayRecipe = (recipeArray) => {
                 </div>
 
                 <div class="recipeText flexContainer">
-                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
+                    <a href="${recipe.sourceUrl}" class="recipeLink" target="_blank">
                         <h3>${recipe.title}</h3>
                     </a>
+                    <div class="addInfo flexContainer">
+                        <div class="prepTime">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <p>Prep Time: ${recipe.readyInMinutes} mins</p>
+                        </div>
+                        
+                        <div class="servings">
+                            <i class="fas fa-utensils"></i>
+                            <p>Servings: ${recipe.servings}<p/>
+                        </div>
+                    <div>
                 </div>
             `;
 
         // append img & h3 to li
         listItem.innerHTML = recipeHTML;
-
         // append li to ul
         recipesContainer.appendChild(listItem);
     });
@@ -324,18 +334,15 @@ app.displayRecipe = (recipeArray) => {
 app.startNewSearch = () => {
     // target 'reset' button
     const reset = document.querySelector('.reset');
-
     // target recipes container
     const recipesContainer = document.querySelector('.recipesContainer');
-
     // target results section
     const resultsSection = document.querySelector('.resultsSection');
 
     // add event listener to reset button
     reset.addEventListener('click', function () {
-        // empty excluded ingredients global array
+        // removed user's addition of excluded cuisines from  global array
         app.excludedCuisines.splice(14, app.excludedCuisines.length);
-
         // empty excluded ingredients global array
         app.excludedIngredients.splice(0, app.excludedIngredients.length);
         // remove results from html

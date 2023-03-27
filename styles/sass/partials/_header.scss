@@ -1,7 +1,4 @@
 @use './variables' as *;
-.hide{
-    display: none;
-}
 
 header,
 footer {
@@ -19,7 +16,7 @@ header {
 footer {
     height: 5vh;
     font-size: 1.2rem;
-    a{
+    a {
         padding: 0.5rem 0;
     }   
 }
@@ -48,18 +45,8 @@ h1 {
             list-style: none;
         }
     }
-}
 
-p {
-    font-family: $bodyFont;
-    font-size: 1.5rem;
-    padding-bottom: 3rem;
-}
- 
-button {
-    padding: 1.2rem;
-    display: block;
-    margin: auto;
+    p { padding-bottom: 3rem; }
 }
 
 .formSection {

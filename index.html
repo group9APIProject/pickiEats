@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link to style sheet -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- link to font awesome -->
+    <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
     <title>pickiEats</title>
 </head>
-
 <body>
     <!-- header begins -->
     <header>
@@ -40,19 +40,18 @@
 
                 <div class="textContainer">
                     <!-- h2? -->
-                    <p>For the picky eaters that don't know what they want, but do know what they don't want, we have
-                        the recipe for
+                    <p>For the picky eaters that don't know what they want, but do know what they don't want, we have the recipe for
                         <span>YOU</span>!
                     </p>
 
                     <!-- link to start app -->
-                    <a class="startButton" href="#recipeForm">FIND A RECIPE 👈</a>
+                    <a class="startButton" href="#recipeForm">Find A Recipe 👈</a>
                 </div>
             </div>
         </section><!-- intro section ends -->
 
         <!-- form section begins -->
-        <section class="formSection hide">
+        <section class="formSection">
             <!-- form section wrapper begins -->
             <div class="wrapper">
                 <!-- form begins -->
@@ -68,11 +67,10 @@
                     <div class="ingredients" id="ingredients">
                         <div class="div">
                             <label for="inputText">Ingredients to exclude</label>
-                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one
-                                ingredient, please separate each item with a comma.</p>
+                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</p>
                     
                             <input type="text" id="inputText" name="inputText"
-                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
+                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, dairy, gluten ">
                     
                             <!-- button to add ingredients to list -->
                             <button class="add">Add</button>
@@ -91,7 +89,7 @@
         </section><!-- form section ends -->
 
         <!-- results section begins -->
-        <section class="resultsSection hide" id="results">
+        <section class="resultsSection">
             <!-- section heading -->
             <div class="resultsHeading flexContainer">
                 <div class="resultsImgContainer">
@@ -106,12 +104,65 @@
             <!-- wrapper -->
             <div class="wrapper">
                 <!-- recipes container -->
-                <ul class="recipesContainer flexContainer"></ul>
+                <ul class="recipesContainer flexContainer">
+                    <li class="recipeCard">
+                        <div class="recipeImageContainer">
+                            <img src="https://spoonacular.com/recipeImages/633093-312x231.jpg" alt="Image of Autumn Fried Rice with Buffalo Nuts®">
+                        </div>
+                        
+                        <div class="recipeText flexContainer">
+                            <a href="http://www.foodista.com/recipe/LTPYSJCV/autumn-fried-rice-with-buffalo-nuts"class="recipeLink" target="_blank">
+                                <h3>Autumn Fried Rice with Buffalo Nuts®</h3>
+                            </a>
+                            <div class="addInfo flexContainer">
+                                <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
+                            
+                                <p class="servings"><i class="fas fa-utensils"></i> Serves: 8</p>
+                            <div>
+                        </div>
+                    </li>
+
+                    <li class="recipeCard">
+                        <div class="recipeImageContainer">
+                            <img src="https://spoonacular.com/recipeImages/662363-312x231.jpg"
+                            alt="Image of Super Speedy Spicy Sweet and Sour Shrimp">
+                        </div>
+
+                        <div class="recipeText flexContainer">
+                            <a href="http://www.foodista.com/recipe/J35D5LYD/super-speedy-spicy-sweet-and-sour-shrimp" class="recipeLink"
+                                target="_blank">
+                                <h3>Super Speedy Spicy Sweet and Sour Shrimp</h3>
+                            </a>
+                            <div class="addInfo flexContainer">
+                                <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
+                                
+                                <p class="servings"><i class="fas fa-utensils"></i> Serves: 4</p>
+                            <div>
+                        </div>
+                    </li>
+
+                    <li class="recipeCard">
+                        <div class="recipeImageContainer">
+                            <img src="https://spoonacular.com/recipeImages/639337-312x231.jpg"
+                            alt="Image of Chorizo, Bacon, Mushroom and Pea Pasta">
+                        </div>
+
+                        <div class="recipeText flexContainer">
+                            <a href="http://www.foodista.com/recipe/4F38QV2V/chorizo-bacon-mushroom-and-pea-pasta" className="recipeLink" target="_blank">
+                                <h3>Chorizo, Bacon, Mushroom and Pea Pasta</h3>
+                            </a>
+                            <div class="addInfo flexContainer">
+                                <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
+                    
+                                <p class="servings"><i class="fas fa-utensils"></i> Serves: 6</p>
+                            <div>
+                        </div>
+                    </li>
+                </ul>
+
+                <!-- button to restart recipe search -->
+                <a href="#recipeForm" class="reset">New Search</a>
             </div><!-- wrapper ends -->
-
-            <!-- button to restart recipe search -->
-            <a href="#recipeForm" class="reset">Try Again?</a>
-
         </section><!-- results section ends -->
     </main><!-- main ends -->
 
@@ -123,7 +174,7 @@
     </footer><!-- footer ends -->
 
     <!-- link to javascript -->
-    <script src="script.js"></script>
+    <!-- <script src="script.js"></script> -->
 </body>
 
 </html>

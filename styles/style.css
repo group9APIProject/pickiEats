@@ -449,9 +449,6 @@ h1 {
   width: calc(33.3333333333% - 10px);
   margin: 20px 0;
 }
-.recipeCard a {
-  width: 100%;
-}
 .recipeCard .recipeImageContainer {
   padding: 35px;
   background-color: rgba(83, 145, 126, 0.7);

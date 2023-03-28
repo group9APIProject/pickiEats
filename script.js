@@ -63,7 +63,6 @@ app.getRecipes = (query1, query2) => {
             return response.json();
         })
         .then(jsonResult => {
-            console.log(jsonResult);
             app.displayRecipe(jsonResult);
         });
 }
@@ -246,14 +245,13 @@ app.submitForm = () => {
         // store the selected checked boxes and push them into global excludedCuisines array
         const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
 
+        // loop over checkboxes
         checkboxes.forEach((checkbox) => {
+            // if checkbox.checked === true
             if (checkbox.checked) {
-                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
-
+                // then push value of checked input into global excludedCuisines array
                 app.excludedCuisines.push(checkbox.value);
-            }
-            // clear all checkboxes on submit
-            if (checkbox.checked) {
+                // clear all checkboxes on submit
                 checkbox.checked = false;
             }
         });
@@ -267,8 +265,6 @@ app.submitForm = () => {
             // convert excludedIngredients array into a string
             const stringIngredients = app.excludedIngredients.toString();
 
-            console.log(stringCuisines, stringIngredients);
-
             // call app.getRecipes function with stringCuisines & stringIngredients as arguments
             app.getRecipes(stringCuisines, stringIngredients);
 
@@ -281,9 +277,9 @@ app.submitForm = () => {
 
             // disable input box & all form buttons
             app.inputBox.disabled = true;
-            app.submitButton.classList.add('noHover');
             app.addButton.classList.add('noHover');
             app.removeButton.classList.add('noHover'); 
+            app.submitButton.classList.add('noHover');
         }
     });
 }
@@ -295,35 +291,34 @@ app.displayRecipe = (recipeArray) => {
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
-        // console.log(recipe);
         // create li element
         const listItem = document.createElement('li');
         listItem.classList.add('recipeCard');
 
         const recipeHTML = `
-                <div class="recipeImageContainer">
-                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
-                </div>
+            <!-- recipe image container -->
+            <div class="recipeImageContainer">
+                <img src="${recipe.image}" alt="Image of ${recipe.title}">
+            </div>
 
-                <div class="recipeText flexContainer">
-                    <a href="${recipe.sourceUrl}" class="recipeLink" target="_blank">
-                        <h3>${recipe.title}</h3>
-                    </a>
-                    <div class="addInfo flexContainer">
-                        <div class="prepTime">
-                            <i class="far fa-clock" aria-hidden="true"></i>
-                            <p>Prep Time: ${recipe.readyInMinutes} mins</p>
-                        </div>
-                        
-                        <div class="servings">
-                            <i class="fas fa-utensils"></i>
-                            <p>Servings: ${recipe.servings}<p/>
-                        </div>
-                    <div>
-                </div>
-            `;
+            <!-- recipe information -->
+            <div class="recipeText">
+                <!-- recipe link -->
+                <a href="${recipe.sourceUrl}" class="recipeLink" target="_blank">
+                    <p class="sr-only">To read recipe, click to open it in a new page.</p>
 
-        // append img & h3 to li
+                    <!-- recipe title -->
+                    <h3>${recipe.title}</h3>
+
+                    <!-- prep time -->
+                    <p><i class="far fa-clock" aria-hidden="true"></i> Prep time: ${recipe.readyInMinutes} mins</p>
+                    <!-- servings -->
+                    <p><i class="fas fa-utensils" aria-hidden="true"></i> Serves: ${recipe.servings}</p>
+                </a><!-- recipe link ends -->
+            </div><!-- recipe information ends -->
+        `;
+
+        // append HTML to li
         listItem.innerHTML = recipeHTML;
         // append li to ul
         recipesContainer.appendChild(listItem);

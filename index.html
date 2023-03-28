@@ -6,6 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- link to style sheet -->
     <link rel="stylesheet" href="./styles/style.css">
+    <!-- link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bona+Nova:wght@400;700&family=Caveat:wght@400;500;600;700&family=Indie+Flower&family=Oswald&family=Roboto+Condensed&family=Shadows+Into+Light&family=Tenor+Sans&family=Volkhov&display=swap"
+        rel="stylesheet">
     <!-- link to font awesome -->
     <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
     <title>pickiEats</title>
@@ -14,7 +20,7 @@
     <!-- header begins -->
     <header>
         <div class="wrapper">
-            <h1>PICKI EATS</h1>
+            <h1>Picki Eats</h1>
             <!-- ? image(logo) may put here -->
         </div>
     </header><!-- header ends -->
@@ -51,7 +57,7 @@
         </section><!-- intro section ends -->
 
         <!-- form section begins -->
-        <section class="formSection">
+        <section class="formSection hide">
             <!-- form section wrapper begins -->
             <div class="wrapper">
                 <!-- form begins -->
@@ -67,10 +73,10 @@
                     <div class="ingredients" id="ingredients">
                         <div class="div">
                             <label for="inputText">Ingredients to exclude</label>
-                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</p>
+                            <label class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</label>
                     
                             <input type="text" id="inputText" name="inputText"
-                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, dairy, gluten ">
+                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, dairy, gluten">
                     
                             <!-- button to add ingredients to list -->
                             <button class="add">Add</button>
@@ -89,7 +95,7 @@
         </section><!-- form section ends -->
 
         <!-- results section begins -->
-        <section class="resultsSection">
+        <section class="resultsSection hide">
             <!-- section heading -->
             <div class="resultsHeading flexContainer">
                 <div class="resultsImgContainer">
@@ -105,39 +111,36 @@
             <div class="wrapper">
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer">
-                    <li class="recipeCard">
+                    <!-- <li class="recipeCard">
                         <div class="recipeImageContainer">
                             <img src="https://spoonacular.com/recipeImages/633093-312x231.jpg" alt="Image of Autumn Fried Rice with Buffalo Nuts®">
                         </div>
                         
-                        <div class="recipeText flexContainer">
-                            <a href="http://www.foodista.com/recipe/LTPYSJCV/autumn-fried-rice-with-buffalo-nuts"class="recipeLink" target="_blank">
+                        <div class="recipeText">
+                            <a href="http://www.foodista.com/recipe/LTPYSJCV/autumn-fried-rice-with-buffalo-nuts" class="recipeLink"
+                            target="_blank">
+                                <p class="sr-only">To read recipe, click to open it in a new page.</p>
                                 <h3>Autumn Fried Rice with Buffalo Nuts®</h3>
-                            </a>
-                            <div class="addInfo flexContainer">
                                 <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
-                            
-                                <p class="servings"><i class="fas fa-utensils"></i> Serves: 8</p>
-                            <div>
+                                <p class="servings"><i class="fas fa-utensils"></i> Serves: 4</p>
+                            </a>
                         </div>
                     </li>
-
+                    
                     <li class="recipeCard">
                         <div class="recipeImageContainer">
                             <img src="https://spoonacular.com/recipeImages/662363-312x231.jpg"
-                            alt="Image of Super Speedy Spicy Sweet and Sour Shrimp">
+                                alt="Image of Super Speedy Spicy Sweet and Sour Shrimp">
                         </div>
 
                         <div class="recipeText flexContainer">
                             <a href="http://www.foodista.com/recipe/J35D5LYD/super-speedy-spicy-sweet-and-sour-shrimp" class="recipeLink"
-                                target="_blank">
+                            target="_blank">
+                                <p class="sr-only">To read recipe, click to open it in a new page.</p>
                                 <h3>Super Speedy Spicy Sweet and Sour Shrimp</h3>
-                            </a>
-                            <div class="addInfo flexContainer">
                                 <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
-                                
                                 <p class="servings"><i class="fas fa-utensils"></i> Serves: 4</p>
-                            <div>
+                            </a>
                         </div>
                     </li>
 
@@ -148,16 +151,16 @@
                         </div>
 
                         <div class="recipeText flexContainer">
-                            <a href="http://www.foodista.com/recipe/4F38QV2V/chorizo-bacon-mushroom-and-pea-pasta" className="recipeLink" target="_blank">
+                            <a href="http://www.foodista.com/recipe/4F38QV2V/chorizo-bacon-mushroom-and-pea-pasta" className="recipeLink"
+                            target="_blank">
+                                <p class="sr-only">To read recipe, click to open it in a new page.</p>
+
                                 <h3>Chorizo, Bacon, Mushroom and Pea Pasta</h3>
-                            </a>
-                            <div class="addInfo flexContainer">
                                 <p class="prepTime"><i class="far fa-clock"></i> Prep time: 45 mins</p>
-                    
                                 <p class="servings"><i class="fas fa-utensils"></i> Serves: 6</p>
-                            <div>
+                            </a>
                         </div>
-                    </li>
+                    </li> -->
                 </ul>
 
                 <!-- button to restart recipe search -->
@@ -174,7 +177,7 @@
     </footer><!-- footer ends -->
 
     <!-- link to javascript -->
-    <!-- <script src="script.js"></script> -->
+    <script src="script.js"></script>
 </body>
 
 </html>

@@ -333,6 +333,7 @@ h1 {
   font-family: "Young Serif";
   font-size: 4rem;
   letter-spacing: 0.5rem;
+  text-transform: uppercase;
   padding: 1rem 0;
 }
 
@@ -448,15 +449,8 @@ h1 {
   width: calc(33.3333333333% - 10px);
   margin: 20px 0;
 }
-.recipeCard:nth-child(1), .recipeCard:nth-child(4) {
-  margin-right: 10px;
-}
-.recipeCard:nth-child(2), .recipeCard:nth-child(5) {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.recipeCard:nth-child(3), .recipeCard:nth-child(6) {
-  margin-left: 10px;
+.recipeCard a {
+  width: 100%;
 }
 .recipeCard .recipeImageContainer {
   padding: 35px;
@@ -464,12 +458,13 @@ h1 {
 }
 .recipeCard img {
   width: 100%;
-  height: 280px;
+  height: 265px;
   border: 3px solid #f4fcff;
   -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
           box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
 }
-.recipeCard .recipeText {
+
+.recipeText {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -489,39 +484,32 @@ h1 {
   border-bottom: 10px double #53917e;
   color: #005555;
 }
-.recipeCard .recipeText p {
-  padding-bottom: 0;
+.recipeText a {
+  padding: 30px 15px 10px;
 }
-.recipeCard .recipeText a {
-  padding: 30px 15px;
+.recipeText a:hover, .recipeText a:focus {
+  opacity: 0.65;
 }
-.recipeCard .recipeText h3 {
-  line-height: 25px;
-  font-size: 22px;
+.recipeText h3 {
+  line-height: 1.3rem;
+  font-size: 1.2rem;
   font-weight: bold;
+  margin-bottom: 25px;
 }
-.recipeCard .recipeText a h3:hover,
-.recipeCard .recipeText a h3:focus {
-  text-decoration: underline;
-}
-
-.addInfo {
-  width: 100%;
-  padding: 0 2px 5px;
-  font-size: 0.9rem;
+.recipeText p {
+  font-size: 0.85rem;
   font-style: italic;
+  color: #000;
 }
-.addInfo i {
+.recipeText p:last-child {
+  margin-top: 3px;
+}
+.recipeText i {
   padding-right: 2px;
+  color: #005555;
 }
-.addInfo .fa-clock {
+.recipeText .fa-clock {
   font-weight: bold;
-}
-.addInfo .prepTime {
-  width: 60%;
-}
-.addInfo .servings {
-  width: 40%;
 }
 
 .reset {

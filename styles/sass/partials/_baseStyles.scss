@@ -78,6 +78,7 @@ footer {
 .flexContainer { display: flex; }
 
 // Display
-.hide { display: none; }
+.formSection.hide,
+.resultsSection.hide { display: none; }
 
 // Form Styles

@@ -303,7 +303,8 @@ footer {
   display: flex;
 }
 
-.hide {
+.formSection.hide,
+.resultsSection.hide {
   display: none;
 }
 

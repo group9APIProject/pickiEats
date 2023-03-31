@@ -232,6 +232,8 @@ app.removeButtonListener = () => {
     });
 }
 
+
+
 // function to listen for form submit and get user's cuisine options
 app.submitForm = () => {
     // target form from html
@@ -264,6 +266,8 @@ app.submitForm = () => {
             const stringCuisines = app.excludedCuisines.toString();
             // convert excludedIngredients array into a string
             const stringIngredients = app.excludedIngredients.toString();
+
+            console.log(stringCuisines, stringIngredients);
 
             // call app.getRecipes function with stringCuisines & stringIngredients as arguments
             app.getRecipes(stringCuisines, stringIngredients);
@@ -340,6 +344,9 @@ app.startNewSearch = () => {
         app.excludedCuisines.splice(14, app.excludedCuisines.length);
         // empty excluded ingredients global array
         app.excludedIngredients.splice(0, app.excludedIngredients.length);
+
+        console.log(app.excludedCuisines, app.excludedIngredients);
+
         // remove results from html
         recipesContainer.innerHTML = '';
         // reactivate input text box

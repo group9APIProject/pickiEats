@@ -60,7 +60,7 @@ img {
 //     width: 100%;
 // }
 
-// Anchor Tags
+// Anchor Tags & Button Styles
 a {
     text-decoration: none;
     display: inline-block;
@@ -70,10 +70,15 @@ a {
 
 a, button { cursor: pointer; }
 
+
 // Button Styles
 button {
     padding: 1.2rem;
     margin: auto;
+
+.noHover {
+    background: lightslategrey;
+    pointer-events: none;
 }
 
 // Background Colours

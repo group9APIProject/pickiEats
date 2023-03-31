@@ -2,9 +2,9 @@
 const app = {};
 
 // Define Global Variables:
-// app.apiKey
-app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+
+// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 
 // recipe complex search endpoint
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";
@@ -39,8 +39,14 @@ app.removeButton = document.querySelector('.remove');
 app.submitButton = document.querySelector('.submitBtn');
 // get ul element to append list of excluded ingredients
 app.ingredientsList = document.querySelector('.ingredientsList');
-
+// target form section
+app.form = document.querySelector('.formSection');
+// target recipes container
+app.recipesContainer = document.querySelector('.recipesContainer');
+// target start page
+app.startPage = document.querySelector('.startingPage');
 // function to pull recipe information from Spoonacular API based on user's choice(s)
+
 app.getRecipes = (query1, query2) => {
     const url = new URL(app.apiUrl);
     // add search parameters to url
@@ -63,7 +69,6 @@ app.getRecipes = (query1, query2) => {
             return response.json();
         })
         .then(jsonResult => {
-            // console.log(jsonResult);
             app.displayRecipe(jsonResult);
         });
 }
@@ -76,29 +81,24 @@ app.displayForm = () => {
     // add event listener to start button
     startButton.addEventListener('click', function () {
         // target form sections
-        const formSection = document.querySelector('.formSection');
+
+        // const app.formSection = document.querySelector('.formSection');
+
         // remove 'hide' class to display form section
-        formSection.classList.remove('hide');
+
+        app.startPage.classList.add('hide');
+        app.form.classList.remove('hide');
     });
 }
+
 
 // function to display cuisine options in HTML
 app.displayCuisines = () => {
     // array of cuisine options 
     const cuisineOptions = ['American', 'Chinese', 'Italian', 'Mexican', 'Thai', 'Japanese', 'French', 'Indian', 'Greek', 'Spanish', 'Korean', 'Middle Eastern'];
 
-    // create array of random cuisines
-    const randomCuisines = [];
-    while (randomCuisines.length < 4) {
-        const randomIndex = Math.floor(Math.random() * cuisineOptions.length);
-        const randomCuisine = cuisineOptions[randomIndex];
-        if (!randomCuisines.includes(randomCuisine)) {
-            randomCuisines.push(randomCuisine);
-        }
-    }
-
     // loop over each cuisine item in randomCuisines array to create HTML elements and append to form
-    randomCuisines.forEach((cuisine, index) => {
+    cuisineOptions.forEach((cuisine, index) => {
         // target HTML to append checkboxes
         const cuisineChoices = document.querySelector('.cuisineChoices');
 
@@ -115,6 +115,7 @@ app.displayCuisines = () => {
         cuisineChoices.appendChild(optionButton);
     });
 }
+
 
 // function to show more cuisine options
 app.setShuffleListener = () => {
@@ -158,7 +159,6 @@ app.addButtonListener = () => {
             const number = /[0-9]+/;
             // if returns -1, then number absent
             const numAbsent = hasIngredients.search(number);
-    
             // search for special characters in input string
             const specialChar = /[~`!@#$%\^.&*()\-.=+\\.|\[.{}\].:"';\\.<>\/.?]/;
             const specialCharAbsent = hasIngredients.search(specialChar);
@@ -233,27 +233,26 @@ app.removeButtonListener = () => {
     });
 }
 
+
+
 // function to listen for form submit and get user's cuisine options
 app.submitForm = () => {
-    // target form from html
-    const form = document.querySelector('form');
 
     // add event listener to form
-    form.addEventListener('submit', function (event) {
+    app.form.addEventListener('submit', function (event) {
         // prevent form from reloading
         event.preventDefault();
 
         // store the selected checked boxes and push them into global excludedCuisines array
         const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
 
+        // loop over checkboxes
         checkboxes.forEach((checkbox) => {
+            // if checkbox.checked === true
             if (checkbox.checked) {
-                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
-
+                // then push value of checked input into global excludedCuisines array
                 app.excludedCuisines.push(checkbox.value);
-            }
-            // clear all checkboxes on submit
-            if (checkbox.checked) {
+                // clear all checkboxes on submit
                 checkbox.checked = false;
             }
         });
@@ -281,42 +280,51 @@ app.submitForm = () => {
 
             // disable input box & all form buttons
             app.inputBox.disabled = true;
-            app.submitButton.classList.add('noHover');
             app.addButton.classList.add('noHover');
-            app.removeButton.classList.add('noHover'); 
+            app.removeButton.classList.add('noHover');
+            app.submitButton.classList.add('noHover');
+
+            app.form.classList.add('hide');
         }
     });
 }
 
 // function to display recipes to DOM
 app.displayRecipe = (recipeArray) => {
-    // target <ul> recipe container in HTML
-    const recipesContainer = document.querySelector('.recipesContainer');
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
-        // console.log(recipe);
         // create li element
         const listItem = document.createElement('li');
         listItem.classList.add('recipeCard');
 
         const recipeHTML = `
-                <div class="recipeImageContainer">
-                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
-                </div>
+            <!-- recipe image container -->
+            <div class="recipeImageContainer">
+                <img src="${recipe.image}" alt="Image of ${recipe.title}">
+            </div>
 
-                <div class="recipeText flexContainer">
-                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
-                        <h3>${recipe.title}</h3>
-                    </a>
-                </div>
-            `;
+            <!-- recipe information -->
+            <div class="recipeText">
+                <!-- recipe link -->
+                <a href="${recipe.sourceUrl}" class="recipeLink" target="_blank">
+                    <p class="sr-only">To read recipe, click to open it in a new page.</p>
 
-        // append img & h3 to li
+                    <!-- recipe title -->
+                    <h3>${recipe.title}</h3>
+
+                    <!-- prep time -->
+                    <p><i class="far fa-clock" aria-hidden="true"></i> Prep time: ${recipe.readyInMinutes} mins</p>
+                    <!-- servings -->
+                    <p><i class="fas fa-utensils" aria-hidden="true"></i> Serves: ${recipe.servings}</p>
+                </a><!-- recipe link ends -->
+            </div><!-- recipe information ends -->
+        `;
+
+        // append HTML to li
         listItem.innerHTML = recipeHTML;
-
         // append li to ul
-        recipesContainer.appendChild(listItem);
+        app.recipesContainer.appendChild(listItem);
     });
 }
 
@@ -325,21 +333,20 @@ app.startNewSearch = () => {
     // target 'reset' button
     const reset = document.querySelector('.reset');
 
-    // target recipes container
-    const recipesContainer = document.querySelector('.recipesContainer');
-
     // target results section
     const resultsSection = document.querySelector('.resultsSection');
 
     // add event listener to reset button
     reset.addEventListener('click', function () {
-        // empty excluded ingredients global array
+        // removed user's addition of excluded cuisines from  global array
         app.excludedCuisines.splice(14, app.excludedCuisines.length);
-
         // empty excluded ingredients global array
         app.excludedIngredients.splice(0, app.excludedIngredients.length);
+
+        console.log(app.excludedCuisines, app.excludedIngredients);
+
         // remove results from html
-        recipesContainer.innerHTML = '';
+        app.recipesContainer.innerHTML = '';
         // reactivate input text box
         app.inputBox.disabled = false;
         //reactivate use of add button
@@ -348,6 +355,37 @@ app.startNewSearch = () => {
         app.submitButton.classList.remove('noHover');
         // add 'hide' class to results section
         resultsSection.classList.add('hide');
+
+        app.startPage.classList.remove('hide');
+
+    });
+}
+
+app.moreCuisines = () => {
+
+
+    const resubmitButton = document.querySelector('.resubmitBtn');
+
+
+    resubmitButton.addEventListener('click', (event) => {
+
+        event.preventDefault();
+
+        // simulate form submission
+        app.form.dispatchEvent(new Event('submit'));
+
+
+        // const stringCuisines = app.excludedCuisines.toString();
+        // convert excludedIngredients array into a string
+        // const stringIngredients = app.excludedIngredients.toString();
+
+
+
+        // call app.getRecipes function with stringCuisines & stringIngredients as arguments
+        // app.getRecipes(stringCuisines, stringIngredients);
+
+
+
     });
 }
 
@@ -355,11 +393,13 @@ app.startNewSearch = () => {
 app.init = () => {
     app.displayForm();
     app.displayCuisines();
-    app.setShuffleListener();
+    // app.setShuffleListener();
     app.addButtonListener();
     app.removeButtonListener();
     app.submitForm();
     app.startNewSearch();
+    app.moreCuisines();
+
 }
 
 // call init function

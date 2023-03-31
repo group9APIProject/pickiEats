@@ -1,10 +1,18 @@
 @use './variables' as *;
 
 // Base Styles:
-html {
-    font-family: $headingFont, $bodyFont;
-    font-size: 125%;  /* 20px default*/
+html { 
+    font-size: 125%;  /* 20px default*/    
+}
+
+body {
+    font-family: $bodyFont;
     color: $textColour;
+}
+
+h1, h2, h3 {
+    font-family: $headingFont;
+    font-weight: normal;
 }
 
 p,
@@ -20,6 +28,13 @@ form,
 input {
     margin: 0;
     padding: 0;
+}
+
+p {
+    font-size: 1.5rem;
+    color: #005555;
+    font-family: $bodyFont;
+    padding-bottom: 3rem;
 }
 
 .recipesContainer {
@@ -38,15 +53,8 @@ img {
     max-width: 100%;
     display: block;
     height: auto;
+    object-fit: cover;
 }
-
-// General image styles
-// img {
-//     max-width: 100%;
-//     height: auto;
-//     display: block;
-//     object-fit: cover;
-// }
 
 // .recipes img {
 //     width: 100%;
@@ -61,6 +69,12 @@ a {
 }
 
 a, button { cursor: pointer; }
+
+
+// Button Styles
+button {
+    padding: 1.2rem;
+    margin: auto;
 
 .noHover {
     background: lightslategrey;

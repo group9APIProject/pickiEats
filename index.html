@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <!-- link to style sheet -->
     <link rel="stylesheet" href="./styles/style.css">
     <title>pickiEats</title>
@@ -12,15 +14,23 @@
 
 <body>
     <!-- header begins -->
+
     <header>
-        <div class="wrapper">
-            <h1>PICKI EATS</h1>
-            <!-- ? image(logo) may put here -->
-        </div>
+
+        <!-- image(logo) -->
+        <!-- <img src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=200&background=transparent&u=1679615564"> -->
+
+        <!-- <img src ="./styles/assets/pickieats-logo(1).png" /> -->
+
+        <h1>PICKI <span>
+                <img
+                    src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=200&background=transparent&u=1679615564">
+            </span> EATS</h1>
     </header><!-- header ends -->
 
     <!-- main begins -->
     <main>
+        <!-- intro to app section begins -->
         <!-- intro to app section begins -->
         <section class="startingPage">
             <!-- intro image of different cuisines -->
@@ -58,35 +68,37 @@
                 <!-- form begins -->
                 <form class="recipeForm" id="recipeForm">
                     <fieldset>
-                        <legend>Which cuisine(s) do you NOT like?</legend>
+                        <legend>Which cuisine(s) do you NOT like ?</legend>
                         <div class="cuisineChoices"></div>
                     </fieldset>
-                    
-                    <!-- button to shuffle options -->
-                    <button type="reset" class="shuffleBtn">Shuffle Options</button>
+                        <div class="ingredients" id="ingredients">
+                            <div class="div">
+                                <label for="inputText">Ingredients to exclude</label>
+                                <p class="sr-only">Maximum number of ingredients is five. If entering more than
+                                    one
+                                    ingredient, please separate each item with a comma.</p>
 
-                    <div class="ingredients" id="ingredients">
-                        <div class="div">
-                            <label for="inputText">Ingredients to exclude</label>
-                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one
-                                ingredient, please separate each item with a comma.</p>
-                    
-                            <input type="text" id="inputText" name="inputText"
-                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
-                    
-                            <!-- button to add ingredients to list -->
-                            <button class="add">Add</button>
-                    
-                            <!-- button to clear list -->
-                            <button class="remove noHover">Clear List</button>
+                                <input type="text" id="inputText" name="inputText"
+                                    placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
+
+                                <!-- button to add ingredients to list -->
+                                <button class="add">Add</button>
+
+                                <!-- button to clear list -->
+                                <button class="remove noHover">Clear List</button>
+                            </div>
+                            <!-- container for list of ingredients -->
+                            <div class="ingredientsList"></div>
                         </div>
-                        <!-- container for list of ingredients -->
-                        <div class="ingredientsList"></div>
-                    </div>
-                    
-                    <!-- submit button -->
-                    <button type="submit" class="submitBtn">Submit</button>
+                            <button type="submit" class="submitBtn">Submit</button>
                 </form><!-- form ends -->
+
+
+
+                <!-- submit button -->
+                <button type="submit" class="submitBtn">Submit</button>
+                </form><!-- form ends -->
+                >>>>>>> development
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
@@ -105,14 +117,21 @@
             </div><!-- section heading ends -->
             <!-- wrapper -->
             <div class="wrapper">
+
+
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer"></ul>
+
+
             </div><!-- wrapper ends -->
 
             <!-- button to restart recipe search -->
             <a href="#recipeForm" class="reset">Try Again?</a>
+            <button type="submit" class="resubmitBtn">More Recipe</button>
+
 
         </section><!-- results section ends -->
+
     </main><!-- main ends -->
 
     <!-- footer begins -->

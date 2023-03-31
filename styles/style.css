@@ -229,9 +229,17 @@ html {
 }
 
 html {
-  font-family: "Young Serif", "Jakarta Sans";
   font-size: 125%; /* 20px default*/
+}
+
+body {
+  font-family: "Jakarta Sans";
   color: #005555;
+}
+
+h1, h2, h3 {
+  font-family: "Young Serif";
+  font-weight: normal;
 }
 
 p,
@@ -249,6 +257,13 @@ input {
   padding: 0;
 }
 
+p {
+  font-size: 1.5rem;
+  color: #005555;
+  font-family: "Jakarta Sans";
+  padding-bottom: 3rem;
+}
+
 .recipesContainer {
   list-style: none;
 }
@@ -263,6 +278,8 @@ img {
   max-width: 100%;
   display: block;
   height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 a {
@@ -276,6 +293,11 @@ a {
 a, button {
   cursor: pointer;
 }
+
+
+button {
+  padding: 1.2rem;
+  margin: auto;
 
 .noHover {
   background: lightslategrey;
@@ -295,15 +317,62 @@ a, button {
 header,
 footer {
   background-color: rgba(241, 171, 185, 0.2);
-  display: block;
-  width: 100vw;
-  text-align: center;
+}
+
+main {
+  background-color: rgba(83, 145, 126, 0.2);
 }
 
 header {
-  height: 15vh;
-  top: 0;
-  left: 0;
+  height: 10rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+header h1 span img {
+  padding-top: 20px;
+  display: inline-block;
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: 0.5rem;
+  padding: 2rem 0;
+}
+
+.startingPage {
+  padding: 80px 0;
+}
+.startingPage .imageContainer ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  list-style: none;
+  padding-bottom: 50px;
+}
+.startingPage .imageContainer ul li {
+  width: calc(33.3333333333% - 20px);
+}
+.startingPage .imageContainer ul li img {
+  height: 280px;
+  border: 3px solid #f4fcff;
+  -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
+          box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
 }
 
 footer {
@@ -312,85 +381,6 @@ footer {
 }
 footer a {
   padding: 0.5rem 0;
-}
-
-h1 {
-  font-family: "Young Serif";
-  font-size: 4rem;
-  letter-spacing: 0.5rem;
-  padding: 1rem 0;
-}
-
-.startingPage {
-  background-color: rgba(83, 145, 126, 0.2);
-  width: 100vw;
-  height: 80vh;
-}
-.startingPage .imageContainer ul {
-  padding: 3rem 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  list-style: none;
-}
-
-p {
-  font-family: "Jakarta Sans";
-  font-size: 1.5rem;
-  padding-bottom: 3rem;
-}
-
-button {
-  padding: 1.2rem;
-  display: block;
-  margin: auto;
-}
-
-.formSection {
-  display: block;
-  background-color: rgba(83, 145, 126, 0.2);
-}
-
-.formSection {
-  height: 100vh;
-}
-.formSection .wrapper {
-  height: inherit;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.hide {
-  display: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-p {
-  font-size: 20px;
-  color: #005555;
 }
 
 .resultsSection {
@@ -554,3 +544,32 @@ p {
 /**************************************/
 /* 2nd SMALL BREAK POINT FOR HEIGHT   */
 /**************************************/
+form {
+  width: 100%;
+}
+
+fieldset {
+  border: 1px solid #53917e;
+  padding: 30px 0;
+}
+
+legend {
+  font-size: 1.8rem;
+}
+
+.optionButton {
+  line-height: 1.5rem;
+  padding-left: 30px;
+  width: 33.333%;
+  float: left;
+}
+
+.ingredients {
+  padding: 50px;
+  display: block;
+}
+
+input[type=text] {
+  width: 60%;
+  height: 4rem;
+}

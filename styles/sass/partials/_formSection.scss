@@ -1,0 +1,36 @@
+@use './variables' as *;
+
+// Form Styles:
+form {
+    // height: 90vh;
+    width: 100%;   
+}
+
+fieldset{
+    border: 1px solid $secondary;
+    padding: 30px 0;
+}
+
+legend {
+    font-size: 1.8rem;
+}
+
+.optionButton {
+    line-height: 1.5rem;
+    padding-left: 30px;
+    width: 33.333%;
+    float: left;
+}
+
+.ingredients {
+    padding: 50px;
+    display: block
+    
+
+}
+
+input[type="text"] {
+    width: 60%;
+    height: 4rem;
+}
+

@@ -84,7 +84,7 @@ app.displayForm = () => {
         // const app.formSection = document.querySelector('.formSection');
 
         // remove 'hide' class to display form section
-
+       
         app.startPage.classList.add('hide');
         app.form.classList.remove('hide');
     });
@@ -332,7 +332,7 @@ app.displayRecipe = (recipeArray) => {
 app.startNewSearch = () => {
     // target 'reset' button
     const reset = document.querySelector('.reset');
-
+    
     // target results section
     const resultsSection = document.querySelector('.resultsSection');
 
@@ -363,7 +363,7 @@ app.startNewSearch = () => {
 
 app.moreCuisines = () => {
 
-
+    
     const resubmitButton = document.querySelector('.resubmitBtn');
 
 

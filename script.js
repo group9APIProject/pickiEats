@@ -2,7 +2,7 @@
 const app = {};
 
 // Define Global Variables:
-// app.apiKey
+
 // app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
 app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 
@@ -46,6 +46,7 @@ app.recipesContainer = document.querySelector('.recipesContainer');
 // target start page
 app.startPage = document.querySelector('.startingPage');
 // function to pull recipe information from Spoonacular API based on user's choice(s)
+
 app.getRecipes = (query1, query2) => {
     const url = new URL(app.apiUrl);
     // add search parameters to url
@@ -61,7 +62,7 @@ app.getRecipes = (query1, query2) => {
         ],
         addRecipeInformation: true,
         sort: 'random',
-        number: 3
+        number: 1
     })
     fetch(url)
         .then(response => {
@@ -158,7 +159,6 @@ app.addButtonListener = () => {
             const number = /[0-9]+/;
             // if returns -1, then number absent
             const numAbsent = hasIngredients.search(number);
-
             // search for special characters in input string
             const specialChar = /[~`!@#$%\^.&*()\-.=+\\.|\[.{}\].:"';\\.<>\/.?]/;
             const specialCharAbsent = hasIngredients.search(specialChar);

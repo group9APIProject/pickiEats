@@ -294,9 +294,14 @@ a, button {
   cursor: pointer;
 }
 
+
 button {
   padding: 1.2rem;
   margin: auto;
+
+.noHover {
+  background: lightslategrey;
+  pointer-events: none;
 }
 
 .flexContainer {
@@ -517,7 +522,7 @@ footer a {
 /**************************************/
 @media (max-width: 768px) {
   .recipesContainer .recipeCard:nth-child(odd),
-  .recipesContainer .recipeCard:nth-child(even) {
+.recipesContainer .recipeCard:nth-child(even) {
     width: 100%;
     margin-right: 0;
     margin-left: 0;

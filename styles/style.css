@@ -378,8 +378,31 @@ footer a {
   padding: 0.5rem 0;
 }
 
+.formSection {
+  height: 100vh;
+}
+.formSection .wrapper {
+  height: inherit;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .resultsSection {
   background-color: rgba(248, 251, 243, 0.5);
+}
+.resultsSection .wrapper {
+  text-align: center;
 }
 
 .resultsHeading {
@@ -429,7 +452,8 @@ footer a {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-.recipesContainer .recipeCard {
+
+.recipeCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -440,28 +464,19 @@ footer a {
   width: calc(33.3333333333% - 10px);
   margin: 20px 0;
 }
-.recipesContainer .recipeCard:nth-child(1), .recipesContainer .recipeCard:nth-child(4) {
-  margin-right: 10px;
-}
-.recipesContainer .recipeCard:nth-child(2), .recipesContainer .recipeCard:nth-child(5) {
-  margin-left: 5px;
-  margin-right: 5px;
-}
-.recipesContainer .recipeCard:nth-child(3), .recipesContainer .recipeCard:nth-child(6) {
-  margin-left: 10px;
-}
-.recipesContainer .recipeCard .recipeImageContainer {
+.recipeCard .recipeImageContainer {
   padding: 35px;
   background-color: rgba(83, 145, 126, 0.7);
 }
-.recipesContainer .recipeCard img {
+.recipeCard img {
   width: 100%;
-  height: 280px;
+  height: 265px;
   border: 3px solid #f4fcff;
   -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
           box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
 }
-.recipesContainer .recipeCard .recipeText {
+
+.recipeText {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
@@ -481,17 +496,45 @@ footer a {
   border-bottom: 10px double #53917e;
   color: #005555;
 }
-.recipesContainer .recipeCard .recipeText a {
-  padding: 30px 15px;
+.recipeText a {
+  padding: 30px 15px 10px;
 }
-.recipesContainer .recipeCard .recipeText h3 {
-  line-height: 25px;
-  font-size: 22px;
+.recipeText a:hover, .recipeText a:focus {
+  opacity: 0.65;
+}
+.recipeText h3 {
+  line-height: 1.3rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+.recipeText p {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: #000;
+}
+.recipeText p:last-child {
+  margin-top: 3px;
+}
+.recipeText i {
+  padding-right: 2px;
+  color: #005555;
+}
+.recipeText .fa-clock {
   font-weight: bold;
 }
-.recipesContainer .recipeCard .recipeText a h3:hover,
-.recipesContainer .recipeCard .recipeText a h3:focus {
-  text-decoration: underline;
+
+.reset {
+  margin: 20px 0 35px;
+  padding: 15px 38px;
+  background-color: transparent;
+  border: 4px solid #f1abb9;
+  color: #005555;
+  font-weight: bold;
+}
+.reset:hover, .reset:focus {
+  background-color: #e8f7ee;
+  border: 4px solid #53917e;
 }
 
 /**************************************/

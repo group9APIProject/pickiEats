@@ -1,0 +1,54 @@
+@use './variables' as *;
+
+header,
+footer {
+    background-color: rgba($accent,0.2);
+    display: block;
+    width: 100vw;
+    text-align: center;
+}
+
+header {
+    height: 15vh;
+    top: 0;
+    left: 0;
+}
+footer {
+    height: 5vh;
+    font-size: 1.2rem;
+    a {
+        padding: 0.5rem 0;
+    }   
+}
+
+h1 {
+    font-family: $headingFont;
+    font-size: 4rem;
+    letter-spacing: 0.5rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+}
+
+// maybe setup as section: height:80vh ? 
+.startingPage {
+    background-color: rgba($secondary,0.2);
+    width: 100vw;
+    height: 80vh;
+    .imageContainer {
+        ul{
+            padding: 3rem 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            list-style: none;
+        }
+    }
+
+    p { padding-bottom: 3rem; }
+}
+
+.formSection {
+    display: block;
+    background-color: rgba($secondary, 0.2);
+    
+}

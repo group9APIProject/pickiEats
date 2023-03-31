@@ -3,8 +3,8 @@ const app = {};
 
 // Define Global Variables:
 // app.apiKey
-app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 
 // recipe complex search endpoint
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";

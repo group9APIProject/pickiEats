@@ -2,9 +2,8 @@
 const app = {};
 
 // Define Global Variables:
-// app.apiKey
-app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
-// app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
+// app.apiKey = 'c8f1c1da6fe84ef6b510afbd3ad28f27';
+app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 
 // recipe complex search endpoint
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";
@@ -39,6 +38,12 @@ app.removeButton = document.querySelector('.remove');
 app.submitButton = document.querySelector('.submitBtn');
 // get ul element to append list of excluded ingredients
 app.ingredientsList = document.querySelector('.ingredientsList');
+// target form section
+app.form = document.querySelector('.formSection');
+// target recipes container
+app.recipesContainer = document.querySelector('.recipesContainer');
+// target start page
+app.startPage = document.querySelector('.startingPage');
 
 // function to pull recipe information from Spoonacular API based on user's choice(s)
 app.getRecipes = (query1, query2) => {
@@ -63,12 +68,9 @@ app.getRecipes = (query1, query2) => {
             return response.json();
         })
         .then(jsonResult => {
-            // console.log(jsonResult);
             app.displayRecipe(jsonResult);
         });
 }
-
-    app.formSection = document.querySelector('.formSection');
 
 // function to display form
 app.displayForm = () => {
@@ -77,29 +79,27 @@ app.displayForm = () => {
 
     // add event listener to start button
     startButton.addEventListener('click', function () {
-        // target form sections
-
-        // const app.formSection = document.querySelector('.formSection');
-        
-        // remove 'hide' class to display form section
-        const startPage = document.querySelector('.startingPage');
-        startPage.classList.add('hide');
-        app.formSection.classList.remove('hide');
+        // hide start page when startbutton is clicked
+        app.startPage.classList.add('hide');
+        // form section appears when startbutton is clicked
+        app.form.classList.remove('hide');
     });
 }
+
 
 // function to display cuisine options in HTML
 app.displayCuisines = () => {
     // array of cuisine options 
     const cuisineOptions = ['American', 'Chinese', 'Italian', 'Mexican', 'Thai', 'Japanese', 'French', 'Indian', 'Greek', 'Spanish', 'Korean', 'Middle Eastern'];
 
-    // loop over each cuisine item in randomCuisines array to create HTML elements and append to form
+    // loop over each cuisine item in cuisineOptions array to create HTML elements and append to form
     cuisineOptions.forEach((cuisine, index) => {
-        // target HTML to append checkboxes
+        // target cuisineChoices container
         const cuisineChoices = document.querySelector('.cuisineChoices');
 
         // create div element to populate with label and input
         const optionButton = document.createElement('div');
+        // add opntionButton class to div
         optionButton.classList.add('optionButton');
 
         // add input/label HTML to div
@@ -111,6 +111,7 @@ app.displayCuisines = () => {
         cuisineChoices.appendChild(optionButton);
     });
 }
+
 
 // function to add user's ingredients to list in html
 app.addButtonListener = () => {
@@ -137,7 +138,7 @@ app.addButtonListener = () => {
             const number = /[0-9]+/;
             // if returns -1, then number absent
             const numAbsent = hasIngredients.search(number);
-    
+
             // search for special characters in input string
             const specialChar = /[~`!@#$%\^.&*()\-.=+\\.|\[.{}\].:"';\\.<>\/.?]/;
             const specialCharAbsent = hasIngredients.search(specialChar);
@@ -204,7 +205,7 @@ app.removeButtonListener = () => {
         // reactivate input text box
         app.inputBox.disabled = false;
         //reactivate use of add button
-        app.addButton.classList.remove('noHover');;
+        app.addButton.classList.remove('noHover');
         // disable remove button
         app.removeButton.classList.add('noHover');
         // empty excluded ingredients global array
@@ -212,78 +213,27 @@ app.removeButtonListener = () => {
     });
 }
 
-// function to display recipes to DOM
-app.displayRecipe = (recipeArray) => {
-    // target <ul> recipe container in HTML
-    const recipesContainer = document.querySelector('.recipesContainer');
 
-    // loop over each recipe item to create & append elements to <ul> recipe container
-    recipeArray.results.forEach(recipe => {
-        console.log(recipe);
-        // create li element
-        const listItem = document.createElement('li');
-        listItem.classList.add('recipeCard');
-
-        // create img element
-        // const recipeImage = document.createElement('img');
-
-        // create h3 element
-        // const recipeHeading = document.createElement('h3');
-
-        // populate src & alt attributes of img elements
-        // recipeImage.src = recipe.image;
-        // recipeImage.alt = `Image of ${recipe.title}`
-
-        // add text to h3
-        // recipeHeading.textContent = recipe.title;
-
-        const recipeHTML = `
-                <div class="recipeImageContainer">
-                    <img src="${recipe.image}" alt="Image of ${recipe.title}">
-                </div>
-
-                <div class="recipeText flexContainer">
-                    <a href="${recipe.sourceUrl}" className="recipeLink" target="_blank">
-                        <h3>${recipe.title}</h3>
-                    </a>
-                </div>
-            `;
-
-        
-        // append img & h3 to li
-        listItem.innerHTML = recipeHTML;
-        // listItem.appendChild(recipeHeading);
-
-        // append li to ul
-        recipesContainer.appendChild(listItem);
-    });
-
-}
-
-// https://spoonacular.com/recipeImages/157458-312x231.jpg
-// https://spoonacular.com/recipeImages/666262-312x231.jpg
 
 // function to listen for form submit and get user's cuisine options
 app.submitForm = () => {
-    // target form from html
-    const form = document.querySelector('form');
 
     // add event listener to form
-    form.addEventListener('submit', function (event) {
+    app.form.addEventListener('submit', function (event) {
         // prevent form from reloading
         event.preventDefault();
-
+        // target resultsSection
+        const resultsSection = document.querySelector('.resultsSection');
         // store the selected checked boxes and push them into global excludedCuisines array
         const checkboxes = event.target.querySelectorAll('input[type = "checkbox"]');
 
+        // loop over checkboxes
         checkboxes.forEach((checkbox) => {
+            // if checkbox.checked === true
             if (checkbox.checked) {
-                // if checkbox.checked === true, then add(push) value of checked input into global excludedCuisines array
-
+                // then push value of checked input into global excludedCuisines array
                 app.excludedCuisines.push(checkbox.value);
-            }
-            // clear all checkboxes on submit
-            if (checkbox.checked) {
+                // clear all checkboxes on submit
                 checkbox.checked = false;
             }
         });
@@ -297,87 +247,107 @@ app.submitForm = () => {
             // convert excludedIngredients array into a string
             const stringIngredients = app.excludedIngredients.toString();
 
-            console.log(stringCuisines, stringIngredients);
-
             // call app.getRecipes function with stringCuisines & stringIngredients as arguments
             app.getRecipes(stringCuisines, stringIngredients);
 
             // remove 'hide' class to display results section
-            const resultsSection = document.querySelector('.resultsSection');
             resultsSection.classList.remove('hide');
-            app.formSection.classList.add('hide');
 
             // clear ingredient list on submit
             app.ingredientsList.innerHTML = '';
 
             // disable input box & all form buttons
             app.inputBox.disabled = true;
-            app.submitButton.classList.add('noHover');
             app.addButton.classList.add('noHover');
-            app.removeButton.classList.add('noHover'); 
+            app.removeButton.classList.add('noHover');
+            app.submitButton.classList.add('noHover');
+            // hide form
+            app.form.classList.add('hide');
         }
     });
 }
 
 // function to display recipes to DOM
 app.displayRecipe = (recipeArray) => {
-    // console.log(recipeArray.results);
-
-    // target <ul> recipe container in HTML
-    const recipesContainer = document.querySelector('.recipesContainer');
 
     // loop over each recipe item to create & append elements to <ul> recipe container
     recipeArray.results.forEach(recipe => {
         // create li element
         const listItem = document.createElement('li');
+        // add recipeCard class to li
+        listItem.classList.add('recipeCard');
 
-        // create img element
-        const recipeImage = document.createElement('img');
+        const recipeHTML = `
+            <!-- recipe image container -->
+            <div class="recipeImageContainer">
+                <img src="${recipe.image}" alt="Image of ${recipe.title}">
+            </div>
 
-        // create h2 element
-        const recipeHeading = document.createElement('h2');
+            <!-- recipe information -->
+            <div class="recipeText">
+                <!-- recipe link -->
+                <a href="${recipe.sourceUrl}" class="recipeLink" target="_blank">
+                    <p class="sr-only">To read recipe, click to open it in a new page.</p>
 
-        // populate src & alt attributes of img elements
-        recipeImage.src = recipe.image;
-        recipeImage.alt = `Image of recipe ${recipe.title}`
+                    <!-- recipe title -->
+                    <h3>${recipe.title}</h3>
 
-        // add text to h2
-        recipeHeading.textContent = recipe.title;
+                    <!-- prep time -->
+                    <p><i class="far fa-clock" aria-hidden="true"></i> Prep time: ${recipe.readyInMinutes} mins</p>
+                    <!-- servings -->
+                    <p><i class="fas fa-utensils" aria-hidden="true"></i> Serves: ${recipe.servings}</p>
+                </a><!-- recipe link ends -->
+            </div><!-- recipe information ends -->
+        `;
 
-        // append img & h2 to li
-        listItem.appendChild(recipeImage);
-        listItem.appendChild(recipeHeading);
-
+        // append HTML to li
+        listItem.innerHTML = recipeHTML;
         // append li to ul
-        recipesContainer.appendChild(listItem);
+        app.recipesContainer.appendChild(listItem);
+    });
+}
+
+// function to remove previous recipe results and bring user back to form to start search again
+app.startNewSearch = () => {
+    // target 'reset' button
+    const reset = document.querySelector('.reset');
+
+    // target results section
+    const resultsSection = document.querySelector('.resultsSection');
+
+    // add event listener to reset button
+    reset.addEventListener('click', function () {
+        // removed user's addition of excluded cuisines from  global array
+        app.excludedCuisines.splice(14, app.excludedCuisines.length);
+        // empty excluded ingredients global array
+        app.excludedIngredients.splice(0, app.excludedIngredients.length);
+
+        // remove results from html
+        app.recipesContainer.innerHTML = '';
+        // reactivate input text box
+        app.inputBox.disabled = false;
+        //reactivate use of add button
+        app.addButton.classList.remove('noHover');
+        // reactivate submit button
+        app.submitButton.classList.remove('noHover');
+        // add 'hide' class to results section
+        resultsSection.classList.add('hide');
+        // unhide startPage
+        app.startPage.classList.remove('hide');
+
     });
 }
 
 app.moreCuisines = () => {
-
-    const recipesContainer = document.querySelector('.recipesContainer');
-    const form = document.querySelector('form');
+    // target resubmitBtn
     const resubmitButton = document.querySelector('.resubmitBtn');
 
-
+    // add event listener to resubmitBtn
     resubmitButton.addEventListener('click', (event) => {
 
         event.preventDefault();
-
         // simulate form submission
-        form.dispatchEvent(new Event('submit'));
-
-
-        // const stringCuisines = app.excludedCuisines.toString();
-        // convert excludedIngredients array into a string
-        // const stringIngredients = app.excludedIngredients.toString();
-
-
-
-        // call app.getRecipes function with stringCuisines & stringIngredients as arguments
-        // app.getRecipes(stringCuisines, stringIngredients);
-
-
+        app.form.dispatchEvent(new Event('submit'));
 
     });
 }
@@ -389,8 +359,9 @@ app.init = () => {
     app.addButtonListener();
     app.removeButtonListener();
     app.submitForm();
+    app.startNewSearch();
     app.moreCuisines();
-    // app.startNewSearch();
+
 }
 
 // call init function

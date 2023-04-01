@@ -1,54 +1,77 @@
 @use './variables' as *;
+.hide {
+    display: none;
+}
 
 header,
 footer {
     background-color: rgba($accent,0.2);
-    display: block;
-    width: 100vw;
-    text-align: center;
+    // display: block;
+    // text-align: center;
+}
+
+main {
+    background-color: rgba($secondary, 0.2);
 }
 
 header {
-    height: 15vh;
-    top: 0;
-    left: 0;
+    height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1{
+    
+        span{
+
+            img {
+                padding-top: 20px;
+                display: inline-block;
+            }
+        }
+    }
 }
-footer {
-    height: 5vh;
-    font-size: 1.2rem;
-    a {
-        padding: 0.5rem 0;
-    }   
-}
+
 
 h1 {
-    font-family: $headingFont;
     font-size: 4rem;
     letter-spacing: 0.5rem;
-    text-transform: uppercase;
-    padding: 1rem 0;
+    padding: 2rem 0;
 }
 
-// maybe setup as section: height:80vh ? 
-.startingPage {
-    background-color: rgba($secondary,0.2);
-    width: 100vw;
-    height: 80vh;
+
+.startingPage {   
+    padding: 80px 0;
+
     .imageContainer {
         ul{
-            padding: 3rem 0;
             display: flex;
+            flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             list-style: none;
+            padding-bottom: 50px;
+            li {
+                width: calc((100% / 3) - 20px);
+                img {
+                    height: 280px;
+                    border: 3px solid $whiteOne;
+                    box-shadow: 2px 2px 3px #005555,
+                        10px 10px 0 $primary,
+                        -2px -2px 3px #005555,
+                        -10px -10px 0 $primary;
+                }
+            }
         }
     }
-
-    p { padding-bottom: 3rem; }
 }
 
-.formSection {
-    display: block;
-    background-color: rgba($secondary, 0.2);
-    
+
+
+footer {
+    height: 5vh;
+    font-size: 1.2rem;
+
+    a {
+        padding: 0.5rem 0;
+    }
 }

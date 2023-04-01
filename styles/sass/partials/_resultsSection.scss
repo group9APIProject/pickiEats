@@ -1,17 +1,5 @@
 @use './variables' as *;
 
-.formSection {
-    height: 100vh;
-
-    .wrapper {
-        height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-}
-
 // RESULTS SECTION STYLES:
 .resultsSection { 
     background-color: rgba($whiteTwo, 0.5); 

@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- link to style sheet -->
+
+
+    <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="./styles/style.css">
     <!-- link to google fonts -->
     <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,34 +19,40 @@
 <body>
     <!-- header begins -->
     <header>
-        <div class="wrapper">
-            <h1>Picki Eats</h1>
-            <!-- ? image(logo) may put here -->
-        </div>
+
+        <h1>PICKI
+            <span>
+                <img
+                    src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=200&background=transparent&u=1679615564">
+            </span>
+            EATS
+        </h1>
     </header><!-- header ends -->
 
     <!-- main begins -->
     <main>
         <!-- intro to app section begins -->
         <section class="startingPage">
-            <!-- intro image of different cuisines -->
             <div class="wrapper">
                 <!-- intro image of different cuisines -->
                 <div class="imageContainer" id="showDishes">
                     <ul>
-                        <li><img src="./styles/assets/Middle-Eastern_Easy-Tabouleh-312x231.jpg"
+                        <li>
+                            <img src="./styles/assets/Middle-Eastern_Easy-Tabouleh-312x231.jpg"
                                 alt="Middle Eastern, Easy Tabouleh">
                         </li>
-                        <li><img src="./styles/assets/Spanish_Dutch-Oven-Paella.jpg" alt="Spanish, Dutch Oven Paella">
+                        <li>
+                            <img src="./styles/assets/Spanish_Dutch-Oven-Paella.jpg" alt="Spanish, Dutch Oven Paella">
                         </li>
-                        <li><img src="./styles/assets/Thai_Thai-Pasta-Salad-312x231.jpg" alt="Thai, Thai Pasta Salad">
+                        <li>
+                            <img src="./styles/assets/Thai_Thai-Pasta-Salad-312x231.jpg" alt="Thai, Thai Pasta Salad">
                         </li>
                     </ul>
                 </div>
 
                 <div class="textContainer">
-                    <!-- h2? -->
-                    <p>For the picky eaters that don't know what they want, but do know what they don't want, we have the recipe for
+                    <p>For the picky eaters that don't know what they want, but do know what they don't want, we have
+                        the recipe for
                         <span>YOU</span>!
                     </p>
 
@@ -56,47 +65,49 @@
                     <!-- <p>Click below to find the recipe that meets all of your exclusionary tastes!</p> -->
 
                     <!-- link to start app -->
-                    <a class="startButton" href="#recipeForm">Find A Recipe 👈</a>
+                    <a class="startButton" href="#recipeForm"><button>FIND A RECIPE 👈</button></a>
                 </div>
             </div>
         </section><!-- intro section ends -->
 
         <!-- form section begins -->
         <section class="formSection hide">
-            <!-- form section wrapper begins -->
+            <!-- wrapper -->
             <div class="wrapper">
                 <!-- form begins -->
                 <form class="recipeForm" id="recipeForm">
                     <fieldset>
-                        <legend>Which cuisine(s) do you NOT like?</legend>
+                        <legend>Which cuisine(s) do you NOT like ?</legend>
                         <div class="cuisineChoices"></div>
                     </fieldset>
-                    
-                    <!-- button to shuffle options -->
-                    <button type="reset" class="shuffleBtn">Shuffle Options</button>
 
                     <div class="ingredients" id="ingredients">
                         <div class="div">
-                            <label for="inputText">Ingredients to exclude</label>
-                            <label class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</label>
-                    
-                            <!-- limit number of characters?? -->
+                            <label for="inputText">Ingredients to exclude </label>
+
+                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one
+                                ingredient, please separate each item with a comma.</p>
+
                             <input type="text" id="inputText" name="inputText"
-                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, dairy, gluten">
-                    
+                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
+
                             <!-- button to add ingredients to list -->
                             <button class="add">Add</button>
-                    
+
                             <!-- button to clear list -->
                             <button class="remove noHover">Clear List</button>
                         </div>
                         <!-- container for list of ingredients -->
-                        <div class="ingredientsList"></div>
+                        <div class="ingredientsList">
+
+                        </div>
                     </div>
-                    
+
                     <!-- submit button -->
                     <button type="submit" class="submitBtn">Submit</button>
                 </form><!-- form ends -->
+
+
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
@@ -116,13 +127,22 @@
             </div><!-- section heading ends -->
             <!-- wrapper -->
             <div class="wrapper">
+
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer"></ul>
+
+            </div><!-- wrapper ends -->
+
+            <!-- button to restart recipe search -->
+            <a href="#recipeForm" class="reset">Try Again?</a>
+            <!-- button to display more recipes -->
+            <button type="submit" class="resubmitBtn">More Recipe</button>
 
                 <!-- button to restart recipe search -->
                 <a href="#recipeForm" class="reset">New Search</a>
             </div><!-- wrapper ends -->
         </section><!-- results section ends -->
+
     </main><!-- main ends -->
 
     <!-- footer begins -->

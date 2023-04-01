@@ -1,48 +1,38 @@
 @use './variables' as *;
-.hide {
-    display: none;
-}
 
 header,
 footer {
     background-color: rgba($accent,0.2);
-    // display: block;
-    // text-align: center;
 }
 
 main {
-    background-color: rgba($secondary, 0.2);
+    background-color: rgba($primary, 0.5);
 }
 
 header {
-    height: 10rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 0 10px 0;
     h1{
-    
-        span{
-
-            img {
-                padding-top: 20px;
-                display: inline-block;
-            }
+        display: flex;     
+        img {
+            width: 150px;
+            display: inline-block;
         }
     }
- 
 }
 
 
 h1 {
-    font-size: 4rem;
+    font-size: 3.6rem;
     letter-spacing: 0.5rem;
-    padding: 2rem 0;
 }
 
 
 .startingPage {   
-    padding: 80px 0;
-
+    padding: 3rem 0 2.5rem 0;
+    min-height: calc(100vh - 200px);
     .imageContainer {
         ul{
             display: flex;
@@ -56,23 +46,33 @@ h1 {
                 img {
                     height: 280px;
                     border: 3px solid $whiteOne;
-                    box-shadow: 2px 2px 3px #005555,
-                        10px 10px 0 $primary,
-                        -2px -2px 3px #005555,
-                        -10px -10px 0 $primary;
+                    box-shadow: 2px 2px 3px $textColour,
+                        10px 10px 0 rgba($secondary, 0.5),
+                        -2px -2px 3px $textColour,
+                        -10px -10px 0 rgba($secondary, 0.5);
                 }
-            };
+            }
         }
+    }
+    .textContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        line-height: 2.4rem;
     }
 }
 
-
+.startButton {
+    padding: 1rem 2rem;
+    font-size: 2rem;
+    margin: 30px 0;
+}
 
 footer {
-    height: 5vh;
+    padding: 0.75rem 0;
     font-size: 1.2rem;
-
-    a {
-        padding: 0.5rem 0;
-    }
+    text-align: center;
+    letter-spacing: 1px;
 }

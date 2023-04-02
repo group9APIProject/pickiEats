@@ -7,6 +7,8 @@ app.apiKey = "20a367ef2c2e4d4380d95b890faae49b";
 
 // recipe complex search endpoint
 app.apiUrl = "https://proxy.junocollege.com/https://api.spoonacular.com/recipes/complexSearch";
+// api endpoint to search if ingredient exists
+app.apiUrlIng = "https://api.spoonacular.com/food/ingredients/search";
 
 // global array of cuisines already excluded from user choices
 app.excludedCuisines = [
@@ -119,77 +121,88 @@ app.addButtonListener = () => {
     app.addButton.addEventListener('click', function (event) {
         // prevent form from reloading
         event.preventDefault();
-
         // target input element
         const inputElement = document.getElementById('inputText');
-
         // store user input in a variable
         const userInput = inputElement.value;
-
         // convert user input to lowercase
         const excludedIngredients = userInput.toLowerCase();
-
         // if user input evaluates to truthy (i.e. input is a string & not empty)
         const hasIngredients = userInput.trim();
-
         // if input box is not empty
         if (hasIngredients) {
             // search for numeric characters in input string
             const number = /[0-9]+/;
             // if returns -1, then number absent
             const numAbsent = hasIngredients.search(number);
-
             // search for special characters in input string
             const specialChar = /[~`!@#$%\^.&*()\-.=+\\.|\[.{}\].:"';\\.<>\/.?]/;
+            // if returns -1, then special characters absent
             const specialCharAbsent = hasIngredients.search(specialChar);
-
             // if input does not include a number AND special character
             if (numAbsent === -1 && specialCharAbsent === -1) {
                 // convert string input into an array
                 const ingredientsArray = excludedIngredients.split(",");
-
-                // if array length <= 5, then loop over each ingredient in ingredients list array and append to DOM
+                // if array length > 5, alert user; otherwise loop over each ingredient in array to confirm ingredient exists in api & append to DOM
                 if (ingredientsArray.length > 5) {
-                    alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes).')
-
+                    // alert user maximun number of ingredients to input is five (5)
+                    alert('Oops! The maximum number of ingredients to exclude from the recipe search is five (5). Please be sure to separate each ingredient with a comma (ex. beef, parsley, tomatoes, dairy, gluten).');
                     // clear input box
                     inputElement.value = '';
                 } else {
-                    // loop over each ingredient and append to DOM
+                    // search each ingredient in API
                     ingredientsArray.forEach((ingredient) => {
-                        // create <li> element
-                        const ingredientItem = document.createElement('li');
-
-                        // add text to <li>
-                        ingredientItem.textContent = ingredient;
-
-                        // add listItem class to <li>
-                        ingredientItem.classList.add('listItem');
-
-                        // append ingredient list item to ul in DOM
-                        app.ingredientsList.appendChild(ingredientItem);
-
-                        // push user's list of ingredients into global excluded ingredients array
-                        app.excludedIngredients.push(ingredient);
-
-                        // clear input box
-                        inputElement.value = '';
-
-                        // grey out add button
-                        app.addButton.classList.add('noHover');
-                        // disable input text box
-                        app.inputBox.disabled = true;
-
-                        // make removeButton functional
-                        app.removeButton.classList.remove('noHover');
+                        // api endpoint for ingredient search
+                        const url = new URL(app.apiUrlIng);
+                        // search params for ingredient search
+                        url.search = new URLSearchParams({
+                            apiKey: app.apiKey,
+                            query: ingredient,
+                            number: 3
+                        })
+                        fetch(url)
+                            .then(response => {
+                                return response.json();
+                            })
+                            .then(jsonResult => {
+                                // if ingredient returns zero results, remove from recipe search & provide alert; otherwise append ingredient to DOM and include in recipe search
+                                console.log(jsonResult);
+                                if (jsonResult.totalResults === 0) {
+                                    // alert user the ingredient is not found
+                                    alert(`Oops! Looks like "${ingredient}" could not be found.`)
+                                    // clear input box
+                                    inputElement.value = '';
+                                } else {
+                                    // create <li> element
+                                    const ingredientItem = document.createElement('li');
+                                    // add text to <li>
+                                    ingredientItem.textContent = ingredient;
+                                    // add listItem class to <li>
+                                    ingredientItem.classList.add('listItem');
+                                    // append ingredient list item to ul in DOM
+                                    app.ingredientsList.appendChild(ingredientItem);
+                                    // push user's list of ingredients into global excluded ingredients array
+                                    app.excludedIngredients.push(ingredient);
+                                    // clear input box
+                                    inputElement.value = '';
+                                    // grey out add button
+                                    app.addButton.classList.add('noHover');
+                                    // disable input text box
+                                    // app.inputBox.disabled = true;
+                                    // make removeButton functional
+                                    app.removeButton.classList.remove('noHover');
+                                }
+                            })
                     });
                 }
             } else {
-                alert('Oops! Try again. Please use alpha characters only (a-z) and comma(s) to separate each ingredient if more than one (maximum: 5; ex. peanuts, egg, mushroom, fish, cilantro).');
-
+                // alert user to use only alpha charachters & comma
+                alert('Oops! Try again. Please use alpha characters only (a-z) and comma(s) to separate each ingredient if more than one (maximum: 5; ex. peanuts, egg, mushroom, fish, dairy).');
                 // clear input box
                 inputElement.value = '';
             }
+            // make remove button functional
+            app.removeButton.disabled = false;
         }
     });
 }

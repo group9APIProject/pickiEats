@@ -14,6 +14,7 @@
 </head>
 <body>
     <!-- header begins -->
+
     <header>
 
         <h1>PICKI
@@ -27,6 +28,7 @@
 
     <!-- main begins -->
     <main>
+        <!-- intro to app section begins -->
         <!-- intro to app section begins -->
         <section class="startingPage">
             <div class="wrapper">
@@ -53,7 +55,7 @@
                     </p>
 
                     <!-- link to start app -->
-                    <a class="startButton" href="#recipeForm"><button>FIND A RECIPE 👈</button></a>
+                    <button class="startButton">Find A Recipe 👈</button>
                 </div>
             </div>
         </section><!-- intro section ends -->
@@ -69,33 +71,32 @@
                         <div class="cuisineChoices"></div>
                     </fieldset>
 
-                    <div class="ingredients" id="ingredients">
-                        <div class="div">
+                    <div class="ingredients flexContainer" id="ingredients">
+                        <div class="inputDiv flexContainer">
                             <label for="inputText">Ingredients to exclude </label>
-
                             <p class="sr-only">Maximum number of ingredients is five. If entering more than one
                                 ingredient, please separate each item with a comma.</p>
 
                             <input type="text" id="inputText" name="inputText"
                                 placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
-
+                        </div>
+                        <div class="listButtons flexContainer">
                             <!-- button to add ingredients to list -->
                             <button class="add">Add</button>
 
                             <!-- button to clear list -->
                             <button class="remove noHover">Clear List</button>
-                        </div>
-                        <!-- container for list of ingredients -->
-                        <div class="ingredientsList">
-
-                        </div>
+                        </div>   
                     </div>
 
+                    <!-- container for list of ingredients -->
+                    <ul class="ingredientsList"></ul>
+
                     <!-- submit button -->
-                    <button type="submit" class="submitBtn">Submit</button>
+                    <div class = "submitBtnContainer">                        
+                        <button type="submit" class="submitBtn">Submit</button> 
+                    </div>
                 </form><!-- form ends -->
-
-
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
@@ -114,26 +115,22 @@
             </div><!-- section heading ends -->
             <!-- wrapper -->
             <div class="wrapper">
-
                 <!-- recipes container -->
-                <ul class="recipesContainer flexContainer"></ul>
+                <ul class="recipesContainer flexContainer"></ul>           
+
+                <!-- button to restart recipe search -->
+                <button class="reset">New Search</button>
+                <!-- button to display more recipes -->
+                <button type="submit" class="resubmitBtn">Show More Recipes</button>
 
             </div><!-- wrapper ends -->
-
-            <!-- button to restart recipe search -->
-            <a href="#recipeForm" class="reset">Try Again?</a>
-            <!-- button to display more recipes -->
-            <button type="submit" class="resubmitBtn">More Recipe</button>
-
         </section><!-- results section ends -->
 
     </main><!-- main ends -->
 
     <!-- footer begins -->
     <footer>
-        <div class="wrapper">
-            <a href="https://junocollege.com/">created at Juno College</a>
-        </div>
+        <a href="https://junocollege.com/">Created at Juno College</a>       
     </footer><!-- footer ends -->
 
     <!-- link to javascript -->

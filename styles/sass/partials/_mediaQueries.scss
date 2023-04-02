@@ -1,0 +1,75 @@
+@use './variables' as *;
+
+// Media Queries for Results Section:
+
+/**************************************/
+/* 1st BIG BREAK POINT:               */
+/* Portrait Tablet and Small Desktops */
+/**************************************/
+@media (max-width: 940px) {
+
+    // RESULTS SECTION
+    .recipesContainer {
+        .recipeCard {
+
+            width: calc((100% / 2) - 15px);
+
+            &:nth-child(odd) {
+                margin-right: 15px;
+                margin-left: 0;
+            }
+
+            &:nth-child(even) {
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+    }
+
+}
+
+/**************************************/
+/* 2nd BIG BREAK POINT:               */
+/* Landscape Phone to Portrait Tablet */
+/**************************************/
+@media (max-width: 768px) {
+
+    // RESULTS SECTION
+    .recipesContainer {
+
+        .recipeCard:nth-child(odd),
+        .recipeCard:nth-child(even) {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+}
+
+
+
+/**************************************/
+/* 1st SMALL BREAK POINT FOR HEIGHT */
+/**************************************/
+@media (max-height: 600px) {}
+
+/**************************************/
+/* 2nd SMALL BREAK POINT:             */
+/**************************************/
+@media (max-width: 568px) {}
+
+/**************************************/
+/* 3rd BIG BREAK POINT:               */
+/* Landscape Phones and Down          */
+/**************************************/
+@media (max-width: 480px) {}
+
+/**************************************/
+/* 3rd SMALL BREAK POINT              */
+/**************************************/
+@media (max-width: 350px) {}
+
+/**************************************/
+/* 2nd SMALL BREAK POINT FOR HEIGHT   */
+/**************************************/
+@media (max-height: 320px) {}

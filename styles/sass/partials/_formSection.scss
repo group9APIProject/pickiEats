@@ -3,10 +3,10 @@
 // Form Styles:
 form {
     padding-top: 50px;
-    
+
 }
 
-fieldset{
+fieldset {
     font-size: 1.4rem;
     line-height: 2.5rem;
     border: 1px solid $secondary;
@@ -20,29 +20,34 @@ legend,
     font-weight: 800;
 }
 
+.cuisineChoices {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
 .optionButton {
     padding-left: 30px;
-    width: 33.333%;
-    float: left;
+    width: calc(100% / 3);
+
 }
 
 .ingredients {
     padding-top: 50px;
     width: 100%;
-    .inputDiv{
+    flex-direction: column;
+
+    .inputDiv {
         flex-direction: column;
-        width: calc(70% - 1%);
-        margin-right: 1% ;
+        width: 100%;
+
         label {
             margin-bottom: 15px;
         }
-        
+
     }
-    .listButtons {
-        margin-left: 1%;
-        width: calc(30% - 1%);
-        align-items: flex-end;
-    }
+
+
 }
 
 input[type="text"] {
@@ -54,18 +59,12 @@ input[type="text"] {
 .remove {
     font-size: 1.2rem;
     padding: 10px 20px;
-    height: 80px;       
-}
-.add {
-    margin-right: 1%;
-    width: calc(40% - 1%);
-}
-.remove {
-    margin-left: 1%;
-    width: calc(60% - 1%);
+    height: 80px;
+    width: 48%;
+    margin: 1%;
 }
 
-.ingredientsList{
+.ingredientsList {
     padding: 30px 0;
     margin-top: 30px;
     list-style-position: inside;
@@ -81,7 +80,12 @@ input[type="text"] {
 .submitBtnContainer {
     text-align: center;
 }
+
 .submitBtn {
     margin: 50px 0;
     font-size: 1.6rem;
+}
+
+.min {
+    font-size: 1.2rem;
 }

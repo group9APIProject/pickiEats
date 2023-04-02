@@ -330,6 +330,7 @@ main {
 }
 
 header {
+  height: 15vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -565,33 +566,36 @@ legend,
   font-weight: 800;
 }
 
+.cuisineChoices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .optionButton {
   padding-left: 30px;
-  width: 33.333%;
-  float: left;
+  width: 33.3333333333%;
 }
 
 .ingredients {
   padding-top: 50px;
   width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .ingredients .inputDiv {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 69%;
-  margin-right: 1%;
+  width: 100%;
 }
 .ingredients .inputDiv label {
   margin-bottom: 15px;
-}
-.ingredients .listButtons {
-  margin-left: 1%;
-  width: 29%;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
 }
 
 input[type=text] {
@@ -604,16 +608,8 @@ input[type=text] {
   font-size: 1.2rem;
   padding: 10px 20px;
   height: 80px;
-}
-
-.add {
-  margin-right: 1%;
-  width: 39%;
-}
-
-.remove {
-  margin-left: 1%;
-  width: 59%;
+  width: 48%;
+  margin: 1%;
 }
 
 .ingredientsList {
@@ -641,11 +637,20 @@ input[type=text] {
   font-size: 1.6rem;
 }
 
+.min {
+  font-size: 1.2rem;
+}
+
 /**************************************/
 /* 1st BIG BREAK POINT:               */
 /* Portrait Tablet and Small Desktops */
 /**************************************/
 @media (max-width: 940px) {
+  .recipesContainer {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
   .recipesContainer .recipeCard {
     width: calc(50% - 15px);
   }
@@ -656,6 +661,20 @@ input[type=text] {
   .recipesContainer .recipeCard:nth-child(even) {
     margin-left: 15px;
     margin-right: 0;
+  }
+  .optionButton {
+    width: 50%;
+  }
+  .ingredientsList {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .ingredientsList .listItem {
+    width: 33.3333333333%;
+    text-align: center;
   }
 }
 /**************************************/
@@ -669,20 +688,101 @@ input[type=text] {
     margin-right: 0;
     margin-left: 0;
   }
+  .startingPage .imageContainer ul li {
+    width: calc(50% - 20px);
+  }
+  .startingPage li:nth-child(3) {
+    display: none;
+  }
 }
 /**************************************/
 /* 1st SMALL BREAK POINT FOR HEIGHT */
 /**************************************/
+@media (max-height: 600px) {
+  .optionButton {
+    padding: 0px;
+    width: 100%;
+  }
+}
 /**************************************/
 /* 2nd SMALL BREAK POINT:             */
 /**************************************/
+@media (max-width: 568px) {
+  .ingredientsList {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .ingredientsList .listItem {
+    width: 50%;
+  }
+  h1 {
+    font-size: 2.8rem;
+  }
+  h1 span {
+    display: inline-block;
+  }
+  .startingPage .imageContainer ul li {
+    width: 100%;
+  }
+  .startingPage .imageContainer ul li img {
+    width: inherit;
+  }
+  .startingPage .imageContainer li:nth-child(2) {
+    display: none;
+  }
+}
 /**************************************/
 /* 3rd BIG BREAK POINT:               */
 /* Landscape Phones and Down          */
-/**************************************/
+/*********************[*****************/
+@media (max-width: 480px) {
+  .cuisineChoices {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .optionButton {
+    padding: 0px;
+    width: 100%;
+  }
+  .ingredientsList {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .ingredientsList .listItem {
+    width: 100%;
+  }
+  header {
+    height: 10vh;
+  }
+  header h1 {
+    display: none;
+  }
+  .logoContainer.hide {
+    display: block;
+  }
+}
 /**************************************/
 /* 3rd SMALL BREAK POINT              */
 /**************************************/
 /**************************************/
 /* 2nd SMALL BREAK POINT FOR HEIGHT   */
 /**************************************/
+@media (max-height: 320px) {
+  .listButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}

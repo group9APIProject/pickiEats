@@ -2,7 +2,7 @@
 
 header,
 footer {
-    background-color: rgba($accent,0.2);
+    background-color: rgba($accent, 0.2);
 }
 
 main {
@@ -10,17 +10,21 @@ main {
 }
 
 header {
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 20px 0 10px 0;
-    h1{
-        display: flex;     
+
+    h1 {
+        display: flex;
+
         img {
             width: 150px;
             display: inline-block;
         }
     }
+
 }
 
 
@@ -30,19 +34,22 @@ h1 {
 }
 
 
-.startingPage {   
+.startingPage {
     padding: 3rem 0 2.5rem 0;
     min-height: calc(100vh - 200px);
+
     .imageContainer {
-        ul{
+        ul {
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-between;
             list-style: none;
             padding-bottom: 50px;
+
             li {
                 width: calc((100% / 3) - 20px);
+
                 img {
                     height: 280px;
                     border: 3px solid $whiteOne;
@@ -54,7 +61,8 @@ h1 {
             }
         }
     }
-    .textContainer{
+
+    .textContainer {
         display: flex;
         flex-direction: column;
         justify-content: center;

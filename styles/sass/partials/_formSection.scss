@@ -2,35 +2,90 @@
 
 // Form Styles:
 form {
-    // height: 90vh;
-    width: 100%;   
+    padding-top: 50px;
+
 }
 
-fieldset{
+fieldset {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
     border: 1px solid $secondary;
-    padding: 30px 0;
+    padding-bottom: 30px;
 }
 
-legend {
+legend,
+.ingredients {
+    letter-spacing: 1px;
     font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.cuisineChoices {
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 .optionButton {
-    line-height: 1.5rem;
     padding-left: 30px;
-    width: 33.333%;
-    float: left;
+    width: calc(100% / 3);
+
 }
 
 .ingredients {
-    padding: 50px;
-    display: block
-    
+    padding-top: 50px;
+    width: 100%;
+    flex-direction: column;
+
+    .inputDiv {
+        flex-direction: column;
+        width: 100%;
+
+        label {
+            margin-bottom: 15px;
+        }
+
+    }
+
 
 }
 
 input[type="text"] {
-    width: 60%;
-    height: 4rem;
+    font-size: 1.2rem;
+    padding: 1rem 0.8rem;
 }
 
+.add,
+.remove {
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    height: 80px;
+    width: 48%;
+    margin: 1%;
+}
+
+.ingredientsList {
+    padding: 30px 0;
+    margin-top: 30px;
+    list-style-position: inside;
+    list-style-type: number;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    background-color: $whiteOne;
+    border: 2px solid $secondary;
+    display: flex;
+    justify-content: space-around;
+}
+
+.submitBtnContainer {
+    text-align: center;
+}
+
+.submitBtn {
+    margin: 50px 0;
+    font-size: 1.6rem;
+}
+
+.min {
+    font-size: 1.2rem;
+}

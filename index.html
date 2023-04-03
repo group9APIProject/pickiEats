@@ -16,10 +16,15 @@
     <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
     <title>pickiEats</title>
 </head>
+
 <body>
     <!-- header begins -->
-    <header>
 
+    <header>
+        <div class="logoContainer hide">
+            <img
+                src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=120&background=transparent&u=1679615564">
+        </div>
         <h1>PICKI
             <span>
                 <img
@@ -51,9 +56,7 @@
                 </div>
 
                 <div class="textContainer">
-                    <p>For the picky eaters that don't know what they want, but do know what they don't want, we have
-                        the recipe for
-                        <span>YOU</span>!
+                    <p>The recipe suggestion app for picky eaters who know exactly what they don't want!
                     </p>
 
                     <h2>The recipe suggestion app that helps you meet all of your exclusionary tastes!</h2>
@@ -65,7 +68,7 @@
                     <!-- <p>Click below to find the recipe that meets all of your exclusionary tastes!</p> -->
 
                     <!-- link to start app -->
-                    <a class="startButton" href="#recipeForm"><button>FIND A RECIPE 👈</button></a>
+                    <button class="startButton">Find A Recipe 👈</button>
                 </div>
             </div>
         </section><!-- intro section ends -->
@@ -77,37 +80,36 @@
                 <!-- form begins -->
                 <form class="recipeForm" id="recipeForm">
                     <fieldset>
-                        <legend>Which cuisine(s) do you NOT like ?</legend>
+                        <legend>Which cuisine(s) do you NOT like? <span class="min">(Minimum:1) </span></legend>
                         <div class="cuisineChoices"></div>
                     </fieldset>
 
-                    <div class="ingredients" id="ingredients">
-                        <div class="div">
-                            <label for="inputText">Ingredients to exclude </label>
-
+                    <div class="ingredients flexContainer" id="ingredients">
+                        <div class="inputDiv flexContainer">
+                            <label for="inputText">Ingredients to exclude <span class="min">(Optional)</span></label>
                             <p class="sr-only">Maximum number of ingredients is five. If entering more than one
                                 ingredient, please separate each item with a comma.</p>
 
                             <input type="text" id="inputText" name="inputText"
                                 placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
-
+                        </div>
+                        <div class="listButtons flexContainer">
                             <!-- button to add ingredients to list -->
-                            <button class="add">Add</button>
+                            <button class="add">Add to List</button>
 
                             <!-- button to clear list -->
                             <button class="remove noHover">Clear List</button>
                         </div>
-                        <!-- container for list of ingredients -->
-                        <div class="ingredientsList">
-
-                        </div>
                     </div>
 
+                    <!-- container for list of ingredients -->
+                    <ul class="ingredientsList"></ul>
+
                     <!-- submit button -->
-                    <button type="submit" class="submitBtn">Submit</button>
+                    <div class="submitBtnContainer">
+                        <button type="submit" class="submitBtn">Submit</button>
+                    </div>
                 </form><!-- form ends -->
-
-
             </div><!-- form section wrapper ends -->
         </section><!-- form section ends -->
 
@@ -120,26 +122,20 @@
                 </div>
 
                 <div class="resultsHeadingText wrapper">
-                    <!-- Pick Your Eats -->
-                    <h2>Now Pick A Recipe!</h2>
-                    <p>Here are some recipe ideas for you to choose from based on your particular taste:</p>
+                    <h2>Pick Your Eats</h2>
+
                 </div><!-- results heading text ends-->
             </div><!-- section heading ends -->
             <!-- wrapper -->
             <div class="wrapper">
-
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer"></ul>
 
-            </div><!-- wrapper ends -->
-
-            <!-- button to restart recipe search -->
-            <a href="#recipeForm" class="reset">Try Again?</a>
-            <!-- button to display more recipes -->
-            <button type="submit" class="resubmitBtn">More Recipe</button>
-
                 <!-- button to restart recipe search -->
-                <a href="#recipeForm" class="reset">New Search</a>
+                <button class="reset">New Search</button>
+                <!-- button to display more recipes -->
+                <button type="submit" class="resubmitBtn">Show More Recipes</button>
+
             </div><!-- wrapper ends -->
         </section><!-- results section ends -->
 
@@ -147,9 +143,7 @@
 
     <!-- footer begins -->
     <footer>
-        <div class="wrapper">
-            <a href="https://junocollege.com/">created at Juno College</a>
-        </div>
+        <a href="https://junocollege.com/">Created at Juno College</a>
     </footer><!-- footer ends -->
 
     <!-- link to javascript -->

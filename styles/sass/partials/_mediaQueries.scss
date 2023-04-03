@@ -1,0 +1,192 @@
+@use './variables' as *;
+
+// Media Queries for Results Section:
+
+/**************************************/
+/* 1st BIG BREAK POINT:               */
+/* Portrait Tablet and Small Desktops */
+/**************************************/
+@media (max-width: 940px) {
+
+    // RESULTS SECTION
+    .recipesContainer {
+
+        justify-content: center;
+
+        .recipeCard {
+
+            width: calc((100% / 2) - 15px);
+
+            &:nth-child(odd) {
+                margin-right: 15px;
+                margin-left: 0;
+            }
+
+            &:nth-child(even) {
+                margin-left: 15px;
+                margin-right: 0;
+            }
+        }
+    }
+
+    .optionButton {
+        width: calc(100% / 2);
+    }
+
+    .ingredientsList {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .listItem {
+            width: calc(100%/3);
+            text-align: center;
+        }
+    }
+}
+
+/**************************************/
+/* 2nd BIG BREAK POINT:               */
+/* Landscape Phone to Portrait Tablet */
+/**************************************/
+@media (max-width: 768px) {
+
+    // RESULTS SECTION
+    .recipesContainer {
+
+        .recipeCard:nth-child(odd),
+        .recipeCard:nth-child(even) {
+            width: 100%;
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+
+    .startingPage {
+        .imageContainer ul li {
+            width: calc((100%/2) - 20px)
+        }
+
+        li:nth-child(3) {
+            display: none;
+        }
+
+    }
+}
+
+
+
+/**************************************/
+/* 1st SMALL BREAK POINT FOR HEIGHT */
+/**************************************/
+@media (max-height: 600px) {
+    .optionButton {
+        padding: 0px;
+        width: 100%;
+
+    }
+}
+
+/**************************************/
+/* 2nd SMALL BREAK POINT:             */
+/**************************************/
+@media (max-width: 568px) {
+
+    .ingredientsList {
+        justify-content: center;
+        align-items: center;
+
+        .listItem {
+
+            width: calc(100%/2);
+
+        }
+    }
+
+    h1 {
+        font-size: 2.8rem;
+
+        span {
+            display: inline-block;
+        }
+    }
+
+    .startingPage {
+        .imageContainer {
+            ul {
+
+                li {
+                    width: 100%;
+
+                    img {
+                        width: inherit;
+                    }
+
+                }
+
+            }
+
+            li:nth-child(2) {
+                display: none;
+            }
+
+        }
+    }
+}
+
+/**************************************/
+/* 3rd BIG BREAK POINT:               */
+/* Landscape Phones and Down          */
+/*********************[*****************/
+@media (max-width: 480px) {
+
+    .cuisineChoices {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .optionButton {
+        padding: 0px;
+        width: 100%;
+
+    }
+
+
+    .ingredientsList {
+        flex-direction: column;
+
+        .listItem {
+            width: 100%;
+        }
+    }
+
+    header {
+        height: 10vh;
+        h1 {
+            display: none;
+        }
+    }
+
+    .logoContainer.hide {
+        display: block;
+
+    }
+}
+
+/**************************************/
+/* 3rd SMALL BREAK POINT              */
+/**************************************/
+@media (max-width: 350px) {}
+
+/**************************************/
+/* 2nd SMALL BREAK POINT FOR HEIGHT   */
+/**************************************/
+@media (max-height: 320px) {
+
+    .listButtons {
+
+        flex-direction: column;
+
+
+    }
+}

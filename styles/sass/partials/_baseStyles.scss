@@ -1,0 +1,154 @@
+@use './variables' as *;
+
+// BASE STYLES:
+
+/* 20px default*/
+html { font-size: 125%; }
+
+// Font Styles
+body,
+i { 
+    font-family: $bodyFont; 
+    color: $textColour;
+}
+    
+h1, h2 {
+    font-family: $headingFont;
+    font-weight: normal;
+}
+
+.textContainer p,
+.startButton,
+.submitBtn,
+legend,
+.ingredients { font-size: 1.6rem; }
+
+h2 { font-size: 1.8rem; }
+
+.add,
+.remove,
+h3 { font-size: 1.2rem; }
+
+footer,
+.recipeText p { font-size: 0.85rem; }
+
+p,
+ul,
+li,
+a,
+h1,
+h2,
+h3,
+button,
+label,
+form,
+input {
+    margin: 0;
+    padding: 0;
+}
+
+.instructions, 
+input[type="text"],
+.recipeText p { font-style: italic; }
+
+h3,
+button,
+i.fa-clock,
+footer a:hover,
+footer a:focus { font-weight: bold; }
+
+h1, .upperCase { text-transform: uppercase; }
+
+footer,
+legend,
+.ingredients { letter-spacing: 1px; }
+
+button,
+.textContainer,
+.submitBtnContainer,
+.resultsSection .wrapper,
+.resultsHeadingText,
+.recipeText,
+footer { text-align: center; }
+
+ul { list-style: none; }
+
+// Wrapper
+.wrapper {
+    max-width: 1280px;
+    width: 85%;
+    margin: 0 auto;
+}
+
+// General Image Styles
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.resultsImgContainer img,
+.recipeCard img { width: 100%; }
+
+// Anchor Tags
+a {
+    text-decoration: none;
+    display: inline-block;
+    color: inherit;
+    transition: all 0.3s ease-in;
+}
+
+a, button { cursor: pointer; }
+
+// Button
+button {
+    padding: 15px 38px;
+    background-color: transparent;
+    border: 4px solid $accent;
+    color: $textColour;
+
+    &:hover,
+    &:focus {
+        background-color: $primary;
+        border: 4px solid $secondary;
+    }
+}
+
+// Flexbox
+.flexContainer { display: flex; }
+
+header,
+.textContainer,
+.recipeText {
+    align-items: center;
+    justify-content: center;
+}
+
+.textContainer,
+.ingredients,
+.inputDiv,
+.resultsHeading,
+.recipeCard,
+.recipeText { flex-direction: column; }
+
+.imageContainer ul,
+.cuisineChoices,
+.recipesContainer { flex-wrap: wrap; }
+
+.imageContainer ul,
+.recipesContainer { justify-content: space-between; }
+
+// Display Hide 
+.hide { display: none; }
+
+// Styles to Disable Buttons
+.noHover {
+    background: lightgrey;
+    pointer-events: none;
+}
+
+// Background Colors
+.resultsHeading,
+.resultsHeadingText,
+.recipeText { background-color: $primary; }

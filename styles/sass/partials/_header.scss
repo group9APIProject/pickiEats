@@ -1,0 +1,63 @@
+@use './variables' as *;
+
+// STYLES FOR HEADER, STARTING PAGE SECTION AND FOOTER:
+
+// Styles for Header
+header,
+footer { background-color: rgba($accent, 0.2); }
+
+header {
+    h1 {
+        padding: 0.25rem 0;
+        font-size: 3.4rem;
+        letter-spacing: 0.5rem;
+
+        // Logo Styles
+        span,
+        img { width: 120px; }
+
+        img { 
+            display: inline-block;
+            padding-top: 5px; }
+    }
+}
+
+// Styles for Main
+main {
+    min-height: calc(100vh - 140px);
+    background-color: rgba($primary, 0.5);
+}
+
+// Styles for Starting Page Section
+.startingPage {
+    padding-top: 3rem;
+    .imageContainer {
+        ul {
+            padding-bottom: 40px;
+
+            li {
+                width: calc((100% / 3) - 25px);
+
+                img {
+                    height: 240px;
+                    border: 3px solid $whiteOne;
+                    box-shadow: 2px 2px 3px $textColour,
+                        10px 10px 0 rgba($secondary, 0.5),
+                        -2px -2px 3px $textColour,
+                        -10px -10px 0 rgba($secondary, 0.5);
+                }
+            }
+        }
+    }
+
+    .textContainer { line-height: 1.8rem; }
+}
+
+// Styles for Start Button
+.startButton {
+    padding: 1rem 2rem;
+    margin: 40px 0 30px;
+}
+
+// Styles for Footer
+footer { padding: 0.40rem 0; }

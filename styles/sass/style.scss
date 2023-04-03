@@ -1,0 +1,19 @@
+
+// Variables & Setup
+@use './partials/variables' as *;
+@use './partials/setup';
+
+// Base Styles
+@use './partials/baseStyles';
+
+// Header Footer & Starting Page Styles
+@use './partials/header';
+
+// Styles for Results Section:
+@use './partials/resultsSection';
+
+// Style for Form Section
+@use './partials/formSection';
+
+// Media Queries
+@use './partials/mediaQueries';

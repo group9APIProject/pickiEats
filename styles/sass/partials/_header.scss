@@ -1,57 +1,45 @@
 @use './variables' as *;
 
+// STYLES FOR HEADER, STARTING PAGE SECTION AND FOOTER:
+
+// Styles for Header
 header,
-footer {
-    background-color: rgba($accent, 0.2);
+footer { background-color: rgba($accent, 0.2); }
+
+header {
+    h1 {
+        padding: 0.25rem 0;
+        font-size: 3.4rem;
+        letter-spacing: 0.5rem;
+
+        // Logo Styles
+        span,
+        img { width: 120px; }
+
+        img { 
+            display: inline-block;
+            padding-top: 5px; }
+    }
 }
 
+// Styles for Main
 main {
+    min-height: calc(100vh - 140px);
     background-color: rgba($primary, 0.5);
 }
 
-header {
-    height: 15vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 0 10px 0;
-
-    h1 {
-        display: flex;
-
-        img {
-            width: 150px;
-            display: inline-block;
-        }
-    }
-
-}
-
-
-h1 {
-    font-size: 3.6rem;
-    letter-spacing: 0.5rem;
-}
-
-
+// Styles for Starting Page Section
 .startingPage {
-    padding: 3rem 0 2.5rem 0;
-    min-height: calc(100vh - 200px);
-
+    padding-top: 3rem;
     .imageContainer {
         ul {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            list-style: none;
-            padding-bottom: 50px;
+            padding-bottom: 40px;
 
             li {
-                width: calc((100% / 3) - 20px);
+                width: calc((100% / 3) - 25px);
 
                 img {
-                    height: 280px;
+                    height: 240px;
                     border: 3px solid $whiteOne;
                     box-shadow: 2px 2px 3px $textColour,
                         10px 10px 0 rgba($secondary, 0.5),
@@ -62,25 +50,14 @@ h1 {
         }
     }
 
-    .textContainer {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        line-height: 2.4rem;
-    }
+    .textContainer { line-height: 1.8rem; }
 }
 
+// Styles for Start Button
 .startButton {
     padding: 1rem 2rem;
-    font-size: 2rem;
-    margin: 30px 0;
+    margin: 40px 0 30px;
 }
 
-footer {
-    padding: 0.75rem 0;
-    font-size: 1.2rem;
-    text-align: center;
-    letter-spacing: 1px;
-}
+// Styles for Footer
+footer { padding: 0.40rem 0; }

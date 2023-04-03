@@ -1,69 +1,52 @@
 @use './variables' as *;
 
-// Form Styles:
-form {
-    padding-top: 50px;
+// FORM STYLES:
 
+form { 
+    padding-top: 45px;
+    .min { font-size: 1.1rem; }
 }
 
+// Styles for Checkboxes
 fieldset {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     line-height: 2.5rem;
     border: 1px solid $secondary;
     padding-bottom: 30px;
 }
 
-legend,
-.ingredients {
-    letter-spacing: 1px;
-    font-size: 1.8rem;
-    font-weight: 800;
-}
-
-.cuisineChoices {
-    display: flex;
-    flex-wrap: wrap;
-
-}
-
 .optionButton {
     padding-left: 30px;
-    width: calc(100% / 3);
-
+    width: calc(100% / 4);
 }
 
-.ingredients {
-    padding-top: 50px;
-    width: 100%;
-    flex-direction: column;
+legend,
+.ingredients { font-weight: 800; }
 
-    .inputDiv {
-        flex-direction: column;
-        width: 100%;
+// Styles for Input Textbox
+.ingredients { padding-top: 50px; }
 
-        label {
-            margin-bottom: 15px;
-        }
-
-    }
-
-
+.instructions {
+    font-size: 0.95rem;
+    margin: 7px 0 15px; 
 }
 
 input[type="text"] {
-    font-size: 1.2rem;
-    padding: 1rem 0.8rem;
+    font-size: 1rem;
+    padding: 1rem 0.6rem;
+    border: 3px solid $secondary;
 }
 
+// Styles for Ingredient List Buttons
 .add,
 .remove {
-    font-size: 1.2rem;
     padding: 10px 20px;
     height: 80px;
     width: 48%;
-    margin: 1%;
+    margin: 1.5% 1%;
 }
 
+// Styles for Ingredient List
 .ingredientsList {
     padding: 30px 0;
     margin-top: 30px;
@@ -73,19 +56,8 @@ input[type="text"] {
     line-height: 2rem;
     background-color: $whiteOne;
     border: 2px solid $secondary;
-    display: flex;
     justify-content: space-around;
 }
 
-.submitBtnContainer {
-    text-align: center;
-}
-
-.submitBtn {
-    margin: 50px 0;
-    font-size: 1.6rem;
-}
-
-.min {
-    font-size: 1.2rem;
-}
+// Styles for Submit Button
+.submitBtn { margin: 50px 0; }

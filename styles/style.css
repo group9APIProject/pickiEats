@@ -228,18 +228,43 @@ html {
   overflow: hidden;
 }
 
+/* 20px default*/
 html {
-  font-size: 125%; /* 20px default*/
+  font-size: 125%;
 }
 
-body {
+body,
+i {
   font-family: "Jakarta Sans";
   color: #005555;
 }
 
-h1, h2, h3 {
+h1, h2 {
   font-family: "Young Serif";
   font-weight: normal;
+}
+
+.textContainer p,
+.startButton,
+.submitBtn,
+legend,
+.ingredients {
+  font-size: 1.6rem;
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+.add,
+.remove,
+h3 {
+  font-size: 1.2rem;
+}
+
+footer,
+.recipeText p {
+  font-size: 0.85rem;
 }
 
 p,
@@ -257,12 +282,41 @@ input {
   padding: 0;
 }
 
-p {
-  font-size: 1.5rem;
-  padding-bottom: 1rem;
+.instructions,
+input[type=text],
+.recipeText p {
+  font-style: italic;
 }
 
-.recipesContainer {
+h3,
+button,
+i.fa-clock,
+footer a:hover,
+footer a:focus {
+  font-weight: bold;
+}
+
+h1, .upperCase {
+  text-transform: uppercase;
+}
+
+footer,
+legend,
+.ingredients {
+  letter-spacing: 1px;
+}
+
+button,
+.textContainer,
+.submitBtnContainer,
+.resultsSection .wrapper,
+.resultsHeadingText,
+.recipeText,
+footer {
+  text-align: center;
+}
+
+ul {
   list-style: none;
 }
 
@@ -274,23 +328,23 @@ p {
 
 img {
   max-width: 100%;
-  display: block;
   height: auto;
   -o-object-fit: cover;
      object-fit: cover;
+  display: block;
+}
+
+.resultsImgContainer img,
+.recipeCard img {
+  width: 100%;
 }
 
 a {
   text-decoration: none;
   display: inline-block;
   color: inherit;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-footer a:hover,
-footer a:focus {
-  font-weight: bold;
+  -webkit-transition: all 0.3s ease-in;
+  transition: all 0.3s ease-in;
 }
 
 a, button {
@@ -302,8 +356,6 @@ button {
   background-color: transparent;
   border: 4px solid #f1abb9;
   color: #005555;
-  font-weight: bold;
-  text-align: center;
 }
 button:hover, button:focus {
   background-color: #e8f7ee;
@@ -316,8 +368,56 @@ button:hover, button:focus {
   display: flex;
 }
 
+header,
+.textContainer,
+.recipeText {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.textContainer,
+.ingredients,
+.inputDiv,
+.resultsHeading,
+.recipeCard,
+.recipeText {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.imageContainer ul,
+.cuisineChoices,
+.recipesContainer {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.imageContainer ul,
+.recipesContainer {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .hide {
   display: none;
+}
+
+.noHover {
+  background: lightgrey;
+  pointer-events: none;
+}
+
+.resultsHeading,
+.resultsHeadingText,
+.recipeText {
+  background-color: #e8f7ee;
 }
 
 header,
@@ -325,118 +425,60 @@ footer {
   background-color: rgba(241, 171, 185, 0.2);
 }
 
+header h1 {
+  padding: 0.25rem 0;
+  font-size: 3.4rem;
+  letter-spacing: 0.5rem;
+}
+header h1 span,
+header h1 img {
+  width: 120px;
+}
+header h1 img {
+  display: inline-block;
+  padding-top: 5px;
+}
+
 main {
+  min-height: calc(100vh - 140px);
   background-color: rgba(232, 247, 238, 0.5);
 }
 
-header {
-  height: 15vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding: 20px 0 10px 0;
-}
-header h1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-header h1 img {
-  width: 150px;
-  display: inline-block;
-}
-
-h1 {
-  font-size: 3.6rem;
-  letter-spacing: 0.5rem;
-}
-
 .startingPage {
-  padding: 3rem 0 2.5rem 0;
-  min-height: calc(100vh - 200px);
+  padding-top: 3rem;
 }
 .startingPage .imageContainer ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  list-style: none;
-  padding-bottom: 50px;
+  padding-bottom: 40px;
 }
 .startingPage .imageContainer ul li {
-  width: calc(33.3333333333% - 20px);
+  width: calc(33.3333333333% - 25px);
 }
 .startingPage .imageContainer ul li img {
-  height: 280px;
+  height: 240px;
   border: 3px solid #f4fcff;
   -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 rgba(83, 145, 126, 0.5), -2px -2px 3px #005555, -10px -10px 0 rgba(83, 145, 126, 0.5);
           box-shadow: 2px 2px 3px #005555, 10px 10px 0 rgba(83, 145, 126, 0.5), -2px -2px 3px #005555, -10px -10px 0 rgba(83, 145, 126, 0.5);
 }
 .startingPage .textContainer {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  line-height: 2.4rem;
+  line-height: 1.8rem;
 }
 
 .startButton {
   padding: 1rem 2rem;
-  font-size: 2rem;
-  margin: 30px 0;
+  margin: 40px 0 30px;
 }
 
 footer {
-  padding: 0.75rem 0;
-  font-size: 1.2rem;
-  text-align: center;
-  letter-spacing: 1px;
+  padding: 0.4rem 0;
 }
 
 .resultsSection {
   background-color: rgba(248, 251, 243, 0.5);
 }
-.resultsSection .wrapper {
-  text-align: center;
-}
 
 .resultsHeading {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   position: relative;
-  margin-bottom: 60px;
-  background-color: #e8f7ee;
-}
-.resultsHeading h2 {
-  font-size: 35px;
-  margin-bottom: 8px;
-  color: #005555;
+  margin-bottom: 50px;
 }
 .resultsHeading .resultsImgContainer {
   -webkit-box-shadow: 0 3px 5px #53917e, 0 -1px 3px #53917e;
@@ -444,19 +486,16 @@ footer {
 }
 .resultsHeading .resultsImgContainer img {
   max-width: 2700px;
-  width: 100%;
-  max-height: 330px;
-  min-height: 140px;
+  max-height: 300px;
+  min-height: 180px;
   -webkit-filter: hue-rotate(50deg);
           filter: hue-rotate(50deg);
   opacity: 0.3;
 }
 .resultsHeading .resultsHeadingText {
   padding: 2.5%;
-  text-align: center;
   -ms-flex-item-align: center;
       align-self: center;
-  background-color: #e8f7ee;
   border: 15px double #53917e;
   position: absolute;
   bottom: 50px;
@@ -464,22 +503,10 @@ footer {
           box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3), 0px -2px 7px rgba(0, 0, 0, 0.3);
 }
 
-.recipesContainer {
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .recipeCard {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
   width: calc(33.3333333333% - 10px);
   margin: 20px 0;
 }
@@ -488,9 +515,8 @@ footer {
   background-color: rgba(83, 145, 126, 0.7);
 }
 .recipeCard img {
-  width: 100%;
   height: 265px;
-  border: 3px solid #f4fcff;
+  border: 4px solid #f4fcff;
   -webkit-box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
           box-shadow: 2px 2px 3px #005555, 10px 10px 0 #e8f7ee, -2px -2px 3px #005555, -10px -10px 0 #e8f7ee;
 }
@@ -499,21 +525,8 @@ footer {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  text-align: center;
-  background-color: #e8f7ee;
   border-top: 6px double #f1abb9;
   border-bottom: 10px double #53917e;
-  color: #005555;
 }
 .recipeText a {
   padding: 30px 15px 10px;
@@ -523,25 +536,16 @@ footer {
 }
 .recipeText h3 {
   line-height: 1.3rem;
-  font-size: 1.2rem;
-  font-weight: bold;
   margin-bottom: 25px;
 }
 .recipeText p {
-  padding: 0;
-  font-size: 0.85rem;
-  font-style: italic;
   color: #000;
 }
 .recipeText p:last-child {
-  margin-top: 3px;
+  margin-top: 5px;
 }
 .recipeText i {
   padding-right: 2px;
-  color: #005555;
-}
-.recipeText .fa-clock {
-  font-weight: bold;
 }
 
 .reset {
@@ -549,67 +553,50 @@ footer {
 }
 
 form {
-  padding-top: 50px;
+  padding-top: 45px;
+}
+form .min {
+  font-size: 1.1rem;
 }
 
 fieldset {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   line-height: 2.5rem;
   border: 1px solid #53917e;
   padding-bottom: 30px;
 }
 
-legend,
-.ingredients {
-  letter-spacing: 1px;
-  font-size: 1.8rem;
-  font-weight: 800;
-}
-
-.cuisineChoices {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
 .optionButton {
   padding-left: 30px;
-  width: 33.3333333333%;
+  width: 25%;
+}
+
+legend,
+.ingredients {
+  font-weight: 800;
 }
 
 .ingredients {
   padding-top: 50px;
-  width: 100%;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
 }
-.ingredients .inputDiv {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 100%;
-}
-.ingredients .inputDiv label {
-  margin-bottom: 15px;
+
+.instructions {
+  font-size: 0.95rem;
+  margin: 7px 0 15px;
 }
 
 input[type=text] {
-  font-size: 1.2rem;
-  padding: 1rem 0.8rem;
+  font-size: 1rem;
+  padding: 1rem 0.6rem;
+  border: 3px solid #53917e;
 }
 
 .add,
 .remove {
-  font-size: 1.2rem;
   padding: 10px 20px;
   height: 80px;
   width: 48%;
-  margin: 1%;
+  margin: 1.5% 1%;
 }
 
 .ingredientsList {
@@ -621,31 +608,29 @@ input[type=text] {
   line-height: 2rem;
   background-color: #f4fcff;
   border: 2px solid #53917e;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
-.submitBtnContainer {
-  text-align: center;
-}
-
 .submitBtn {
   margin: 50px 0;
-  font-size: 1.6rem;
 }
 
-.min {
-  font-size: 1.2rem;
-}
-
-/**************************************/
-/* 1st BIG BREAK POINT:               */
-/* Portrait Tablet and Small Desktops */
-/**************************************/
 @media (max-width: 940px) {
+  .optionButton {
+    width: 33.3333333333%;
+  }
+  .ingredientsList {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  .ingredientsList .listItem {
+    width: 33.3333333333%;
+    text-align: center;
+  }
   .recipesContainer {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -662,31 +647,10 @@ input[type=text] {
     margin-left: 15px;
     margin-right: 0;
   }
-  .optionButton {
-    width: 50%;
-  }
-  .ingredientsList {
-    -ms-flex-wrap: wrap;
-        flex-wrap: wrap;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-  .ingredientsList .listItem {
-    width: 33.3333333333%;
-    text-align: center;
-  }
 }
-/**************************************/
-/* 2nd BIG BREAK POINT:               */
-/* Landscape Phone to Portrait Tablet */
-/**************************************/
 @media (max-width: 768px) {
-  .recipesContainer .recipeCard:nth-child(odd),
-  .recipesContainer .recipeCard:nth-child(even) {
-    width: 100%;
-    margin-right: 0;
-    margin-left: 0;
+  header h1 {
+    font-size: 3.1rem;
   }
   .startingPage .imageContainer ul li {
     width: calc(50% - 20px);
@@ -694,20 +658,59 @@ input[type=text] {
   .startingPage li:nth-child(3) {
     display: none;
   }
+  .optionButton {
+    width: 50%;
+  }
+  .recipesContainer .recipeCard:nth-child(odd),
+.recipesContainer .recipeCard:nth-child(even) {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
 }
-/**************************************/
-/* 1st SMALL BREAK POINT FOR HEIGHT */
-/**************************************/
-@media (max-height: 600px) {
+@media (max-width: 600px) {
+  .wrapper {
+    width: 90%;
+  }
   .optionButton {
     padding: 0px;
     width: 100%;
   }
 }
-/**************************************/
-/* 2nd SMALL BREAK POINT:             */
-/**************************************/
 @media (max-width: 568px) {
+  header h1 {
+    font-size: 2.8rem;
+  }
+  header h1 span,
+header h1 img {
+    width: 100px;
+  }
+  header h1 img {
+    padding-top: 0;
+  }
+  main {
+    min-height: calc(100vh - 110px);
+  }
+  .startingPage {
+    padding-top: 2rem;
+  }
+  .startingPage .imageContainer ul {
+    padding-bottom: 30px;
+  }
+  .startingPage .imageContainer ul li {
+    width: 100%;
+  }
+  .startingPage .imageContainer ul li img {
+    width: inherit;
+    height: 200px;
+  }
+  .startingPage .imageContainer ul li:nth-child(2) {
+    display: none;
+  }
+  .startButton {
+    font-size: 1.2rem;
+    margin: 30px 0 0 0;
+  }
   .ingredientsList {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
@@ -719,27 +722,56 @@ input[type=text] {
   .ingredientsList .listItem {
     width: 50%;
   }
-  h1 {
-    font-size: 2.8rem;
+  .listButtons {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  h1 span {
-    display: inline-block;
+  .listButtons .add,
+.listButtons .remove {
+    margin: 1.5% 0;
   }
-  .startingPage .imageContainer ul li {
+  .submitBtn,
+.add,
+.remove {
     width: 100%;
   }
-  .startingPage .imageContainer ul li img {
-    width: inherit;
+  .resultsSection .wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
-  .startingPage .imageContainer li:nth-child(2) {
-    display: none;
+  .resultsSection .wrapper .reset {
+    width: 100%;
   }
 }
-/**************************************/
-/* 3rd BIG BREAK POINT:               */
-/* Landscape Phones and Down          */
-/*********************[*****************/
 @media (max-width: 480px) {
+  .submitBtn,
+legend,
+.ingredients {
+    font-size: 1.4rem;
+  }
+  header {
+    padding: 0.35rem 0;
+  }
+  header h1 {
+    display: none;
+  }
+  .logoContainer.hide {
+    display: block;
+  }
+  .textContainer p {
+    font-size: 1.2rem;
+    line-height: 1.3rem;
+  }
+  .startButton {
+    padding: 1rem;
+  }
   .cuisineChoices {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -749,9 +781,9 @@ input[type=text] {
         -ms-flex-direction: column;
             flex-direction: column;
   }
-  .optionButton {
-    padding: 0px;
-    width: 100%;
+  fieldset {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
   }
   .ingredientsList {
     -webkit-box-orient: vertical;
@@ -762,23 +794,34 @@ input[type=text] {
   .ingredientsList .listItem {
     width: 100%;
   }
-  header {
-    height: 10vh;
-  }
-  header h1 {
-    display: none;
-  }
-  .logoContainer.hide {
-    display: block;
+  h2 {
+    font-size: 1.5rem;
   }
 }
-/**************************************/
-/* 3rd SMALL BREAK POINT              */
-/**************************************/
-/**************************************/
-/* 2nd SMALL BREAK POINT FOR HEIGHT   */
-/**************************************/
-@media (max-height: 320px) {
+@media (max-width: 350px) {
+  .startingPage .imageContainer ul li img {
+    height: 180px;
+  }
+  .startButton {
+    font-size: 1.1rem;
+    padding: 0.9rem;
+    margin: 25px 0;
+  }
+  form .min {
+    font-size: 0.8rem;
+  }
+  form legend,
+form .ingredients {
+    font-size: 1rem;
+  }
+  form .instructions {
+    font-size: 0.85rem;
+  }
+  .resultsHeading .resultsHeadingText {
+    bottom: 30px;
+  }
+}
+@media (max-width: 320px) {
   .listButtons {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;

@@ -324,7 +324,6 @@ app.displayRecipe = (recipeArray) => {
 app.startNewSearch = () => {
     // target 'reset' button
     const reset = document.querySelector('.reset');
-
     // target results section
     const resultsSection = document.querySelector('.resultsSection');
 

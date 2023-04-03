@@ -1,20 +1,25 @@
 @use './variables' as *;
 
 // Media Queries for Results Section:
-
-/**************************************/
-/* 1st BIG BREAK POINT:               */
-/* Portrait Tablet and Small Desktops */
-/**************************************/
 @media (max-width: 940px) {
+    // FORM SECTION
+    .optionButton { width: calc(100% / 3); }
+    
+    .ingredientsList {
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .listItem {
+            width: calc(100% / 3);
+            text-align: center;
+        }
+    }
 
     // RESULTS SECTION
     .recipesContainer {
-
         justify-content: center;
 
         .recipeCard {
-
             width: calc((100% / 2) - 15px);
 
             &:nth-child(odd) {
@@ -28,31 +33,24 @@
             }
         }
     }
-
-    .optionButton {
-        width: calc(100% / 2);
-    }
-
-    .ingredientsList {
-        flex-wrap: wrap;
-        justify-content: center;
-
-        .listItem {
-            width: calc(100%/3);
-            text-align: center;
-        }
-    }
 }
 
-/**************************************/
-/* 2nd BIG BREAK POINT:               */
-/* Landscape Phone to Portrait Tablet */
-/**************************************/
 @media (max-width: 768px) {
+    // Header
+    header h1 { font-size: 3.1rem; }
+
+    // Starting Page Section
+    .startingPage {
+            .imageContainer ul li { width: calc((100%/2) - 20px) }
+    
+            li:nth-child(3) { display: none; }
+        }
+
+    // FORM SECTION
+    .optionButton { width: calc(100% / 2); }
 
     // RESULTS SECTION
     .recipesContainer {
-
         .recipeCard:nth-child(odd),
         .recipeCard:nth-child(even) {
             width: 100%;
@@ -60,133 +58,162 @@
             margin-left: 0;
         }
     }
-
-    .startingPage {
-        .imageContainer ul li {
-            width: calc((100%/2) - 20px)
-        }
-
-        li:nth-child(3) {
-            display: none;
-        }
-
-    }
 }
 
+@media (max-width: 600px) {
+    // wrapper 
+    .wrapper { width: 90%; }
 
-
-/**************************************/
-/* 1st SMALL BREAK POINT FOR HEIGHT */
-/**************************************/
-@media (max-height: 600px) {
+    // Form Section
     .optionButton {
         padding: 0px;
         width: 100%;
-
     }
 }
 
-/**************************************/
-/* 2nd SMALL BREAK POINT:             */
-/**************************************/
 @media (max-width: 568px) {
+    // Header
+    header h1 { 
+        font-size: 2.8rem; 
+    
+        // Logo Styles
+        span,
+        img { width: 100px; }
+    
+        img { padding-top: 0; }
+    }
 
+    // Starting Page Section
+    main { min-height: calc(100vh - 110px); }
+
+    .startingPage {
+        padding-top: 2rem;
+        .imageContainer {
+            ul {
+                padding-bottom: 30px;
+                li {
+                    width: 100%;
+                    img { 
+                        width: inherit;
+                        height: 200px;
+                    }
+                }
+
+                li:nth-child(2) { display: none; }
+            }
+        }
+    }
+
+    .startButton { 
+        font-size: 1.2rem;
+        margin: 30px 0 0 0; 
+    }
+
+    // Form Section
     .ingredientsList {
         justify-content: center;
         align-items: center;
 
-        .listItem {
-
-            width: calc(100%/2);
-
-        }
+        .listItem { width: calc(100% / 2); }
     }
 
-    h1 {
-        font-size: 2.8rem;
+        .listButtons {
+            flex-direction: column;
 
-        span {
-            display: inline-block;
+            .add,
+            .remove { margin: 1.5% 0; }
         }
-    }
+    
+        .submitBtn,
+        .add,
+        .remove { width: 100%; }
 
-    .startingPage {
-        .imageContainer {
-            ul {
-
-                li {
-                    width: 100%;
-
-                    img {
-                        width: inherit;
-                    }
-
-                }
-
-            }
-
-            li:nth-child(2) {
-                display: none;
-            }
-
-        }
+    // Results Section
+    .resultsSection .wrapper {
+        display: flex;
+        flex-direction: column;
+        
+        .reset { width: 100%; }
     }
 }
 
-/**************************************/
-/* 3rd BIG BREAK POINT:               */
-/* Landscape Phones and Down          */
-/*********************[*****************/
 @media (max-width: 480px) {
+    // Base Styles
+    .submitBtn,
+    legend,
+    .ingredients { font-size: 1.4rem; }
 
+    // Header
+    header {
+        padding: 0.35rem 0;
+        h1 { display: none; }
+    }
+
+    .logoContainer.hide { display: block; }
+
+    // Starting Page Section
+    .textContainer p { 
+        font-size: 1.2rem; 
+        line-height: 1.3rem;
+    }
+
+    .startButton { padding: 1rem; }
+
+    // Form Section
     .cuisineChoices {
         display: flex;
         flex-direction: column;
-
     }
 
-    .optionButton {
-        padding: 0px;
-        width: 100%;
-
+    fieldset {
+        font-size: 1.1rem;
+        line-height: 1.8rem;
     }
-
 
     .ingredientsList {
         flex-direction: column;
-
-        .listItem {
-            width: 100%;
-        }
+        .listItem { width: 100%; }
     }
 
-    header {
-        height: 10vh;
-        h1 {
-            display: none;
-        }
-    }
-
-    .logoContainer.hide {
-        display: block;
-
-    }
+    h2 { font-size: 1.5rem; }
 }
 
-/**************************************/
-/* 3rd SMALL BREAK POINT              */
-/**************************************/
-@media (max-width: 350px) {}
-
-/**************************************/
-/* 2nd SMALL BREAK POINT FOR HEIGHT   */
-/**************************************/
-@media (max-height: 320px) {
-
-    .listButtons {
-
-        flex-direction: column;
-
-
+@media (max-width: 350px) {
+    // Starting Page Section
+    .startingPage {
+        .imageContainer ul {
+            li img { height: 180px; }
+            }
     }
+
+    .startButton {
+        font-size: 1.1rem;
+        padding: 0.90rem;
+        margin: 25px 0;
+    }
+
+    // FORM SECTION
+    form {
+        .min { font-size: 0.80rem; }
+        legend,
+        .ingredients {
+            font-size: 1rem;
+        }
+
+        .instructions {
+            font-size: 0.85rem;
+        }
+    }
+    
+    // Results Section 
+    .resultsHeading
+        .resultsHeadingText { 
+            bottom: 30px;
+        }
+
+}
+
+@media (max-width: 320px) {
+
+    .listButtons { flex-direction: column; }
 }

@@ -4,14 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-
-    <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
-
+    <!-- Link to Style Sheet -->
     <link rel="stylesheet" href="./styles/style.css">
-    <!-- link to google fonts -->
-    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
     <!-- link to font awesome -->
     <script src="https://kit.fontawesome.com/7313fc4cea.js" crossorigin="anonymous"></script>
     <title>pickiEats</title>
@@ -19,29 +13,26 @@
 
 <body>
     <!-- header begins -->
-
-    <header>
+    <header class="flexContainer">
+        <!-- logo for smaller screens -->
         <div class="logoContainer hide">
             <img
-                src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=120&background=transparent&u=1679615564">
+                src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=100&background=transparent&u=1679615564" aria-hidden="true">
         </div>
-        <h1>PICKI
-            <span>
-                <img
-                    src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=200&background=transparent&u=1679615564">
-            </span>
-            EATS
-        </h1>
+
+        <!-- main title -->
+        <h1>Picki<span><img src="https://api.logo.com/api/v2/images?logo=logo_6bc7d3ee-9d88-4b5d-856d-87205b5138cb&format=webp&margins=0&quality=60&width=200&background=transparent&u=1679615564" aria-hidden="true"></span>Eats</h1>
     </header><!-- header ends -->
 
     <!-- main begins -->
     <main>
         <!-- intro to app section begins -->
         <section class="startingPage">
+            <!-- section wrapper -->
             <div class="wrapper">
                 <!-- intro image of different cuisines -->
                 <div class="imageContainer" id="showDishes">
-                    <ul>
+                    <ul class="flexContainer">
                         <li>
                             <img src="./styles/assets/Middle-Eastern_Easy-Tabouleh-312x231.jpg"
                                 alt="Middle Eastern, Easy Tabouleh">
@@ -53,24 +44,15 @@
                             <img src="./styles/assets/Thai_Thai-Pasta-Salad-312x231.jpg" alt="Thai, Thai Pasta Salad">
                         </li>
                     </ul>
-                </div>
+                </div><!-- intro images ends -->
 
-                <div class="textContainer">
-                    <p>The recipe suggestion app for picky eaters who know exactly what they don't want!
-                    </p>
-
-                    <h2>The recipe suggestion app that helps you meet all of your exclusionary tastes!</h2>
-
-                    <!-- OR -->
-
-                    <!-- <h2>The recipe suggestion app for picky eaters who know exactly what they don't want</h2> -->
-                    
-                    <!-- <p>Click below to find the recipe that meets all of your exclusionary tastes!</p> -->
-
+                <!-- text container -->
+                <div class="textContainer flexContainer">
+                    <p>The recipe suggestion app that helps meet all of your exclusionary tastes!</p>
                     <!-- link to start app -->
-                    <button class="startButton">Find A Recipe 👈</button>
-                </div>
-            </div>
+                    <button class="startButton">Find A Recipe <span aria-hidden="true">👈</span></button>
+                </div><!-- text container ends -->
+            </div><!-- section wrapper ends -->
         </section><!-- intro section ends -->
 
         <!-- form section begins -->
@@ -79,33 +61,42 @@
             <div class="wrapper">
                 <!-- form begins -->
                 <form class="recipeForm" id="recipeForm">
+                    <!-- checkbox options for cuisines choices -->
                     <fieldset>
-                        <legend>Which cuisine(s) do you NOT like? <span class="min">(Minimum:1) </span></legend>
-                        <div class="cuisineChoices"></div>
+                        <legend>Which cuisine(s) do you <span class="upperCase">not</span> like? <span class="min">(Minimum:1) </span></legend>
+                        <!-- container to dynamically add options using JS -->
+                        <div class="cuisineChoices flexContainer"></div>
                     </fieldset>
 
+                    <!-- input for ingredients -->
                     <div class="ingredients flexContainer" id="ingredients">
+                        <!-- input container -->
                         <div class="inputDiv flexContainer">
-                            <label for="inputText">Ingredients to exclude <span class="min">(Optional)</span></label>
-                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one
-                                ingredient, please separate each item with a comma.</p>
+                            <!-- input text label -->
+                            <label for="inputText">Ingredients to exclude <span class="min">(Optional; Maximum: 5)</span></label>
 
+                            <p class="instructions">Use the buttons below to add/change your ingredients before you submit for recipes.</p>
+
+                            <p class="sr-only">Maximum number of ingredients is five. If entering more than one ingredient, please separate each item with a comma.</p>
+
+                            <!-- input text box -->
                             <input type="text" id="inputText" name="inputText"
-                                placeholder="(MAX: 5; separate with comma) ex. peanuts, beef, tomatoes ">
+                                placeholder="ex. egg, beef, tofu">
                         </div>
-                        <div class="listButtons flexContainer">
-                            <!-- button to add ingredients to list -->
-                            <button class="add">Add to List</button>
 
-                            <!-- button to clear list -->
+                        <!-- button container -->
+                        <div class="listButtons flexContainer">
+                            <!-- add ingredients button -->
+                            <button class="add">Add to List</button>
+                            <!-- clear ingredients button  -->
                             <button class="remove noHover">Clear List</button>
-                        </div>
-                    </div>
+                        </div><!-- button container ends -->
+                    </div><!-- ingredient input ends -->
 
                     <!-- container for list of ingredients -->
-                    <ul class="ingredientsList"></ul>
+                    <ul class="ingredientsList flexContainer"></ul>
 
-                    <!-- submit button -->
+                    <!-- form submit button -->
                     <div class="submitBtnContainer">
                         <button type="submit" class="submitBtn">Submit</button>
                     </div>
@@ -122,8 +113,7 @@
                 </div>
 
                 <div class="resultsHeadingText wrapper">
-                    <h2>Pick Your Eats</h2>
-
+                    <h2>Now Pick Your Eats</h2>
                 </div><!-- results heading text ends-->
             </div><!-- section heading ends -->
             <!-- wrapper -->
@@ -131,14 +121,13 @@
                 <!-- recipes container -->
                 <ul class="recipesContainer flexContainer"></ul>
 
-                <!-- button to restart recipe search -->
-                <button class="reset">New Search</button>
                 <!-- button to display more recipes -->
                 <button type="submit" class="resubmitBtn">Show More Recipes</button>
+                <!-- button to restart recipe search -->
+                <button class="reset">New Search</button>
 
             </div><!-- wrapper ends -->
         </section><!-- results section ends -->
-
     </main><!-- main ends -->
 
     <!-- footer begins -->
